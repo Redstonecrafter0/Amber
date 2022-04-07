@@ -27,7 +27,7 @@ jobs:
       - name: Build with Gradle
         run: './gradlew build'
       - name: Get version
-        run: 'echo "{version}={$(./gradlew -q getVersionName)}" >> $GITHUB_ENV'
+        run: 'echo "version=$(./gradlew -q getVersionName)" >> $GITHUB_ENV'
       - name: Set Release Note Version
         run: 'sed -i "s/{{ VERSION }}/${{ env.version }}/" RELEASE_NOTE.md'
       - name: Set Release Note Commit Hash
