@@ -1,6 +1,6 @@
 Amber {{ VERSION }}
 
-# Version {{ VERSION }} of Amber is now available.
+# Version {{ VERSION }}-{{ BUILD_NUMBER }} of Amber is now available.
 
 {{ COMMIT_MESSAGE }}
 

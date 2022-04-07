@@ -31,6 +31,8 @@ jobs:
         run: 'sed -i "s/{{ VERSION }}/${{ env.version }}/" RELEASE_NOTE.md'
       - name: Set Release Note Commit Hash
         run: 'sed -i "s/{{ COMMIT_HASH }}/${{ env.commithash }}/" RELEASE_NOTE.md'
+      - name: Set Release Note Build Number
+        run: 'sed -i "s/{{ BUILD_NUMBER }}/$GITHUB_RUN_NUMBER/" RELEASE_NOTE.md'
       - name: Set Release Note Message
         uses: jacobtomlinson/gha-find-replace@v2
         with:
