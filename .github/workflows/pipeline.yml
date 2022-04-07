@@ -26,7 +26,7 @@ jobs:
       - name: Get version
         run: 'echo "version=$(./gradlew -q getVersionName)" >> $GITHUB_ENV'
       - name: Get commit hash
-        run: 'echo "commithash=$(echo $GITHUB_SHA | head -c 12)" >> $GITHUB_ENV'
+        run: 'echo "commithash=$GITHUB_RUN_NUMBER.$(echo $GITHUB_SHA | head -c 12)" >> $GITHUB_ENV'
       - name: Set Release Note Version
         run: 'sed -i "s/{{ VERSION }}/${{ env.version }}/" RELEASE_NOTE.md'
       - name: Set Release Note Commit Hash
