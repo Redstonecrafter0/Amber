@@ -1,0 +1,14 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:net.redstonecraft.amber.mixins////PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/index.html
+$dokka.location:net.redstonecraft.amber.mixins/MixinMinecraftClient///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-minecraft-client/index.html
+$dokka.location:net.redstonecraft.amber////PointingToDeclaration/-amber/net.redstonecraft.amber/index.html
+$dokka.location:net.redstonecraft.amber/Amber///PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/index.html
+$dokka.location:net.redstonecraft.amber/Amber/AUTHORS/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/-a-u-t-h-o-r-s.html
+$dokka.location:net.redstonecraft.amber/Amber/MOD_ID/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/-m-o-d_-i-d.html
+$dokka.location:net.redstonecraft.amber/Amber/MOD_NAME/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/-m-o-d_-n-a-m-e.html
+$dokka.location:net.redstonecraft.amber/Amber/onInitialize/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/on-initialize.html
+$dokka.location:net.redstonecraft.amber/Amber/startup/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/startup.html
+net.redstonecraft.amber
+net.redstonecraft.amber.mixins
+
