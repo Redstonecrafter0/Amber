@@ -27,13 +27,15 @@ jobs:
       - name: Build with Gradle
         run: './gradlew build'
       - name: Get version
-        run: 'echo "version=$(./gradlew -q getVersionName)" >> $GITHUB_ENV'
+        run: 'echo "VERSION=$(./gradlew -q getVersionName)" >> $GITHUB_ENV'
+      - name: Get commit hash
+        run: 'echo "COMMIT_HASH=$(echo $GITHUB_SHA | head -c 12)" >> $GITHUB_ENV'
       - name: Set Release Note Version
-        run: 'sed -i "s/{{ VERSION }}/${{ env.version }}/" RELEASE_NOTE.md'
+        run: 'sed -i "s/{{ VERSION }}/${{ env.VERSION }}/" RELEASE_NOTE.md'
       - name: Set Release Note Commit Hash
-        run: 'sed -i "s/{{ COMMIT_HASH }}/final/" RELEASE_NOTE.md'
+        run: 'sed -i "s/{{ COMMIT_HASH }}/${{ env.COMMIT_HASH }}/" RELEASE_NOTE.md'
       - name: Set Release Note Build Number
-        run: 'sed -i "s/{{ BUILD_NUMBER }}/$GITHUB_RUN_NUMBER/" RELEASE_NOTE.md'
+        run: 'sed -i "s/{{ BUILD_NUMBER }}//" RELEASE_NOTE.md'
       - name: Set Release Note Message
         uses: jacobtomlinson/gha-find-replace@v2
         with:
@@ -42,9 +44,9 @@ jobs:
           include: 'RELEASE_NOTE.md'
           regex: false
         run: |
-          mv ./build/libs/amber-${{ env.version }}.jar ./build/libs/amber-${{ env.version }}+final.jar
-          mv ./build/libs/amber-${{ env.version }}-sources.jar ./build/libs/amber-${{ env.version }}+final-sources.jar
+          mv ./build/libs/amber-${{ env.VERSION }}.jar ./build/libs/amber-${{ env.VERSION }}+${{ env.COMMIT_HASH }}.jar
+          mv ./build/libs/amber-${{ env.VERSION }}-sources.jar ./build/libs/amber-${{ env.VERSION }}+${{ env.COMMIT_HASH }}-sources.jar
       - name: Release
-        run: 'hub release create -a ./build/libs/amber-${{ env.version }}+final.jar -a ./build/libs/amber-${{ env.version }}+final-sources.jar -F RELEASE_NOTE.md ${{ env.version }}+final'
+        run: 'hub release create -a ./build/libs/amber-${{ env.VERSION }}+${{ env.COMMIT_HASH }}.jar -a ./build/libs/amber-${{ env.VERSION }}+${{ env.COMMIT_HASH }}-sources.jar -F RELEASE_NOTE.md ${{ env.VERSION }}+${{ env.COMMIT_HASH }}'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

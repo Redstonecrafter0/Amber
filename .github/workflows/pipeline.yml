@@ -1,6 +1,7 @@
 name: Pipeline
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'master'
@@ -8,6 +9,7 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[nobuild]')"
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 17
@@ -24,15 +26,15 @@ jobs:
       - name: Build with Gradle
         run: './gradlew build'
       - name: Get version
-        run: 'echo "version=$(./gradlew -q getVersionName)" >> $GITHUB_ENV'
+        run: 'echo "VERSION=$(./gradlew -q getVersionName)" >> $GITHUB_ENV'
       - name: Get commit hash
-        run: 'echo "commithash=$GITHUB_RUN_NUMBER.$(echo $GITHUB_SHA | head -c 12)" >> $GITHUB_ENV'
+        run: 'echo "COMMIT_HASH=$(echo $GITHUB_SHA | head -c 12)" >> $GITHUB_ENV'
       - name: Set Release Note Version
-        run: 'sed -i "s/{{ VERSION }}/${{ env.version }}/" RELEASE_NOTE.md'
+        run: 'sed -i "s/{{ VERSION }}/${{ env.VERSION }}/" RELEASE_NOTE.md'
       - name: Set Release Note Commit Hash
-        run: 'sed -i "s/{{ COMMIT_HASH }}/${{ env.commithash }}/" RELEASE_NOTE.md'
+        run: 'sed -i "s/{{ COMMIT_HASH }}/${{ env.COMMIT_HASH }}/" RELEASE_NOTE.md'
       - name: Set Release Note Build Number
-        run: 'sed -i "s/{{ BUILD_NUMBER }}/$GITHUB_RUN_NUMBER/" RELEASE_NOTE.md'
+        run: 'sed -i "s/{{ BUILD_NUMBER }}/-$GITHUB_RUN_NUMBER/" RELEASE_NOTE.md'
       - name: Set Release Note Message
         uses: jacobtomlinson/gha-find-replace@v2
         with:
@@ -42,10 +44,10 @@ jobs:
           regex: false
       - name: Rename files
         run: |
-          mv ./build/libs/amber-${{ env.version }}.jar ./build/libs/amber-${{ env.version }}+${{ env.commithash }}.jar
-          mv ./build/libs/amber-${{ env.version }}-sources.jar ./build/libs/amber-${{ env.version }}+${{ env.commithash }}-sources.jar
+          mv ./build/libs/amber-${{ env.VERSION }}.jar ./build/libs/amber-${{ env.VERSION }}-$GITHUB_RUN_NUMBER+${{ env.COMMIT_HASH }}.jar
+          mv ./build/libs/amber-${{ env.VERSION }}-sources.jar ./build/libs/amber-${{ env.VERSION }}-$GITHUB_RUN_NUMBER+${{ env.COMMIT_HASH }}-sources.jar
       - name: Release
-        run: 'hub release create -p -a ./build/libs/amber-${{ env.version }}+${{ env.commithash }}.jar -a ./build/libs/amber-${{ env.version }}+${{ env.commithash }}-sources.jar -F RELEASE_NOTE.md ${{ env.version }}+${{ env.commithash }}'
+        run: 'hub release create -p -a ./build/libs/amber-${{ env.VERSION }}-$GITHUB_RUN_NUMBER+${{ env.COMMIT_HASH }}.jar -a ./build/libs/amber-${{ env.VERSION }}-$GITHUB_RUN_NUMBER+${{ env.COMMIT_HASH }}-sources.jar -F RELEASE_NOTE.md ${{ env.VERSION }}-$GITHUB_RUN_NUMBER+${{ env.COMMIT_HASH }}'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   qodana:
