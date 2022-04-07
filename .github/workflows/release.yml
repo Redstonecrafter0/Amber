@@ -27,9 +27,9 @@ jobs:
       - name: Build with Gradle
         run: './gradlew build'
       - name: Get version
-        run: 'version=$(./gradlew -q getVersionName)'
+        run: 'echo "{version}={$(./gradlew -q getVersionName)}" >> $GITHUB_ENV'
       - name: Set Release Note Version
-        run: 'sed -i "s/{{ VERSION }}/$version/" RELEASE_NOTE.md'
+        run: 'sed -i "s/{{ VERSION }}/${{ env.version }}/" RELEASE_NOTE.md'
       - name: Set Release Note Commit Hash
         run: 'sed -i "s/{{ COMMIT_HASH }}/final/" RELEASE_NOTE.md'
       - name: Set Release Note Message
@@ -39,9 +39,10 @@ jobs:
           replace: ${{ github.event.inputs.releaseNote }}
           include: 'RELEASE_NOTE.md'
           regex: false
-      - name: Rename files
-        run: 'mv ./build/libs/amber-$version.jar ./build/libs/amber-$version+final.jar && mv ./build/libs/amber-$version-sources.jar ./build/libs/amber-$version+final-sources.jar'
+        run: |
+          mv ./build/libs/amber-${{ env.version }}.jar ./build/libs/amber-${{ env.version }}+final.jar
+          mv ./build/libs/amber-${{ env.version }}-sources.jar ./build/libs/amber-${{ env.version }}+final-sources.jar'
       - name: Release
-        run: 'hub release create -a ./build/libs/amber-$version+final.jar -a ./build/libs/amber-$version+final-sources.jar -F RELEASE_NOTE.md $version+final'
+        run: 'hub release create -a ./build/libs/amber-${{ env.version }}+final.jar -a ./build/libs/amber-${{ env.version }}+final-sources.jar -F RELEASE_NOTE.md ${{ env.version }}+final'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
