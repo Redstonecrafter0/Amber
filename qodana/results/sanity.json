@@ -135,38 +135,6 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: api",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/kotlin/net/redstonecraft/amber/Amber.kt",
-      "language": "kotlin",
-      "line": 3,
-      "offset": 20,
-      "length": 3,
-      "code": {
-        "startLine": 1,
-        "length": 3,
-        "offset": 53,
-        "surroundingCode": "package net.redstonecraft.amber\n\nimport net.fabricmc.api.ModInitializer\n\n@Suppress(\"UNUSED\")"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "6179281584966396445"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "kotlin",
-    "Sanity"
-  ],
-  "severity": "Critical",
   "comment": "[NOTHING_TO_OVERRIDE] 'onInitialize' overrides nothing",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
@@ -190,6 +158,38 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "3760508841285193085"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin",
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: api",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/kotlin/net/redstonecraft/amber/Amber.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 20,
+      "length": 3,
+      "code": {
+        "startLine": 1,
+        "length": 3,
+        "offset": 53,
+        "surroundingCode": "package net.redstonecraft.amber\n\nimport net.fabricmc.api.ModInitializer\n\n@Suppress(\"UNUSED\")"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "6179281584966396445"
 },{
   "tool": "Code Inspection",
   "category": "General",
