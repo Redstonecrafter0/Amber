@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "net.redstonecraft.amber.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "MixinMinecraftClient"
+  ]
+}

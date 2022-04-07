@@ -1,0 +1,6 @@
+.gradle
+build
+.idea/*
+!.idea/gradle.xml
+*.iml
+run
