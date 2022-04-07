@@ -41,7 +41,7 @@ jobs:
       - name: Rename files
         run: |
           mv ./build/libs/amber-${{ env.version }}.jar ./build/libs/amber-${{ env.version }}+${{ env.commithash }}.jar
-          mv ./build/libs/amber-${{ env.version }}-sources.jar ./build/libs/amber-${{ env.version }}+${{ env.commithash }}-sources.jar'
+          mv ./build/libs/amber-${{ env.version }}-sources.jar ./build/libs/amber-${{ env.version }}+${{ env.commithash }}-sources.jar
       - name: Release
         run: 'hub release create -p -a ./build/libs/amber-${{ env.version }}+${{ env.commithash }}.jar -a ./build/libs/amber-${{ env.version }}+${{ env.commithash }}-sources.jar -F RELEASE_NOTE.md ${{ env.version }}+${{ env.commithash }}'
         env:

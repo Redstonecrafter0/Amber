@@ -41,7 +41,7 @@ jobs:
           regex: false
         run: |
           mv ./build/libs/amber-${{ env.version }}.jar ./build/libs/amber-${{ env.version }}+final.jar
-          mv ./build/libs/amber-${{ env.version }}-sources.jar ./build/libs/amber-${{ env.version }}+final-sources.jar'
+          mv ./build/libs/amber-${{ env.version }}-sources.jar ./build/libs/amber-${{ env.version }}+final-sources.jar
       - name: Release
         run: 'hub release create -a ./build/libs/amber-${{ env.version }}+final.jar -a ./build/libs/amber-${{ env.version }}+final-sources.jar -F RELEASE_NOTE.md ${{ env.version }}+final'
         env:
