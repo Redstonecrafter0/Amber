@@ -1,0 +1,225 @@
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Java annotator",
+  "tags": [
+    "JAVA",
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Cannot resolve symbol 'MinecraftClient'",
+  "detailsInfo": "Allows viewing the problems reported by the Java annotator: compilation problems, unresolved by IDEA references, and so on.",
+  "sources": [
+    {
+      "type": "class",
+      "path": "src/main/java/net/redstonecraft/amber/mixins/MixinMinecraftClient.java",
+      "language": "JAVA",
+      "line": 11,
+      "offset": 7,
+      "length": 15,
+      "code": {
+        "startLine": 9,
+        "length": 15,
+        "offset": 76,
+        "surroundingCode": "import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;\n\n@Mixin(MinecraftClient.class)\npublic class MixinMinecraftClient {\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "JavaAnnotator"
+  },
+  "hash": "-3293722772168297681"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Java annotator",
+  "tags": [
+    "JAVA",
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Unknown class: 'MinecraftClient'",
+  "detailsInfo": "Allows viewing the problems reported by the Java annotator: compilation problems, unresolved by IDEA references, and so on.",
+  "sources": [
+    {
+      "type": "class",
+      "path": "src/main/java/net/redstonecraft/amber/mixins/MixinMinecraftClient.java",
+      "language": "JAVA",
+      "line": 11,
+      "offset": 7,
+      "length": 15,
+      "code": {
+        "startLine": 9,
+        "length": 15,
+        "offset": 76,
+        "surroundingCode": "import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;\n\n@Mixin(MinecraftClient.class)\npublic class MixinMinecraftClient {\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "JavaAnnotator"
+  },
+  "hash": "4978358739403386143"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Java annotator",
+  "tags": [
+    "JAVA",
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Cannot resolve symbol 'minecraft'",
+  "detailsInfo": "Allows viewing the problems reported by the Java annotator: compilation problems, unresolved by IDEA references, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/net/redstonecraft/amber/mixins/MixinMinecraftClient.java",
+      "language": "JAVA",
+      "line": 3,
+      "offset": 11,
+      "length": 9,
+      "code": {
+        "startLine": 1,
+        "length": 9,
+        "offset": 52,
+        "surroundingCode": "package net.redstonecraft.amber.mixins;\n\nimport net.minecraft.client.MinecraftClient;\nimport net.minecraft.client.RunArgs;\nimport net.redstonecraft.amber.Amber;"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "JavaAnnotator"
+  },
+  "hash": "6096621066382074287"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Java annotator",
+  "tags": [
+    "JAVA",
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Cannot resolve symbol 'client'",
+  "detailsInfo": "Allows viewing the problems reported by the Java annotator: compilation problems, unresolved by IDEA references, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/net/redstonecraft/amber/mixins/MixinMinecraftClient.java",
+      "language": "JAVA",
+      "line": 3,
+      "offset": 21,
+      "length": 6,
+      "code": {
+        "startLine": 1,
+        "length": 6,
+        "offset": 62,
+        "surroundingCode": "package net.redstonecraft.amber.mixins;\n\nimport net.minecraft.client.MinecraftClient;\nimport net.minecraft.client.RunArgs;\nimport net.redstonecraft.amber.Amber;"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "JavaAnnotator"
+  },
+  "hash": "-7763641108950361837"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin",
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: ModInitializer",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "class",
+      "path": "src/main/kotlin/net/redstonecraft/amber/Amber.kt",
+      "language": "kotlin",
+      "line": 6,
+      "offset": 14,
+      "length": 14,
+      "code": {
+        "startLine": 4,
+        "length": 14,
+        "offset": 35,
+        "surroundingCode": "\n@Suppress(\"UNUSED\")\nobject Amber: ModInitializer {\n\n    const val MOD_ID = \"amber\""
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "-5900178206936806347"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin",
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "[NOTHING_TO_OVERRIDE] 'onInitialize' overrides nothing",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/amber/Amber.kt",
+      "language": "kotlin",
+      "line": 12,
+      "offset": 4,
+      "length": 8,
+      "code": {
+        "startLine": 10,
+        "length": 8,
+        "offset": 50,
+        "surroundingCode": "    val AUTHORS = listOf(\"Redstonecrafter0\")\n\n    override fun onInitialize() {\n    }\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "3760508841285193085"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin",
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: api",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/kotlin/net/redstonecraft/amber/Amber.kt",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 20,
+      "length": 3,
+      "code": {
+        "startLine": 1,
+        "length": 3,
+        "offset": 53,
+        "surroundingCode": "package net.redstonecraft.amber\n\nimport net.fabricmc.api.ModInitializer\n\n@Suppress(\"UNUSED\")"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "6179281584966396445"
+}]}
