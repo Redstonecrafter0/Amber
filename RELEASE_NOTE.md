@@ -17,6 +17,6 @@ repositories {
 }
 
 dependencies {
-    modImplementation("com.github.Redstonecrafter0:Amber:{{ VERSION }}")
+    modImplementation("com.github.Redstonecrafter0:Amber:{{ VERSION }}+{{ COMMIT_HASH }}")
 }
 ```
