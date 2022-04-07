@@ -135,21 +135,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: ModInitializer",
+  "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: api",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
-      "type": "class",
+      "type": "file",
       "path": "src/main/kotlin/net/redstonecraft/amber/Amber.kt",
       "language": "kotlin",
-      "line": 6,
-      "offset": 14,
-      "length": 14,
+      "line": 3,
+      "offset": 20,
+      "length": 3,
       "code": {
-        "startLine": 4,
-        "length": 14,
-        "offset": 35,
-        "surroundingCode": "\n@Suppress(\"UNUSED\")\nobject Amber: ModInitializer {\n\n    const val MOD_ID = \"amber\""
+        "startLine": 1,
+        "length": 3,
+        "offset": 53,
+        "surroundingCode": "package net.redstonecraft.amber\n\nimport net.fabricmc.api.ModInitializer\n\n@Suppress(\"UNUSED\")"
       }
     }
   ],
@@ -157,7 +157,7 @@
     "module": "project.main",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "-5900178206936806347"
+  "hash": "6179281584966396445"
 },{
   "tool": "Code Inspection",
   "category": "General",
@@ -199,21 +199,21 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: api",
+  "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: ModInitializer",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
     {
-      "type": "file",
+      "type": "class",
       "path": "src/main/kotlin/net/redstonecraft/amber/Amber.kt",
       "language": "kotlin",
-      "line": 3,
-      "offset": 20,
-      "length": 3,
+      "line": 6,
+      "offset": 14,
+      "length": 14,
       "code": {
-        "startLine": 1,
-        "length": 3,
-        "offset": 53,
-        "surroundingCode": "package net.redstonecraft.amber\n\nimport net.fabricmc.api.ModInitializer\n\n@Suppress(\"UNUSED\")"
+        "startLine": 4,
+        "length": 14,
+        "offset": 35,
+        "surroundingCode": "\n@Suppress(\"UNUSED\")\nobject Amber: ModInitializer {\n\n    const val MOD_ID = \"amber\""
       }
     }
   ],
@@ -221,5 +221,5 @@
     "module": "project.main",
     "inspectionName": "KotlinAnnotator"
   },
-  "hash": "6179281584966396445"
+  "hash": "-5900178206936806347"
 }]}
