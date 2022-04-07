@@ -1,0 +1,16 @@
+{
+  "total": 0,
+  "tools inspection": {
+    "Code Inspection": 0
+  },
+  "attributes": {
+    "vcs": {
+      "sarifIdea": {
+        "repositoryUri": "https://github.com/Redstonecrafter0/Amber",
+        "revisionId": "6e1c8dc9dae7b8fcd1fdf1837ff8a85e2363fab6",
+        "branch": "master"
+      }
+    },
+    "deviceId": "200820300000000-5ff8-7a5f-e5cd-b8a1671adddc"
+  }
+}
