@@ -43,6 +43,7 @@ jobs:
           replace: ${{ github.event.inputs.releaseNote }}
           include: 'RELEASE_NOTE.md'
           regex: false
+      - name: Rename files
         run: |
           mv ./build/libs/amber-${{ env.VERSION }}.jar ./build/libs/amber-${{ env.VERSION }}+${{ env.COMMIT_HASH }}.jar
           mv ./build/libs/amber-${{ env.VERSION }}-sources.jar ./build/libs/amber-${{ env.VERSION }}+${{ env.COMMIT_HASH }}-sources.jar
