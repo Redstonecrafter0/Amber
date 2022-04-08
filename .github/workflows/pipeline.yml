@@ -17,6 +17,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
+          cache: gradle
       - name: Setup
         run: 'chmod +x ./gradlew'
       - name: Download Assets
