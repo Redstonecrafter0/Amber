@@ -89,8 +89,13 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
+          cache: gradle
       - name: Setup
         run: 'chmod +x ./gradlew'
+      - name: Download Assets
+        run: './gradlew downloadAssets'
+      - name: Generate Sources
+        run: './gradlew genSources'
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@main
         with:

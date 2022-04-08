@@ -2,6 +2,9 @@ package net.redstonecraft.amber
 
 import net.fabricmc.api.ModInitializer
 
+/**
+ * The main class for the mod.
+ * */
 @Suppress("UNUSED")
 object Amber: ModInitializer {
 
