@@ -135,38 +135,6 @@
     "Sanity"
   ],
   "severity": "Critical",
-  "comment": "[NOTHING_TO_OVERRIDE] 'onInitialize' overrides nothing",
-  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/Amber.kt",
-      "language": "kotlin",
-      "line": 12,
-      "offset": 4,
-      "length": 8,
-      "code": {
-        "startLine": 10,
-        "length": 8,
-        "offset": 50,
-        "surroundingCode": "    val AUTHORS = listOf(\"Redstonecrafter0\")\n\n    override fun onInitialize() {\n    }\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "KotlinAnnotator"
-  },
-  "hash": "3760508841285193085"
-},{
-  "tool": "Code Inspection",
-  "category": "General",
-  "type": "Kotlin annotator",
-  "tags": [
-    "kotlin",
-    "Sanity"
-  ],
-  "severity": "Critical",
   "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: ModInitializer",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [
@@ -190,6 +158,38 @@
     "inspectionName": "KotlinAnnotator"
   },
   "hash": "-5900178206936806347"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin",
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "[NOTHING_TO_OVERRIDE] 'onInitialize' overrides nothing",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/amber/Amber.kt",
+      "language": "kotlin",
+      "line": 12,
+      "offset": 4,
+      "length": 8,
+      "code": {
+        "startLine": 10,
+        "length": 8,
+        "offset": 50,
+        "surroundingCode": "    val AUTHORS = listOf(\"Redstonecrafter0\")\n\n    override fun onInitialize() {\n    }\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "3760508841285193085"
 },{
   "tool": "Code Inspection",
   "category": "General",
