@@ -10,7 +10,8 @@ Amber {{ VERSION }}
 
 ## Dev Setup
 Create a fabric mod using [this](https://github.com/SmushyTaco/Example-Mod) repo as an example.  
-Add this mod as a dependency.
+Add this mod as a dependency via Jitpack.
+
 ```kotlin
 repositories {
     maven("https://jitpack.io")
@@ -18,5 +19,22 @@ repositories {
 
 dependencies {
     modImplementation("com.github.Redstonecrafter0:Amber:{{ VERSION }}{{ BUILD_NUMBER }}+{{ COMMIT_HASH }}")
+}
+```
+
+Add this mod as a dependency via GitHub Packages. GitHub's Packages requires authentication. [Here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry) is their guide.
+
+```kotlin
+repositories {
+    maven("https://maven.pkg.github.com/Redstonecrafter0/Amber") {
+        credentials {
+            username = "yourUsername"
+            password = "yourGitHubToken"
+        }
+    }
+}
+
+dependencies {
+    modImplementation("net.redstonecraft:amber:{{ VERSION }}{{ BUILD_NUMBER }}+{{ COMMIT_HASH }}")
 }
 ```

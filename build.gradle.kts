@@ -7,6 +7,7 @@ plugins {
     kotlin("plugin.serialization")
     id("org.jetbrains.dokka") version "1.6.10"
     id("idea")
+    `maven-publish`
 }
 
 idea {
@@ -84,5 +85,26 @@ tasks {
 task("getVersionName") {
     doLast {
         println(project.version)
+    }
+}
+
+publishing {
+    publications {
+        create("main", MavenPublication::class) {
+            groupId = mavenGroup
+            artifactId = "amber"
+            version = System.getenv("VERSION_STRING")
+            from(components["java"])
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/Redstonecrafter0/Amber")
+            credentials {
+                username = "Redstonecrafter0"
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
     }
 }
