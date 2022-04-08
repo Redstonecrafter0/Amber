@@ -1,0 +1,32 @@
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Style issues",
+  "type": "Trailing comma recommendations",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "Info",
+  "comment": "Useless trailing comma",
+  "detailsInfo": "Reports trailing commas that are not follow the recommended [style guide](https://kotlinlang.org/docs/coding-conventions.html#trailing-commas).",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/amber/modules/Module.kt",
+      "language": "kotlin",
+      "line": 108,
+      "offset": 72,
+      "length": 1,
+      "code": {
+        "startLine": 106,
+        "length": 1,
+        "offset": 168,
+        "surroundingCode": "\n    fun button(displayName: String, shouldShow: () -> Boolean = { true }, block: () -> Unit) =\n        SettingProvider(displayName, block, displayValueAdapter = { _, _, -> \"\" }, renderer = \"button\", shouldShow = shouldShow) {\n            set { old, _, _ -> old(); old }\n        }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "TrailingComma"
+  },
+  "hash": "1169006291830263364"
+}]}
