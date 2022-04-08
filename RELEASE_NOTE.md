@@ -22,7 +22,9 @@ dependencies {
 }
 ```
 
-Add this mod as a dependency via GitHub Packages. GitHub's Packages requires authentication. [Here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry) is their guide.
+Add this mod as a dependency via GitHub Packages.
+GitHub's Packages requires authentication.
+[Here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry) is their guide.
 
 ```kotlin
 repositories {

@@ -16,18 +16,26 @@
 </div>
 
 # Setup
-Create a fabric mod using [this](https://github.com/SmushyTaco/Example-Mod) repo as an example.  
-Add this mod as a dependency.  
+Create a fabric mod using [this](https://github.com/SmushyTaco/Example-Mod) repo as an example.
+
+Add this mod as a dependency via GitHub Packages.
+GitHub's Packages requires authentication.
+[Here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry) is their guide.
 Use the release tag as the version.
+
 ```kotlin
 repositories {
-    maven("https://jitpack.io")
+    maven("https://maven.pkg.github.com/Redstonecrafter0/Amber") {
+        credentials {
+            username = "yourUsername"
+            password = "yourGitHubToken"
+        }
+    }
 }
 
 dependencies {
-    modImplementation("com.github.Redstonecrafter0:Amber:${version}")
+    modImplementation("net.redstonecraft:amber:${version}")
 }
 ```
-
 ## Code Scanning
 The latest Qodana report can be found [here](https://redstonecrafter0.github.io/Amber/qodana).
