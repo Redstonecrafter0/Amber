@@ -1,1 +1,141 @@
-{"version":"3","listProblem":[]}
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "severity": "High",
+  "comment": "Elvis operator (?:) always returns the left operand of non-nullable type Pair",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandManager.kt",
+      "language": "kotlin",
+      "line": 38,
+      "offset": 27,
+      "length": 21,
+      "code": {
+        "startLine": 36,
+        "length": 21,
+        "offset": 63,
+        "surroundingCode": "\n    fun tabComplete(text: String) {\n        val (cmd, args) = parse(text) ?: return\n        val command = commands.filterKeys { cmd in it }.values.firstOrNull()\n        if (command is AutocompletedCommand) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "705081d8a0aa8d8606d8c075b50fcc85e0adc14ddac41137b759f30e71e3a489"
+},{
+  "tool": "Code Inspection",
+  "category": "Assignment issues",
+  "type": "Assignment to 'for' loop parameter",
+  "severity": "High",
+  "comment": "Assignment to for-loop parameter `i`",
+  "detailsInfo": "Reports assignment to, or modification of a `for` loop parameter inside the body of the loop.\n\nAlthough occasionally intended, this construct may be confusing and is often the result of a typo or a wrong variable being used.\n\nThe quick-fix adds a declaration of a new variable.\n\n**Example:**\n\n\n      for (String s : list) {\n        // Warning: s is changed inside the loop\n        s = s.trim();\n        System.out.println(\"String: \" + s);\n      }\n\nAfter the quick-fix is applied:\n\n\n      for (String s : list) {\n        String trimmed = s.trim();\n        System.out.println(\"String: \" + trimmed);\n      }\n\nAssignments in basic `for` loops without an update statement are not reported.\nIn such cases the assignment is probably intended and can't be easily moved to the update part of the `for` loop.\n\n**Example:**\n\n\n      for (int i = 0; i < list.size(); ) {\n        if (element.equals(list.get(i))) {\n          list.remove(i);\n        } else {\n          // modification of for loop parameter is not reported\n          // as there's no update statement\n          i++;\n        }\n      }\n\nUse the **Check enhanced 'for' loop parameters** option to specify whether modifications of enhanced `for` loop parameters\nshould be also reported.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/edu/rice/cs/util/ArgumentTokenizer.java",
+      "language": "JAVA",
+      "line": 104,
+      "offset": 29,
+      "length": 1,
+      "code": {
+        "startLine": 102,
+        "length": 1,
+        "offset": 155,
+        "surroundingCode": "                        else if (c == '\\\\') {\n                            // Look ahead, and only escape quotes or backslashes\n                            i++;\n                            char next = arguments.charAt(i);\n                            if (next == '\"' || next == '\\\\') {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "AssignmentToForLoopParameter"
+  },
+  "hash": "946e9285c4017e74c8d07e651477051cd50f52ab57d0301a42566d6e3dc2120d"
+},{
+  "tool": "Code Inspection",
+  "category": "Inheritance issues",
+  "type": "Abstract class which has no concrete subclass",
+  "severity": "High",
+  "comment": "Abstract class `ArgumentTokenizer` has no concrete subclass",
+  "detailsInfo": "Reports `abstract` classes that have no concrete subclasses.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/edu/rice/cs/util/ArgumentTokenizer.java",
+      "language": "JAVA",
+      "line": 51,
+      "offset": 23,
+      "length": 17,
+      "code": {
+        "startLine": 49,
+        "length": 17,
+        "offset": 43,
+        "surroundingCode": " * @version $Id$\n */\npublic abstract class ArgumentTokenizer {\n    private static final int NO_TOKEN_STATE = 0;\n    private static final int NORMAL_TOKEN_STATE = 1;"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "AbstractClassNeverImplemented"
+  },
+  "hash": "6b94ded7a991567f569e6975c5624e6de38e9d6582a0ffc4e41cec14ae06fdfc"
+},{
+  "tool": "Code Inspection",
+  "category": "Inheritance issues",
+  "type": "Abstract class which has no concrete subclass",
+  "severity": "High",
+  "comment": "Abstract class `MixinScreen` has no concrete subclass",
+  "detailsInfo": "Reports `abstract` classes that have no concrete subclasses.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/net/redstonecraft/amber/mixins/MixinScreen.java",
+      "language": "JAVA",
+      "line": 14,
+      "offset": 23,
+      "length": 11,
+      "code": {
+        "startLine": 12,
+        "length": 11,
+        "offset": 44,
+        "surroundingCode": "\n@Mixin(Screen.class)\npublic abstract class MixinScreen {\n\n    @Shadow public abstract void sendMessage(String message, boolean toHud);"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "AbstractClassNeverImplemented"
+  },
+  "hash": "da8a9c32d5c70ff744362b1344078a2dae81f9067e055d1c1f9ada656dd81f8c"
+},{
+  "tool": "Code Inspection",
+  "category": "Java interop issues",
+  "type": "Function or property has platform type",
+  "severity": "Moderate",
+  "comment": "Declaration has type inferred from a platform call, which can lead to unchecked nullability issues. Specify type explicitly as nullable or non-nullable.",
+  "detailsInfo": "Reports functions and properties that have a platform type.\n\nTo prevent unexpected errors, the type should be declared explicitly.\n\n**Example:**\n\n\n      fun foo() = java.lang.String.valueOf(1)\n\nThe quick fix allows you to specify the return type:\n\n\n      fun foo(): String = java.lang.String.valueOf(1)\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/kotlin/net/redstonecraft/amber/Amber.kt",
+      "language": "kotlin",
+      "line": 21,
+      "offset": 9,
+      "length": 6,
+      "code": {
+        "startLine": 19,
+        "length": 6,
+        "offset": 71,
+        "surroundingCode": "    val debug = System.getProperty(\"amber.debug\").toBoolean()\n\n    val logger = LoggerFactory.getLogger(Amber::class.java)\n\n    override fun onInitialize() {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "HasPlatformType"
+  },
+  "hash": "0ad90db323a1d0ee7a5ef98d8208070a67ac8d78f4d076f7ea7faea7f9987cba"
+}]}
