@@ -30,7 +30,9 @@ loom {
     accessWidenerPath.set(file("src/main/resources/amber.accesswidener"))
 }
 
-repositories {}
+repositories {
+    mavenCentral()
+}
 
 dependencies {
     val minecraftVersion: String by project
@@ -44,7 +46,7 @@ dependencies {
     val fabricKotlinVersion: String by project
     modImplementation("net.fabricmc:fabric-language-kotlin:$fabricKotlinVersion")
     val kotlinxSerializationVersion: String by project
-    include("org.jetbrains.kotlinx:kotlinx-serialization-json:${kotlinxSerializationVersion}")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${kotlinxSerializationVersion}")
 }
 
 tasks {

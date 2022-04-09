@@ -75,7 +75,7 @@ abstract class BaseModule(
      * @property renderer The renderer of the setting.
      * @property shouldShow Compute whether the setting should be shown. See [eq] [neq] [isIn] [notIn] [lt] [gt] [leq] [geq].
      */
-    inner class Setting<T>(
+    inner class Setting<T> internal constructor(
         val id: String,
         val displayName: String,
         var value: T,
@@ -116,7 +116,7 @@ abstract class BaseModule(
      * @param shouldShow Compute whether the setting should be shown. See [eq] [neq] [isIn] [notIn] [lt] [gt] [leq] [geq].
      * @param init The initializer of the setting to configure a custom [set]ter or [get]ter.
      */
-    inner class SettingProvider<T>(
+    inner class SettingProvider<T> internal constructor(
         private val displayName: String,
         private val defaultValue: T,
         private val extra: MutableMap<*, *>,
