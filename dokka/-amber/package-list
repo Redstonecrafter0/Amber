@@ -1,10 +1,61 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
+$dokka.location:edu.rice.cs.util////PointingToDeclaration/-amber/edu.rice.cs.util/index.html
+$dokka.location:edu.rice.cs.util/ArgumentTokenizer///PointingToDeclaration/-amber/edu.rice.cs.util/-argument-tokenizer/index.html
+$dokka.location:edu.rice.cs.util/ArgumentTokenizer/tokenize/#java.lang.String#boolean/PointingToDeclaration/-amber/edu.rice.cs.util/-argument-tokenizer/tokenize.html
+$dokka.location:edu.rice.cs.util/ArgumentTokenizer/tokenize/#java.lang.String/PointingToDeclaration/-amber/edu.rice.cs.util/-argument-tokenizer/tokenize.html
+$dokka.location:net.redstonecraft.amber.commands////PointingToDeclaration/-amber/net.redstonecraft.amber.commands/index.html
+$dokka.location:net.redstonecraft.amber.commands//commands/#kotlin.Function1[net.redstonecraft.amber.commands.CommandsContext,kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/commands.html
+$dokka.location:net.redstonecraft.amber.commands/AutocompletedCommand///PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-autocompleted-command/index.html
+$dokka.location:net.redstonecraft.amber.commands/AutocompletedCommand/AutocompletedCommand/#kotlin.String#kotlin.String#kotlin.String#kotlin.Boolean#kotlin.Array[kotlin.String]/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-autocompleted-command/-autocompleted-command.html
+$dokka.location:net.redstonecraft.amber.commands/AutocompletedCommand/onTabComplete/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-autocompleted-command/on-tab-complete.html
+$dokka.location:net.redstonecraft.amber.commands/AutocompletedParsedCommand///PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-autocompleted-parsed-command/index.html
+$dokka.location:net.redstonecraft.amber.commands/AutocompletedParsedCommand/AutocompletedParsedCommand/#kotlin.String#kotlin.String#kotlin.String#kotlin.Boolean#kotlin.reflect.KClass[TypeParam(bounds=[kotlin.Any])]#kotlin.Array[kotlin.String]/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-autocompleted-parsed-command/-autocompleted-parsed-command.html
+$dokka.location:net.redstonecraft.amber.commands/AutocompletedParsedCommand/onCommand/#TypeParam(bounds=[kotlin.Any])/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-autocompleted-parsed-command/on-command.html
+$dokka.location:net.redstonecraft.amber.commands/AutocompletedParsedCommand/onCommand/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-autocompleted-parsed-command/on-command.html
+$dokka.location:net.redstonecraft.amber.commands/AutocompletedParsedCommand/onTabComplete/#TypeParam(bounds=[kotlin.Any])/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-autocompleted-parsed-command/on-tab-complete.html
+$dokka.location:net.redstonecraft.amber.commands/AutocompletedParsedCommand/onTabComplete/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-autocompleted-parsed-command/on-tab-complete.html
+$dokka.location:net.redstonecraft.amber.commands/BaseCommand///PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-base-command/index.html
+$dokka.location:net.redstonecraft.amber.commands/BaseCommand/BaseCommand/#kotlin.String#kotlin.String#kotlin.String#kotlin.Boolean#kotlin.Array[kotlin.String]/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-base-command/-base-command.html
+$dokka.location:net.redstonecraft.amber.commands/BaseCommand/aliases/#/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-base-command/aliases.html
+$dokka.location:net.redstonecraft.amber.commands/BaseCommand/description/#/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-base-command/description.html
+$dokka.location:net.redstonecraft.amber.commands/BaseCommand/isAsync/#/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-base-command/is-async.html
+$dokka.location:net.redstonecraft.amber.commands/BaseCommand/name/#/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-base-command/name.html
+$dokka.location:net.redstonecraft.amber.commands/BaseCommand/onCommand/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-base-command/on-command.html
+$dokka.location:net.redstonecraft.amber.commands/BaseCommand/usage/#/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-base-command/usage.html
+$dokka.location:net.redstonecraft.amber.commands/CommandManager///PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-manager/index.html
+$dokka.location:net.redstonecraft.amber.commands/CommandManager/commands/#/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-manager/commands.html
+$dokka.location:net.redstonecraft.amber.commands/CommandManager/dispatch/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-manager/dispatch.html
+$dokka.location:net.redstonecraft.amber.commands/CommandManager/tabComplete/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-manager/tab-complete.html
+$dokka.location:net.redstonecraft.amber.commands/CommandTools///PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-tools/index.html
+$dokka.location:net.redstonecraft.amber.commands/CommandTools/addChatMessage/#kotlin.Any?/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-tools/add-chat-message.html
+$dokka.location:net.redstonecraft.amber.commands/CommandTools/addChatMessage/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-tools/add-chat-message.html
+$dokka.location:net.redstonecraft.amber.commands/CommandsContext.CommandContext///PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-commands-context/-command-context/index.html
+$dokka.location:net.redstonecraft.amber.commands/CommandsContext.CommandContext/onCommand/#kotlin.Function2[net.redstonecraft.amber.commands.CommandTools,TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-commands-context/-command-context/on-command.html
+$dokka.location:net.redstonecraft.amber.commands/CommandsContext.CommandContext/onTabComplete/#kotlin.Function2[net.redstonecraft.amber.commands.CommandTools,TypeParam(bounds=[kotlin.Any?]),kotlin.collections.Iterable[kotlin.String]]/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-commands-context/-command-context/on-tab-complete.html
+$dokka.location:net.redstonecraft.amber.commands/CommandsContext///PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-commands-context/index.html
+$dokka.location:net.redstonecraft.amber.commands/CommandsContext/command/#kotlin.String#kotlin.String#kotlin.String#kotlin.Boolean#kotlin.Array[kotlin.String]#kotlin.Function1[net.redstonecraft.amber.commands.CommandsContext.CommandContext[kotlin.String],kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-commands-context/command.html
+$dokka.location:net.redstonecraft.amber.commands/CommandsContext/parsedCommand/#kotlin.String#kotlin.String#kotlin.String#kotlin.Boolean#kotlin.Array[kotlin.String]#kotlin.Function1[net.redstonecraft.amber.commands.CommandsContext.CommandContext[TypeParam(bounds=[kotlin.Any])],kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-commands-context/parsed-command.html
+$dokka.location:net.redstonecraft.amber.commands/CommandsContext/parsedCommand/#kotlin.reflect.KClass[TypeParam(bounds=[kotlin.Any])]#kotlin.String#kotlin.String#kotlin.String#kotlin.Boolean#kotlin.Array[kotlin.String]#kotlin.Function1[net.redstonecraft.amber.commands.CommandsContext.CommandContext[TypeParam(bounds=[kotlin.Any])],kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-commands-context/parsed-command.html
+$dokka.location:net.redstonecraft.amber.commands/ParsedCommand///PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-parsed-command/index.html
+$dokka.location:net.redstonecraft.amber.commands/ParsedCommand/ParsedCommand/#kotlin.String#kotlin.String#kotlin.String#kotlin.Boolean#kotlin.reflect.KClass[TypeParam(bounds=[kotlin.Any])]#kotlin.Array[kotlin.String]/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-parsed-command/-parsed-command.html
+$dokka.location:net.redstonecraft.amber.commands/ParsedCommand/onCommand/#TypeParam(bounds=[kotlin.Any])/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-parsed-command/on-command.html
+$dokka.location:net.redstonecraft.amber.commands/ParsedCommand/onCommand/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-parsed-command/on-command.html
+$dokka.location:net.redstonecraft.amber.events////PointingToDeclaration/-amber/net.redstonecraft.amber.events/index.html
+$dokka.location:net.redstonecraft.amber.events//on/#kotlin.Int#kotlin.Function1[TypeParam(bounds=[net.redstonecraft.amber.events.Event]),kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.events/on.html
+$dokka.location:net.redstonecraft.amber.events/CancellableEvent///PointingToDeclaration/-amber/net.redstonecraft.amber.events/-cancellable-event/index.html
+$dokka.location:net.redstonecraft.amber.events/CancellableEvent/isCancelled/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-cancellable-event/is-cancelled.html
+$dokka.location:net.redstonecraft.amber.events/Event///PointingToDeclaration/-amber/net.redstonecraft.amber.events/-event/index.html
+$dokka.location:net.redstonecraft.amber.events/EventManager///PointingToDeclaration/-amber/net.redstonecraft.amber.events/-event-manager/index.html
+$dokka.location:net.redstonecraft.amber.events/EventManager/fire/#TypeParam(bounds=[net.redstonecraft.amber.events.Event])/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-event-manager/fire.html
+$dokka.location:net.redstonecraft.amber.events/EventManager/on/#kotlin.Int#kotlin.Function1[TypeParam(bounds=[net.redstonecraft.amber.events.Event]),kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-event-manager/on.html
+$dokka.location:net.redstonecraft.amber.events/EventManager/on/#kotlin.reflect.KClass[*]#kotlin.Int#kotlin.Function1[net.redstonecraft.amber.events.Event,kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-event-manager/on.html
 $dokka.location:net.redstonecraft.amber.mixins////PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/index.html
 $dokka.location:net.redstonecraft.amber.mixins/MixinMinecraftClient///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-minecraft-client/index.html
+$dokka.location:net.redstonecraft.amber.mixins/MixinScreen///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-screen/index.html
+$dokka.location:net.redstonecraft.amber.mixins/MixinScreen/sendMessage/#java.lang.String#boolean/PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-screen/send-message.html
 $dokka.location:net.redstonecraft.amber.modules////PointingToDeclaration/-amber/net.redstonecraft.amber.modules/index.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting///PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/index.html
-$dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/Setting/#kotlin.String#kotlin.String#TypeParam(bounds=[kotlin.Any?])#kotlin.collections.MutableMap[*,*]#kotlin.Function2[TypeParam(bounds=[kotlin.Any?]),kotlin.collections.MutableMap[*,*],kotlin.String]#kotlin.Function3[TypeParam(bounds=[kotlin.Any?]),TypeParam(bounds=[kotlin.Any?]),kotlin.collections.MutableMap[*,*],TypeParam(bounds=[kotlin.Any?])]#kotlin.Function2[TypeParam(bounds=[kotlin.Any?]),kotlin.collections.MutableMap[*,*],kotlin.Pair[TypeParam(bounds=[kotlin.Any?]),TypeParam(bounds=[kotlin.Any?])]]#kotlin.String#kotlin.Function0[kotlin.Boolean]/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/-setting.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/displayName/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/display-name.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/displayValue/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/display-value.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/displayValueAdapter/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/display-value-adapter.html
@@ -18,7 +69,6 @@ $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/setter/#/Poin
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/shouldShow/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/should-show.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/value/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/value.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.SettingProvider///PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting-provider/index.html
-$dokka.location:net.redstonecraft.amber.modules/BaseModule.SettingProvider/SettingProvider/#kotlin.String#TypeParam(bounds=[kotlin.Any?])#kotlin.collections.MutableMap[*,*]#kotlin.Function2[TypeParam(bounds=[kotlin.Any?]),kotlin.collections.MutableMap[*,*],kotlin.String]#kotlin.String#kotlin.Function0[kotlin.Boolean]#kotlin.Function1[net.redstonecraft.amber.modules.BaseModule.SettingProvider[TypeParam(bounds=[kotlin.Any?])],kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting-provider/-setting-provider.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.SettingProvider/get/#kotlin.Function2[TypeParam(bounds=[kotlin.Any?]),kotlin.collections.MutableMap[*,*],kotlin.Pair[TypeParam(bounds=[kotlin.Any?]),TypeParam(bounds=[kotlin.Any?])]]/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting-provider/get.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.SettingProvider/provideDelegate/#net.redstonecraft.amber.modules.BaseModule#kotlin.reflect.KProperty[*]/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting-provider/provide-delegate.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.SettingProvider/set/#kotlin.Function3[TypeParam(bounds=[kotlin.Any?]),TypeParam(bounds=[kotlin.Any?]),kotlin.collections.MutableMap[*,*],TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting-provider/set.html
@@ -27,7 +77,7 @@ $dokka.location:net.redstonecraft.amber.modules/BaseModule/BaseModule/#kotlin.St
 $dokka.location:net.redstonecraft.amber.modules/BaseModule/button/#kotlin.String#kotlin.Function0[kotlin.Boolean]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/button.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule/category/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/category.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule/colorPicker/#kotlin.String#java.awt.Color#kotlin.Boolean#kotlin.Function0[kotlin.Boolean]#kotlin.Function1[net.redstonecraft.amber.modules.BaseModule.SettingProvider[java.awt.Color],kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/color-picker.html
-$dokka.location:net.redstonecraft.amber.modules/BaseModule/customSetting/#kotlin.String#TypeParam(bounds=[kotlin.Any?])#kotlin.Function2[TypeParam(bounds=[kotlin.Any?]),kotlin.collections.MutableMap[*,*],kotlin.String]#kotlin.String#kotlin.collections.MutableMap[*,*]#kotlin.Function0[kotlin.Boolean]#kotlin.Function1[net.redstonecraft.amber.modules.BaseModule.SettingProvider[TypeParam(bounds=[kotlin.Any?])],kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/custom-setting.html
+$dokka.location:net.redstonecraft.amber.modules/BaseModule/customSetting/#kotlin.String#TypeParam(bounds=[kotlin.Any?])#kotlin.collections.MutableMap[*,*]#kotlin.Function2[TypeParam(bounds=[kotlin.Any?]),kotlin.collections.MutableMap[*,*],kotlin.String]#kotlin.String#kotlin.Function0[kotlin.Boolean]#kotlin.Function1[net.redstonecraft.amber.modules.BaseModule.SettingProvider[TypeParam(bounds=[kotlin.Any?])],kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/custom-setting.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule/description/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/description.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule/displayName/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/display-name.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule/dropDownMenu/#kotlin.String#TypeParam(bounds=[kotlin.Enum[^]])#kotlin.Function2[TypeParam(bounds=[kotlin.Enum[^]]),kotlin.collections.MutableMap[*,*],kotlin.String]#kotlin.Function0[kotlin.Boolean]#kotlin.Function1[net.redstonecraft.amber.modules.BaseModule.SettingProvider[TypeParam(bounds=[kotlin.Enum[^]])],kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/drop-down-menu.html
@@ -76,9 +126,15 @@ $dokka.location:net.redstonecraft.amber/Amber///PointingToDeclaration/-amber/ne
 $dokka.location:net.redstonecraft.amber/Amber/AUTHORS/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/-a-u-t-h-o-r-s.html
 $dokka.location:net.redstonecraft.amber/Amber/MOD_ID/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/-m-o-d_-i-d.html
 $dokka.location:net.redstonecraft.amber/Amber/MOD_NAME/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/-m-o-d_-n-a-m-e.html
+$dokka.location:net.redstonecraft.amber/Amber/colorScheme/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/color-scheme.html
+$dokka.location:net.redstonecraft.amber/Amber/debug/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/debug.html
+$dokka.location:net.redstonecraft.amber/Amber/logger/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/logger.html
 $dokka.location:net.redstonecraft.amber/Amber/onInitialize/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/on-initialize.html
 $dokka.location:net.redstonecraft.amber/Amber/startup/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/startup.html
+edu.rice.cs.util
 net.redstonecraft.amber
+net.redstonecraft.amber.commands
+net.redstonecraft.amber.events
 net.redstonecraft.amber.mixins
 net.redstonecraft.amber.modules
 
