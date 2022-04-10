@@ -1,5 +1,8 @@
 package net.redstonecraft.amber.commands
 
+import com.mojang.brigadier.suggestion.Suggestion
+import net.minecraft.client.MinecraftClient
+import net.minecraft.client.gui.screen.ChatScreen
 import java.util.concurrent.Executors
 
 /**
@@ -16,13 +19,10 @@ object CommandManager {
      *
      * @param command The command to execute
      * */
-    fun dispatch(command: String) {
+    fun dispatch(text: String) {
         println("cmd")
-        val (cmd, args) = parse(command)
-        println(cmd)
-        println(args)
+        val (cmd, args) = parse(text)
         val command = commands.filterKeys { cmd in it }.values.firstOrNull()
-        println(command?.usage)
         if (command != null) {
             if (command.isAsync) {
                 threadPool.submit {
@@ -34,16 +34,17 @@ object CommandManager {
         }
     }
 
-    fun tabComplete(text: String) {
-        val (cmd, args) = parse(text) ?: return
-        val command = commands.filterKeys { cmd in it }.values.firstOrNull()
-        if (command is AutocompletedCommand) {
-            if (command.isAsync) {
-                threadPool.submit { command.onTabComplete(args) }
-            } else {
-                command.onTabComplete(args)
+    @JvmStatic
+    fun tabComplete(text: String): Pair<List<String>, String>? {
+        val screen = MinecraftClient.getInstance().currentScreen
+        if (text.startsWith(".") && !text.startsWith("..") && screen is ChatScreen) {
+            val (cmd, args) = parse(text)
+            val command = commands.filterKeys { cmd in it }.values.firstOrNull()
+            if (command is AutocompletedCommand) {
+                return command.onTabComplete(args).first.toList() to cmd
             }
         }
+        return null
     }
 
     private fun parse(text: String): Pair<String, String> {

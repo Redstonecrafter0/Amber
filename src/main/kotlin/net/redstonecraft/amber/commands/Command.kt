@@ -62,7 +62,7 @@ abstract class AutocompletedCommand(
     vararg aliases: String
 ): BaseCommand(name, description, usage, isAsync, *aliases) {
 
-    abstract fun onTabComplete(raw: String): Iterable<String>
+    abstract fun onTabComplete(raw: String): Pair<Iterable<String>, Int>
 }
 
 private fun parseValue(clazz: KClass<*>, s: String?) = when (clazz) {
@@ -150,7 +150,7 @@ abstract class AutocompletedParsedCommand<T : Any>(
 
     abstract fun onCommand(args: T)
 
-    final override fun onTabComplete(raw: String): Iterable<String> = onTabComplete(parseArgs(raw, clazz))
+    final override fun onTabComplete(raw: String): Pair<Iterable<String>, Int> = onTabComplete(parseArgs(raw, clazz))
 
-    abstract fun onTabComplete(args: T): Iterable<String>
+    abstract fun onTabComplete(args: T): Pair<Iterable<String>, Int>
 }

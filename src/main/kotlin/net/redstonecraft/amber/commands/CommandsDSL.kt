@@ -76,7 +76,7 @@ object CommandsContext {
     class CommandContext<T> internal constructor() {
 
         internal var run: (CommandTools.(T) -> Unit)? = null
-        internal var complete: (CommandTools.(T) -> Iterable<String>)? = null
+        internal var complete: (CommandTools.(T) -> Pair<Iterable<String>, Int>)? = null
 
         /**
          * Set the runnable to be executed when the command is executed.
@@ -92,7 +92,7 @@ object CommandsContext {
          *
          * @param block The runnable to be executed.
          * */
-        fun onTabComplete(block: CommandTools.(T) -> Iterable<String>) {
+        fun onTabComplete(block: CommandTools.(T) -> Pair<Iterable<String>, Int>) {
             complete = block
         }
 
@@ -108,6 +108,7 @@ object CommandTools {
      *
      * @param message The message to be printed.
      * */
+    @JvmStatic
     fun addChatMessage(message: String) = MinecraftClient.getInstance().inGameHud.chatHud.addMessage(LiteralText(message))
 
     /**
@@ -115,6 +116,7 @@ object CommandTools {
      *
      * @param message The message to be printed.
      * */
+    @JvmStatic
     fun addChatMessage(message: Any?) = addChatMessage(message.toString())
 
 }
