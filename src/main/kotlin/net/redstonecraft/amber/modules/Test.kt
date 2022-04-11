@@ -3,7 +3,7 @@ package net.redstonecraft.amber.modules
 import net.redstonecraft.amber.events.Event
 import net.redstonecraft.amber.events.on
 
-object TestCategory: Category("Test")
+object TestCategory: Category("Test", "desc")
 
 object TestModule: BaseModule("TestModule", "test", TestCategory) {
 

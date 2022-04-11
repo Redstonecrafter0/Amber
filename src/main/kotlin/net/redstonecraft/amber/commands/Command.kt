@@ -2,6 +2,8 @@ package net.redstonecraft.amber.commands
 
 import edu.rice.cs.util.ArgumentTokenizer
 import net.redstonecraft.amber.Amber
+import net.redstonecraft.amber.events.EventManager
+import net.redstonecraft.amber.events.ExceptionEvent
 import kotlin.reflect.KClass
 import kotlin.reflect.full.primaryConstructor
 import kotlin.reflect.jvm.jvmErasure
@@ -31,9 +33,11 @@ abstract class BaseCommand(
         } catch (e: IllegalStateException) {
             CommandTools.addChatMessage(usage)
             if (Amber.debug) CommandTools.addChatMessage(e.stackTraceToString().replace("\r", "").replace("\t", "    "))
+            EventManager.fire(ExceptionEvent(e))
         } catch (e: IllegalArgumentException) {
             CommandTools.addChatMessage(usage)
             if (Amber.debug) CommandTools.addChatMessage(e.stackTraceToString().replace("\r", "").replace("\t", "    "))
+            EventManager.fire(ExceptionEvent(e))
         }
     }
 
@@ -68,9 +72,11 @@ abstract class AutocompletedCommand(
         } catch (e: IllegalStateException) {
             CommandTools.addChatMessage(usage)
             if (Amber.debug) CommandTools.addChatMessage(e.stackTraceToString().replace("\r", "").replace("\t", "    "))
+            EventManager.fire(ExceptionEvent(e))
         } catch (e: IllegalArgumentException) {
             CommandTools.addChatMessage(usage)
             if (Amber.debug) CommandTools.addChatMessage(e.stackTraceToString().replace("\r", "").replace("\t", "    "))
+            EventManager.fire(ExceptionEvent(e))
         }
         return null
     }
@@ -95,7 +101,6 @@ private fun <T : Any> parseArgs(raw: String, clazz: KClass<T>): T {
     if ((params.isEmpty() && parsed.isNotEmpty()) || ((parsed.size > params.size) && !params.last().isVararg)) error("Too many arguments")
     val values = params
         .mapIndexed { index, it -> it to if (it.isVararg && index == params.lastIndex) {
-            val type = it.type.jvmErasure.java.componentType.kotlin
             if (index >= parsed.size) {
                 arrayOf<String>()
             } else {

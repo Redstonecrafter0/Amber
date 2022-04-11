@@ -109,15 +109,7 @@ object CommandTools {
      * @param message The message to be printed.
      * */
     @JvmStatic
-    fun addChatMessage(message: String) = MinecraftClient.getInstance().inGameHud.chatHud.addMessage(LiteralText(message))
-
-    /**
-     * Print a message to the player.
-     *
-     * @param message The message to be printed.
-     * */
-    @JvmStatic
-    fun addChatMessage(message: Any?) = addChatMessage(message.toString())
+    fun addChatMessage(message: Any?) = MinecraftClient.getInstance().inGameHud.chatHud.addMessage(LiteralText(message.toString()))
 
 }
 

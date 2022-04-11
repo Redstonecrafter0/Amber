@@ -1,5 +1,6 @@
 package net.redstonecraft.amber.modules
 
+import kotlinx.serialization.json.*
 import org.lwjgl.glfw.GLFW
 import java.awt.Color
 import kotlin.reflect.KProperty
@@ -68,7 +69,7 @@ abstract class BaseModule(
      * @property displayName The display name of the setting.
      * @property value The value of the setting.
      * @property description The description of the setting.
-     * @property extra Extra information of the setting that gets saved.
+     * @property extra Extra information of the setting that can be saved.
      * @property displayValueAdapter The adapter that converts the value to a display value.
      * @property setter The setter of the setting's value.
      * @property getter The getter of the setting's value.
@@ -84,7 +85,9 @@ abstract class BaseModule(
         val setter: (T, T, MutableMap<*, *>) -> T,
         val getter: (T, MutableMap<*, *>) -> Pair<T, T>,
         val renderer: String,
-        val shouldShow: () -> Boolean
+        val shouldShow: () -> Boolean,
+        val serializer: (value: T, extra: MutableMap<*, *>) -> JsonElement,
+        val deserializer: (json: JsonElement, default: T, extra: MutableMap<*, *>) -> T?
     ) {
 
         val displayValue: String
@@ -100,6 +103,13 @@ abstract class BaseModule(
             return ret
         }
 
+        var serialized: JsonElement
+            get() = serializer(value, extra)
+            set(value) {
+                val des = deserializer(value, this.value, extra)
+                if (des != null) this.value = des
+            }
+
         init {
             settings += this
         }
@@ -110,7 +120,7 @@ abstract class BaseModule(
      *
      * @param displayName The display name of the setting.
      * @param defaultValue The default value of the setting.
-     * @param extra Extra information of the setting that gets saved.
+     * @param extra Extra information of the setting that can be saved.
      * @param displayValueAdapter The adapter that converts the value to a display value.
      * @param renderer The renderer of the setting.
      * @param shouldShow Compute whether the setting should be shown. See [eq] [neq] [isIn] [notIn] [lt] [gt] [leq] [geq].
@@ -123,6 +133,8 @@ abstract class BaseModule(
         private val displayValueAdapter: (T, MutableMap<*, *>) -> String,
         private val renderer: String = "default",
         private val shouldShow: () -> Boolean,
+        private val serializer: (value: T, extra: MutableMap<*, *>) -> JsonElement,
+        private val deserializer: (json: JsonElement, default: T, extra: MutableMap<*, *>) -> T?,
         init: SettingProvider<T>.() -> Unit
     ) {
 
@@ -156,7 +168,9 @@ abstract class BaseModule(
             setter,
             getter,
             renderer,
-            shouldShow
+            shouldShow,
+            serializer,
+            deserializer
         )
 
         init {
@@ -169,7 +183,7 @@ abstract class BaseModule(
      *
      * @param displayName The display name of the setting.
      * @param defaultValue The default value of the setting.
-     * @param extra Extra information of the setting that gets saved.
+     * @param extra Extra information of the setting that doesn't get saved.
      * @param displayValueAdapter The adapter that converts the value to a display value.
      * @param renderer The renderer of the setting.
      * @param shouldShow Compute whether the setting should be shown. See [eq] [neq] [isIn] [notIn] [lt] [gt] [leq] [geq].
@@ -182,8 +196,10 @@ abstract class BaseModule(
         displayValueAdapter: (value: T, extra: MutableMap<*, *>) -> String = { it, _ -> it.toString() },
         renderer: String = "default",
         shouldShow: () -> Boolean = { true },
+        serializer: (value: T, extra: MutableMap<*, *>) -> JsonElement,
+        deserializer: (json: JsonElement, default: T, extra: MutableMap<*, *>) -> T?,
         init: SettingProvider<T>.() -> Unit = {}
-    ) = SettingProvider(displayName, defaultValue, extra, displayValueAdapter, renderer, shouldShow, init)
+    ) = SettingProvider(displayName, defaultValue, extra, displayValueAdapter, renderer, shouldShow, serializer, deserializer, init)
 
     /**
      * Adds a button setting.
@@ -193,7 +209,14 @@ abstract class BaseModule(
      * @param action The action to perform when the button is clicked.
      */
     fun button(displayName: String, shouldShow: () -> Boolean = { true }, action: () -> Unit) =
-        customSetting(displayName, action, displayValueAdapter = { _, _, -> "" }, renderer = "button", shouldShow = shouldShow) {
+        customSetting(
+            displayName,
+            action,
+            displayValueAdapter = { _, _, -> "" },
+            renderer = "button",
+            shouldShow = shouldShow,
+            serializer = { _, _ -> JsonNull },
+            deserializer = { _, it, _ -> it }) {
             set { old, _, _ -> old(); old }
         }
 
@@ -206,7 +229,15 @@ abstract class BaseModule(
      * @param block The initializer of the setting to configure a custom [set]ter or [get]ter.
      * */
     fun switch(displayName: String, defaultValue: Boolean, shouldShow: () -> Boolean = { true }, block: SettingProvider<Boolean>.() -> Unit = {}) =
-        customSetting(displayName, defaultValue, renderer = "switch", shouldShow = shouldShow, init = block)
+        customSetting(
+            displayName,
+            defaultValue,
+            renderer = "switch",
+            shouldShow = shouldShow,
+            serializer = { it, _ -> JsonPrimitive(it) },
+            deserializer = { it, _, _ -> it.jsonPrimitive.booleanOrNull },
+            init = block
+        )
 
     /**
      * Adds a slider setting.
@@ -220,7 +251,22 @@ abstract class BaseModule(
      * @param block The initializer of the setting to configure a custom [set]ter or [get]ter.
      * */
     fun <T: Number> range(displayName: String, defaultValue: T, min: T, step: T, max: T, shouldShow: () -> Boolean = { true }, block: SettingProvider<T>.() -> Unit = {}) =
-        customSetting(displayName, defaultValue, mutableMapOf("min" to min, "step" to step, "max" to max), renderer = "range", shouldShow = shouldShow, init = block)
+        customSetting(
+            displayName,
+            defaultValue,
+            mutableMapOf("min" to min, "step" to step, "max" to max),
+            renderer = "range",
+            shouldShow = shouldShow,
+            serializer = { it, _ -> JsonPrimitive(it) },
+            deserializer = { it, v, _ -> when (v::class) {
+                Float::class -> it.jsonPrimitive.floatOrNull
+                Double::class -> it.jsonPrimitive.doubleOrNull
+                Int::class -> it.jsonPrimitive.intOrNull
+                Long::class -> it.jsonPrimitive.longOrNull
+                else -> error("Unknown Number type")
+            } as T? },
+            init = block
+        )
 
     /**
      * Adds a color picker setting.
@@ -232,7 +278,16 @@ abstract class BaseModule(
      * @param block The initializer of the setting to configure a custom [set]ter or [get]ter.
      * */
     fun colorPicker(displayName: String, defaultValue: Color, alpha: Boolean = true, shouldShow: () -> Boolean = { true }, block: SettingProvider<Color>.() -> Unit = {}) =
-        customSetting(displayName, defaultValue, mutableMapOf("alpha" to alpha), { it, _ -> "#${it.rgb.toString(16).padStart(if (alpha) 8 else 6, '0')}" }, "colorPicker", shouldShow, block)
+        customSetting(
+            displayName,
+            defaultValue,
+            mutableMapOf("alpha" to alpha),
+            { it, _ -> "#${it.rgb.toString(16).padStart(if (alpha) 8 else 6, '0')}" },
+            "colorPicker",
+            shouldShow,
+            { it, _ -> JsonPrimitive(it.rgb.toString(16)) },
+            { it, _, _ -> Color(it.jsonPrimitive.content.toInt(16), alpha) },
+            block)
 
     /**
      * Adds a dropdown setting.
@@ -244,7 +299,23 @@ abstract class BaseModule(
      * @param block The initializer of the setting to configure a custom [set]ter or [get]ter.
      * */
     fun dropDownMenu(displayName: String, defaultValue: String, available: MutableList<String>, shouldShow: () -> Boolean = { true }, block: SettingProvider<String>.() -> Unit = {}) =
-        customSetting(displayName, defaultValue, mutableMapOf("available" to available), renderer = "dropDownMenu", shouldShow = shouldShow, init = block)
+        customSetting(
+            displayName,
+            defaultValue,
+            mutableMapOf("available" to available),
+            renderer = "dropDownMenu",
+            shouldShow = shouldShow,
+            serializer = { it, extra ->
+                JsonObject(
+                    mapOf("value" to JsonPrimitive(it), "available" to JsonArray((extra["available"] as List<String>).map { i -> JsonPrimitive(i) }))
+                ) },
+            deserializer = { it, _, extra ->
+                extra as MutableMap<Any?, Any?>
+                extra["available"] = it.jsonObject["available"]!!.jsonArray.map { it.jsonPrimitive.content }.toMutableList()
+                it.jsonObject["value"]!!.jsonPrimitive.content
+            },
+            init = block
+        )
 
     /**
      * Adds a dropdown setting using enums.
@@ -256,7 +327,16 @@ abstract class BaseModule(
      * @param block The initializer of the setting to configure a custom [set]ter or [get]ter.
      * */
     fun <E: Enum<E>> dropDownMenu(displayName: String, defaultValue: E, displayValueAdapter: (E, MutableMap<*, *>) -> String = { it, _ -> it.name }, shouldShow: () -> Boolean = { true }, block: SettingProvider<E>.() -> Unit = {}) =
-        customSetting(displayName, defaultValue, displayValueAdapter = displayValueAdapter, renderer = "dropDownMenu", shouldShow = shouldShow, init = block)
+        customSetting(
+            displayName,
+            defaultValue,
+            displayValueAdapter = displayValueAdapter,
+            renderer = "dropDownMenu",
+            shouldShow = shouldShow,
+            serializer = { it, _ -> JsonPrimitive(it.name) },
+            deserializer = { it, old, _ -> old::class.java.enumConstants.first { i -> i.name == it.jsonPrimitive.content } },
+            init = block
+        )
 
     /**
      * Adds a list setting.
@@ -267,7 +347,16 @@ abstract class BaseModule(
      * @param block The initializer of the setting to configure a custom [set]ter or [get]ter.
      * */
     fun list(displayName: String, defaultValue: List<String> = emptyList(), shouldShow: () -> Boolean = { true }, block: SettingProvider<List<String>>.() -> Unit = {}) =
-        customSetting(displayName, defaultValue, displayValueAdapter = { it, _ -> it.joinToString("\n") }, renderer = "list", shouldShow = shouldShow, init = block)
+        customSetting(
+            displayName,
+            defaultValue,
+            displayValueAdapter = { it, _ -> it.joinToString("\n") },
+            renderer = "list",
+            shouldShow = shouldShow,
+            serializer = { it, _ -> JsonArray(it.map { i -> JsonPrimitive(i) }) },
+            deserializer = { it, _, _ -> it.jsonArray.map { i -> i.jsonPrimitive.content } },
+            init = block
+        )
 
     infix fun <T> KProperty<T>.eq(value: T): () -> Boolean = { getter.call() == value }
     infix fun <T> KProperty<T>.neq(value: T): () -> Boolean = { getter.call() != value }
@@ -330,11 +419,12 @@ abstract class ToggleModule(
     /**
      * Toggles the module.
      * */
-    fun toggle() {
-        if (enabled)
-            disable()
-        else
-            enable()
+    fun toggle(on: Boolean? = null) {
+        when {
+            on == true && !enabled -> enable()
+            on == false && enabled -> disable()
+            else -> if (enabled) disable() else enable()
+        }
     }
 
     /**

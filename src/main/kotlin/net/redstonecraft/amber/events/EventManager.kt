@@ -40,7 +40,11 @@ object EventManager {
     fun <E: Event> fire(event: E): E {
         if (event::class !in handlers) return event
         for (handler in handlers.filter { (key, _) -> key == event::class || key.isSuperclassOf(event::class) }.values.flatten().sortedBy { it.first }.map { it.second }) {
-            handler(event)
+            try {
+                handler(event)
+            } catch (e: Throwable) {
+                e.printStackTrace()
+            }
             if (event is CancellableEvent && event.isCancelled) break
         }
         return event

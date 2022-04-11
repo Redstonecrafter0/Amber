@@ -6,7 +6,10 @@ import kotlin.reflect.jvm.jvmName
  * @param displayName The display name of the category
  * */
 @Suppress("LeakingThis")
-abstract class Category(val displayName: String) {
+abstract class Category(
+    val displayName: String,
+    val description: String
+) {
 
     companion object {
         val categories = mutableListOf<Category>()
