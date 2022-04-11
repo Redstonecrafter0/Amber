@@ -11,6 +11,10 @@ import net.redstonecraft.amber.modules.ToggleModule
 import java.io.File
 import java.io.FileNotFoundException
 
+/**
+ * The config manager for Amber.
+ * This class is responsible for loading and saving the configs.
+ * */
 object ConfigManager {
 
     val idRegex = "[0-9a-zA-Z-+._]+".toRegex()
@@ -24,6 +28,9 @@ object ConfigManager {
 
     val dir = Amber.dir.resolve("config").apply { if (!exists() || !isDirectory) mkdirs() }
 
+    /**
+     * Gets the configs from the config directory.
+     * */
     val availableIds: List<String>
         get() = dir.list { _, it -> it.endsWith(fileEnding) }!!.filter { validateFile(dir.resolve(it)) }.map { it.removeSuffix(fileEnding) }
 
@@ -36,8 +43,14 @@ object ConfigManager {
             }
         }
 
+    /**
+     * Gets the current config.
+     * */
     var currentConfig = Config("Default", "The default configuration", Amber.VERSION, mutableListOf("Redstonecrafter0"), mutableMapOf())
 
+    /**
+     * Export the current config.
+     * */
     fun export(): Config {
         val config = Config(
             currentConfig.name, currentConfig.description, currentConfig.version, currentConfig.authors, Category.categories.associate { category ->
@@ -55,6 +68,9 @@ object ConfigManager {
         return config
     }
 
+    /**
+     * Import a config.
+     * */
     fun import(orgConfig: Config) {
         val event = EventManager.fire(ConfigPreLoadEvent(orgConfig))
         if (!event.isCancelled) {
@@ -89,6 +105,9 @@ object ConfigManager {
         import(json.decodeFromStream(file.inputStream()))
     }
 
+    /**
+     * Loads the config with the given id.
+     * */
     fun loadById(id: String) {
         try {
             loadFromFile(dir.resolve(id + fileEnding))
@@ -98,13 +117,22 @@ object ConfigManager {
         currentConfigId = id
     }
 
+    /**
+     * Saves the current config.
+     * */
     fun saveWithId(id: String) {
         require(validateId(id)) { "Invalid id. Does not match ${idRegex.pattern}." }
         saveToFile(File(dir, id + fileEnding))
     }
 
+    /**
+     * Validates the given id.
+     * */
     fun validateId(id: String): Boolean = id.matches(idRegex)
 
+    /**
+     * Validates the given config file.
+     * */
     fun validateFile(file: File): Boolean {
         if (file.name.endsWith(fileEnding) && validateId(file.name.removeSuffix(fileEnding)) && file.exists() && file.isFile) {
             try {

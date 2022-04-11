@@ -3,6 +3,7 @@ package net.redstonecraft.amber.commands
 import net.minecraft.client.MinecraftClient
 import net.minecraft.text.LiteralText
 import kotlin.reflect.KClass
+import kotlin.reflect.full.primaryConstructor
 
 object CommandsContext {
 
@@ -43,7 +44,7 @@ object CommandsContext {
      * @param aliases The aliases of the command.
      * @param block Configure the command.
      * */
-    fun <T : Any> parsedCommand(clazz: KClass<T>, name: String, description: String, usage: String, isAsync: Boolean, vararg aliases: String, block: CommandContext<T>.() -> Unit) {
+    fun <T : Any> parsedCommand(clazz: KClass<T>, name: String, description: String, usage: String = name + " " + defaultUsage(clazz), isAsync: Boolean, vararg aliases: String, block: CommandContext<T>.() -> Unit) {
         val ctx = CommandContext<T>()
         ctx.block()
         if (ctx.run == null) return
@@ -72,6 +73,12 @@ object CommandsContext {
      * */
     inline fun <reified T: Any> parsedCommand(name: String, description: String, usage: String, isAsync: Boolean, vararg aliases: String, noinline block: CommandContext<T>.() -> Unit) =
         parsedCommand(T::class, name, description, usage, isAsync, *aliases, block = block)
+
+    private fun defaultUsage(clazz: KClass<*>) = clazz.primaryConstructor!!.parameters.joinToString(" ") { when {
+        it.isOptional || it.type.isMarkedNullable -> "<${it.name}>"
+        it.isVararg -> "[${it.name}]"
+        else -> it.name!!
+    } }
 
     class CommandContext<T> internal constructor() {
 
