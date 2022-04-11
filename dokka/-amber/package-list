@@ -29,7 +29,6 @@ $dokka.location:net.redstonecraft.amber.commands/CommandManager/dispatch/#kotlin
 $dokka.location:net.redstonecraft.amber.commands/CommandManager/tabComplete/#kotlin.String#kotlin.Int/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-manager/tab-complete.html
 $dokka.location:net.redstonecraft.amber.commands/CommandTools///PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-tools/index.html
 $dokka.location:net.redstonecraft.amber.commands/CommandTools/addChatMessage/#kotlin.Any?/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-tools/add-chat-message.html
-$dokka.location:net.redstonecraft.amber.commands/CommandTools/addChatMessage/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-tools/add-chat-message.html
 $dokka.location:net.redstonecraft.amber.commands/CommandsContext.CommandContext///PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-commands-context/-command-context/index.html
 $dokka.location:net.redstonecraft.amber.commands/CommandsContext.CommandContext/onCommand/#kotlin.Function2[net.redstonecraft.amber.commands.CommandTools,TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-commands-context/-command-context/on-command.html
 $dokka.location:net.redstonecraft.amber.commands/CommandsContext.CommandContext/onTabComplete/#kotlin.Function2[net.redstonecraft.amber.commands.CommandTools,TypeParam(bounds=[kotlin.Any?]),kotlin.collections.Iterable[kotlin.String]]/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-commands-context/-command-context/on-tab-complete.html
@@ -41,15 +40,67 @@ $dokka.location:net.redstonecraft.amber.commands/ParsedCommand///PointingToDecla
 $dokka.location:net.redstonecraft.amber.commands/ParsedCommand/ParsedCommand/#kotlin.String#kotlin.String#kotlin.String#kotlin.Boolean#kotlin.reflect.KClass[TypeParam(bounds=[kotlin.Any])]#kotlin.Array[kotlin.String]/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-parsed-command/-parsed-command.html
 $dokka.location:net.redstonecraft.amber.commands/ParsedCommand/onCommand/#TypeParam(bounds=[kotlin.Any])/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-parsed-command/on-command.html
 $dokka.location:net.redstonecraft.amber.commands/ParsedCommand/onCommand/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-parsed-command/on-command.html
+$dokka.location:net.redstonecraft.amber.config////PointingToDeclaration/-amber/net.redstonecraft.amber.config/index.html
+$dokka.location:net.redstonecraft.amber.config/CategoryConfig///PointingToDeclaration/-amber/net.redstonecraft.amber.config/-category-config/index.html
+$dokka.location:net.redstonecraft.amber.config/CategoryConfig/CategoryConfig/#kotlin.String#kotlin.collections.MutableMap[kotlin.String,net.redstonecraft.amber.config.ModuleConfig]/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-category-config/-category-config.html
+$dokka.location:net.redstonecraft.amber.config/CategoryConfig/id/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-category-config/id.html
+$dokka.location:net.redstonecraft.amber.config/CategoryConfig/modules/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-category-config/modules.html
+$dokka.location:net.redstonecraft.amber.config/Config///PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config/index.html
+$dokka.location:net.redstonecraft.amber.config/Config/Config/#kotlin.String#kotlin.String#kotlin.String#kotlin.collections.MutableList[kotlin.String]#kotlin.collections.MutableMap[kotlin.String,net.redstonecraft.amber.config.CategoryConfig]/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config/-config.html
+$dokka.location:net.redstonecraft.amber.config/Config/authors/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config/authors.html
+$dokka.location:net.redstonecraft.amber.config/Config/categories/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config/categories.html
+$dokka.location:net.redstonecraft.amber.config/Config/description/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config/description.html
+$dokka.location:net.redstonecraft.amber.config/Config/name/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config/name.html
+$dokka.location:net.redstonecraft.amber.config/Config/version/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config/version.html
+$dokka.location:net.redstonecraft.amber.config/ConfigManager///PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config-manager/index.html
+$dokka.location:net.redstonecraft.amber.config/ConfigManager/availableIds/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config-manager/available-ids.html
+$dokka.location:net.redstonecraft.amber.config/ConfigManager/currentConfig/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config-manager/current-config.html
+$dokka.location:net.redstonecraft.amber.config/ConfigManager/currentConfigId/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config-manager/current-config-id.html
+$dokka.location:net.redstonecraft.amber.config/ConfigManager/dir/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config-manager/dir.html
+$dokka.location:net.redstonecraft.amber.config/ConfigManager/export/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config-manager/export.html
+$dokka.location:net.redstonecraft.amber.config/ConfigManager/fileEnding/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config-manager/file-ending.html
+$dokka.location:net.redstonecraft.amber.config/ConfigManager/idRegex/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config-manager/id-regex.html
+$dokka.location:net.redstonecraft.amber.config/ConfigManager/import/#net.redstonecraft.amber.config.Config/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config-manager/import.html
+$dokka.location:net.redstonecraft.amber.config/ConfigManager/loadById/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config-manager/load-by-id.html
+$dokka.location:net.redstonecraft.amber.config/ConfigManager/saveWithId/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config-manager/save-with-id.html
+$dokka.location:net.redstonecraft.amber.config/ConfigManager/validateFile/#java.io.File/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config-manager/validate-file.html
+$dokka.location:net.redstonecraft.amber.config/ConfigManager/validateId/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-config-manager/validate-id.html
+$dokka.location:net.redstonecraft.amber.config/ModuleConfig///PointingToDeclaration/-amber/net.redstonecraft.amber.config/-module-config/index.html
+$dokka.location:net.redstonecraft.amber.config/ModuleConfig/ModuleConfig/#kotlin.String#kotlin.Boolean?#kotlin.Int?#kotlin.collections.MutableMap[kotlin.String,net.redstonecraft.amber.config.SettingConfig]/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-module-config/-module-config.html
+$dokka.location:net.redstonecraft.amber.config/ModuleConfig/enabled/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-module-config/enabled.html
+$dokka.location:net.redstonecraft.amber.config/ModuleConfig/id/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-module-config/id.html
+$dokka.location:net.redstonecraft.amber.config/ModuleConfig/key/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-module-config/key.html
+$dokka.location:net.redstonecraft.amber.config/ModuleConfig/settings/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-module-config/settings.html
+$dokka.location:net.redstonecraft.amber.config/SettingConfig///PointingToDeclaration/-amber/net.redstonecraft.amber.config/-setting-config/index.html
+$dokka.location:net.redstonecraft.amber.config/SettingConfig/SettingConfig/#kotlin.String#kotlinx.serialization.json.JsonElement/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-setting-config/-setting-config.html
+$dokka.location:net.redstonecraft.amber.config/SettingConfig/id/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-setting-config/id.html
+$dokka.location:net.redstonecraft.amber.config/SettingConfig/value/#/PointingToDeclaration/-amber/net.redstonecraft.amber.config/-setting-config/value.html
 $dokka.location:net.redstonecraft.amber.events////PointingToDeclaration/-amber/net.redstonecraft.amber.events/index.html
 $dokka.location:net.redstonecraft.amber.events//on/#kotlin.Int#kotlin.Function1[TypeParam(bounds=[net.redstonecraft.amber.events.Event]),kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.events/on.html
 $dokka.location:net.redstonecraft.amber.events/CancellableEvent///PointingToDeclaration/-amber/net.redstonecraft.amber.events/-cancellable-event/index.html
 $dokka.location:net.redstonecraft.amber.events/CancellableEvent/isCancelled/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-cancellable-event/is-cancelled.html
+$dokka.location:net.redstonecraft.amber.events/ConfigPostLoadEvent///PointingToDeclaration/-amber/net.redstonecraft.amber.events/-config-post-load-event/index.html
+$dokka.location:net.redstonecraft.amber.events/ConfigPostLoadEvent/ConfigPostLoadEvent/#net.redstonecraft.amber.config.Config/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-config-post-load-event/-config-post-load-event.html
+$dokka.location:net.redstonecraft.amber.events/ConfigPostLoadEvent/config/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-config-post-load-event/config.html
+$dokka.location:net.redstonecraft.amber.events/ConfigPostSaveEvent///PointingToDeclaration/-amber/net.redstonecraft.amber.events/-config-post-save-event/index.html
+$dokka.location:net.redstonecraft.amber.events/ConfigPostSaveEvent/ConfigPostSaveEvent/#net.redstonecraft.amber.config.Config/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-config-post-save-event/-config-post-save-event.html
+$dokka.location:net.redstonecraft.amber.events/ConfigPostSaveEvent/config/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-config-post-save-event/config.html
+$dokka.location:net.redstonecraft.amber.events/ConfigPreLoadEvent///PointingToDeclaration/-amber/net.redstonecraft.amber.events/-config-pre-load-event/index.html
+$dokka.location:net.redstonecraft.amber.events/ConfigPreLoadEvent/ConfigPreLoadEvent/#net.redstonecraft.amber.config.Config/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-config-pre-load-event/-config-pre-load-event.html
+$dokka.location:net.redstonecraft.amber.events/ConfigPreLoadEvent/config/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-config-pre-load-event/config.html
+$dokka.location:net.redstonecraft.amber.events/ConfigPreLoadEvent/isCancelled/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-config-pre-load-event/is-cancelled.html
+$dokka.location:net.redstonecraft.amber.events/ConfigPreSaveEvent///PointingToDeclaration/-amber/net.redstonecraft.amber.events/-config-pre-save-event/index.html
+$dokka.location:net.redstonecraft.amber.events/ConfigPreSaveEvent/ConfigPreSaveEvent/#net.redstonecraft.amber.config.Config/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-config-pre-save-event/-config-pre-save-event.html
+$dokka.location:net.redstonecraft.amber.events/ConfigPreSaveEvent/config/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-config-pre-save-event/config.html
+$dokka.location:net.redstonecraft.amber.events/ConfigPreSaveEvent/isCancelled/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-config-pre-save-event/is-cancelled.html
 $dokka.location:net.redstonecraft.amber.events/Event///PointingToDeclaration/-amber/net.redstonecraft.amber.events/-event/index.html
 $dokka.location:net.redstonecraft.amber.events/EventManager///PointingToDeclaration/-amber/net.redstonecraft.amber.events/-event-manager/index.html
 $dokka.location:net.redstonecraft.amber.events/EventManager/fire/#TypeParam(bounds=[net.redstonecraft.amber.events.Event])/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-event-manager/fire.html
 $dokka.location:net.redstonecraft.amber.events/EventManager/on/#kotlin.Int#kotlin.Function1[TypeParam(bounds=[net.redstonecraft.amber.events.Event]),kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-event-manager/on.html
 $dokka.location:net.redstonecraft.amber.events/EventManager/on/#kotlin.reflect.KClass[*]#kotlin.Int#kotlin.Function1[net.redstonecraft.amber.events.Event,kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-event-manager/on.html
+$dokka.location:net.redstonecraft.amber.events/ExceptionEvent///PointingToDeclaration/-amber/net.redstonecraft.amber.events/-exception-event/index.html
+$dokka.location:net.redstonecraft.amber.events/ExceptionEvent/ExceptionEvent/#kotlin.Throwable/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-exception-event/-exception-event.html
+$dokka.location:net.redstonecraft.amber.events/ExceptionEvent/throwable/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-exception-event/throwable.html
 $dokka.location:net.redstonecraft.amber.mixins////PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/index.html
 $dokka.location:net.redstonecraft.amber.mixins/MixinCommandSuggestor///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-command-suggestor/index.html
 $dokka.location:net.redstonecraft.amber.mixins/MixinMinecraftClient///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-minecraft-client/index.html
@@ -57,6 +108,7 @@ $dokka.location:net.redstonecraft.amber.mixins/MixinScreen///PointingToDeclarati
 $dokka.location:net.redstonecraft.amber.mixins/MixinScreen/sendMessage/#java.lang.String#boolean/PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-screen/send-message.html
 $dokka.location:net.redstonecraft.amber.modules////PointingToDeclaration/-amber/net.redstonecraft.amber.modules/index.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting///PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/index.html
+$dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/deserializer/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/deserializer.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/displayName/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/display-name.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/displayValue/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/display-value.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/displayValueAdapter/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/display-value-adapter.html
@@ -65,6 +117,8 @@ $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/getValue/#net
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/getter/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/getter.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/id/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/id.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/renderer/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/renderer.html
+$dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/serialized/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/serialized.html
+$dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/serializer/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/serializer.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/setValue/#net.redstonecraft.amber.modules.BaseModule#kotlin.reflect.KProperty[*]#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/set-value.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/setter/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/setter.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule.Setting/shouldShow/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/-setting/should-show.html
@@ -78,7 +132,7 @@ $dokka.location:net.redstonecraft.amber.modules/BaseModule/BaseModule/#kotlin.St
 $dokka.location:net.redstonecraft.amber.modules/BaseModule/button/#kotlin.String#kotlin.Function0[kotlin.Boolean]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/button.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule/category/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/category.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule/colorPicker/#kotlin.String#java.awt.Color#kotlin.Boolean#kotlin.Function0[kotlin.Boolean]#kotlin.Function1[net.redstonecraft.amber.modules.BaseModule.SettingProvider[java.awt.Color],kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/color-picker.html
-$dokka.location:net.redstonecraft.amber.modules/BaseModule/customSetting/#kotlin.String#TypeParam(bounds=[kotlin.Any?])#kotlin.collections.MutableMap[*,*]#kotlin.Function2[TypeParam(bounds=[kotlin.Any?]),kotlin.collections.MutableMap[*,*],kotlin.String]#kotlin.String#kotlin.Function0[kotlin.Boolean]#kotlin.Function1[net.redstonecraft.amber.modules.BaseModule.SettingProvider[TypeParam(bounds=[kotlin.Any?])],kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/custom-setting.html
+$dokka.location:net.redstonecraft.amber.modules/BaseModule/customSetting/#kotlin.String#TypeParam(bounds=[kotlin.Any?])#kotlin.collections.MutableMap[*,*]#kotlin.Function2[TypeParam(bounds=[kotlin.Any?]),kotlin.collections.MutableMap[*,*],kotlin.String]#kotlin.String#kotlin.Function0[kotlin.Boolean]#kotlin.Function2[TypeParam(bounds=[kotlin.Any?]),kotlin.collections.MutableMap[*,*],kotlinx.serialization.json.JsonElement]#kotlin.Function3[kotlinx.serialization.json.JsonElement,TypeParam(bounds=[kotlin.Any?]),kotlin.collections.MutableMap[*,*],TypeParam(bounds=[kotlin.Any?])?]#kotlin.Function1[net.redstonecraft.amber.modules.BaseModule.SettingProvider[TypeParam(bounds=[kotlin.Any?])],kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/custom-setting.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule/description/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/description.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule/displayName/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/display-name.html
 $dokka.location:net.redstonecraft.amber.modules/BaseModule/dropDownMenu/#kotlin.String#TypeParam(bounds=[kotlin.Enum[^]])#kotlin.Function2[TypeParam(bounds=[kotlin.Enum[^]]),kotlin.collections.MutableMap[*,*],kotlin.String]#kotlin.Function0[kotlin.Boolean]#kotlin.Function1[net.redstonecraft.amber.modules.BaseModule.SettingProvider[TypeParam(bounds=[kotlin.Enum[^]])],kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-base-module/drop-down-menu.html
@@ -101,7 +155,8 @@ $dokka.location:net.redstonecraft.amber.modules/BoundModule/key/#/PointingToDecl
 $dokka.location:net.redstonecraft.amber.modules/Category.Companion///PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-category/-companion/index.html
 $dokka.location:net.redstonecraft.amber.modules/Category.Companion/categories/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-category/-companion/categories.html
 $dokka.location:net.redstonecraft.amber.modules/Category///PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-category/index.html
-$dokka.location:net.redstonecraft.amber.modules/Category/Category/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-category/-category.html
+$dokka.location:net.redstonecraft.amber.modules/Category/Category/#kotlin.String#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-category/-category.html
+$dokka.location:net.redstonecraft.amber.modules/Category/description/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-category/description.html
 $dokka.location:net.redstonecraft.amber.modules/Category/displayName/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-category/display-name.html
 $dokka.location:net.redstonecraft.amber.modules/Category/id/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-category/id.html
 $dokka.location:net.redstonecraft.amber.modules/Category/modules/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-category/modules.html
@@ -117,7 +172,7 @@ $dokka.location:net.redstonecraft.amber.modules/ToggleModule/key/#/PointingToDec
 $dokka.location:net.redstonecraft.amber.modules/ToggleModule/onDisable/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-toggle-module/on-disable.html
 $dokka.location:net.redstonecraft.amber.modules/ToggleModule/onEnable/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-toggle-module/on-enable.html
 $dokka.location:net.redstonecraft.amber.modules/ToggleModule/preventEnableOnLoad/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-toggle-module/prevent-enable-on-load.html
-$dokka.location:net.redstonecraft.amber.modules/ToggleModule/toggle/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-toggle-module/toggle.html
+$dokka.location:net.redstonecraft.amber.modules/ToggleModule/toggle/#kotlin.Boolean?/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-toggle-module/toggle.html
 $dokka.location:net.redstonecraft.amber.modules/TriggerModule///PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-trigger-module/index.html
 $dokka.location:net.redstonecraft.amber.modules/TriggerModule/TriggerModule/#kotlin.String#kotlin.String#net.redstonecraft.amber.modules.Category#kotlin.Int/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-trigger-module/-trigger-module.html
 $dokka.location:net.redstonecraft.amber.modules/TriggerModule/key/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-trigger-module/key.html
@@ -127,14 +182,17 @@ $dokka.location:net.redstonecraft.amber/Amber///PointingToDeclaration/-amber/ne
 $dokka.location:net.redstonecraft.amber/Amber/AUTHORS/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/-a-u-t-h-o-r-s.html
 $dokka.location:net.redstonecraft.amber/Amber/MOD_ID/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/-m-o-d_-i-d.html
 $dokka.location:net.redstonecraft.amber/Amber/MOD_NAME/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/-m-o-d_-n-a-m-e.html
+$dokka.location:net.redstonecraft.amber/Amber/VERSION/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/-v-e-r-s-i-o-n.html
 $dokka.location:net.redstonecraft.amber/Amber/colorScheme/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/color-scheme.html
 $dokka.location:net.redstonecraft.amber/Amber/debug/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/debug.html
+$dokka.location:net.redstonecraft.amber/Amber/dir/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/dir.html
 $dokka.location:net.redstonecraft.amber/Amber/logger/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/logger.html
 $dokka.location:net.redstonecraft.amber/Amber/onInitialize/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/on-initialize.html
 $dokka.location:net.redstonecraft.amber/Amber/startup/#/PointingToDeclaration/-amber/net.redstonecraft.amber/-amber/startup.html
 edu.rice.cs.util
 net.redstonecraft.amber
 net.redstonecraft.amber.commands
+net.redstonecraft.amber.config
 net.redstonecraft.amber.events
 net.redstonecraft.amber.mixins
 net.redstonecraft.amber.modules
