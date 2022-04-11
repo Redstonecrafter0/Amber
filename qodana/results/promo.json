@@ -1,187 +1,94 @@
 {"version":"3","listProblem":[{
   "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
+  "category": "Probable bugs",
+  "type": "Unresolved reference in KDoc",
   "tags": [
     "kotlin"
   ],
   "severity": "High",
-  "comment": "Function \"parsedCommand\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "comment": "Cannot resolve symbol 'command'",
+  "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
   "sources": [
     {
       "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandsDSL.kt",
+      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandManager.kt",
       "language": "kotlin",
-      "line": 73,
-      "offset": 32,
-      "length": 13,
-      "code": {
-        "startLine": 71,
-        "length": 13,
-        "offset": 85,
-        "surroundingCode": "     * @param block Configure the command.\n     * */\n    inline fun <reified T: Any> parsedCommand(name: String, description: String, usage: String, isAsync: Boolean, vararg aliases: String, noinline block: CommandContext<T>.() -> Unit) =\n        parsedCommand(T::class, name, description, usage, isAsync, *aliases, block = block)\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "-9215925915176045773"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "High",
-  "comment": "Function \"addChatMessage\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandsDSL.kt",
-      "language": "kotlin",
-      "line": 120,
-      "offset": 8,
-      "length": 14,
-      "code": {
-        "startLine": 118,
-        "length": 14,
-        "offset": 33,
-        "surroundingCode": "     * */\n    @JvmStatic\n    fun addChatMessage(message: Any?) = addChatMessage(message.toString())\n\n}"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "4587148285325619471"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "High",
-  "comment": "Function \"command\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandsDSL.kt",
-      "language": "kotlin",
-      "line": 19,
-      "offset": 8,
+      "line": 20,
+      "offset": 14,
       "length": 7,
       "code": {
-        "startLine": 17,
+        "startLine": 18,
         "length": 7,
-        "offset": 61,
-        "surroundingCode": "     * @param block Configure the command.\n     * */\n    fun command(name: String, description: String, usage: String, isAsync: Boolean, vararg aliases: String, block: CommandContext<String>.() -> Unit) {\n        val ctx = CommandContext<String>()\n        ctx.block()"
+        "offset": 46,
+        "surroundingCode": "     * Execute a command\n     *\n     * @param command The command to execute\n     * */\n    fun dispatch(text: String) {"
       }
     }
   ],
   "attributes": {
     "module": "project.main",
-    "inspectionName": "UnusedSymbol"
+    "inspectionName": "KDocUnresolvedReference"
   },
-  "hash": "4654513102199604686"
+  "hash": "-5940823659735864909"
 },{
   "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
+  "category": "Style issues",
+  "type": "Class member can have 'private' visibility",
   "tags": [
     "kotlin"
   ],
-  "severity": "High",
-  "comment": "Function \"onTabComplete\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "severity": "Info",
+  "comment": "Property 'displayName' could be private",
+  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
   "sources": [
     {
       "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandsDSL.kt",
+      "path": "src/main/kotlin/net/redstonecraft/amber/modules/Category.kt",
       "language": "kotlin",
-      "line": 95,
-      "offset": 12,
-      "length": 13,
+      "line": 10,
+      "offset": 8,
+      "length": 11,
       "code": {
-        "startLine": 93,
-        "length": 13,
-        "offset": 79,
-        "surroundingCode": "         * @param block The runnable to be executed.\n         * */\n        fun onTabComplete(block: CommandTools.(T) -> Iterable<String>) {\n            complete = block\n        }"
+        "startLine": 8,
+        "length": 11,
+        "offset": 58,
+        "surroundingCode": "@Suppress(\"LeakingThis\")\nabstract class Category(\n    val displayName: String,\n    val description: String\n) {"
       }
     }
   ],
   "attributes": {
     "module": "project.main",
-    "inspectionName": "UnusedSymbol"
+    "inspectionName": "MemberVisibilityCanBePrivate"
   },
-  "hash": "7492044134005630243"
+  "hash": "7039620093545229430"
 },{
   "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
+  "category": "Style issues",
+  "type": "Trailing comma recommendations",
   "tags": [
     "kotlin"
   ],
-  "severity": "High",
-  "comment": "Function \"onCommand\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "severity": "Info",
+  "comment": "Useless trailing comma",
+  "detailsInfo": "Reports trailing commas that are not follow the recommended [style guide](https://kotlinlang.org/docs/coding-conventions.html#trailing-commas).",
   "sources": [
     {
       "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandsDSL.kt",
+      "path": "src/main/kotlin/net/redstonecraft/amber/modules/Module.kt",
       "language": "kotlin",
-      "line": 86,
-      "offset": 12,
-      "length": 9,
+      "line": 215,
+      "offset": 40,
+      "length": 1,
       "code": {
-        "startLine": 84,
-        "length": 9,
-        "offset": 79,
-        "surroundingCode": "         * @param block The runnable to be executed.\n         * */\n        fun onCommand(block: CommandTools.(T) -> Unit) {\n            run = block\n        }"
+        "startLine": 213,
+        "length": 1,
+        "offset": 85,
+        "surroundingCode": "            displayName,\n            action,\n            displayValueAdapter = { _, _, -> \"\" },\n            renderer = \"button\",\n            shouldShow = shouldShow,"
       }
     }
   ],
   "attributes": {
     "module": "project.main",
-    "inspectionName": "UnusedSymbol"
+    "inspectionName": "TrailingComma"
   },
-  "hash": "-1023343031622420927"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "High",
-  "comment": "Function \"commands\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandsDSL.kt",
-      "language": "kotlin",
-      "line": 129,
-      "offset": 4,
-      "length": 8,
-      "code": {
-        "startLine": 127,
-        "length": 8,
-        "offset": 53,
-        "surroundingCode": " * @param block The block to add commands.\n * */\nfun commands(block: CommandsContext.() -> Unit) = CommandsContext.block()"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "-2383358470601939129"
+  "hash": "1990835559550389716"
 }]}
