@@ -1,9 +1,9 @@
 package net.redstonecraft.amber.commands
 
-import com.mojang.brigadier.suggestion.Suggestion
-import net.minecraft.client.MinecraftClient
-import net.minecraft.client.gui.screen.ChatScreen
+import com.mojang.brigadier.suggestion.Suggestions
+import com.mojang.brigadier.suggestion.SuggestionsBuilder
 import java.util.concurrent.Executors
+import kotlin.math.min
 
 /**
  * The command manager.
@@ -20,7 +20,6 @@ object CommandManager {
      * @param command The command to execute
      * */
     fun dispatch(text: String) {
-        println("cmd")
         val (cmd, args) = parse(text)
         val command = commands.filterKeys { cmd in it }.values.firstOrNull()
         if (command != null) {
@@ -35,13 +34,23 @@ object CommandManager {
     }
 
     @JvmStatic
-    fun tabComplete(text: String): Pair<List<String>, String>? {
-        val screen = MinecraftClient.getInstance().currentScreen
-        if (text.startsWith(".") && !text.startsWith("..") && screen is ChatScreen) {
-            val (cmd, args) = parse(text)
+    fun tabComplete(text: String, cursor: Int): Suggestions? {
+        if (text.startsWith(".") && !text.startsWith("..")) {
+            val (cmd, args) = parse(text.substring(1))
             val command = commands.filterKeys { cmd in it }.values.firstOrNull()
             if (command is AutocompletedCommand) {
-                return command.onTabComplete(args).first.toList() to cmd
+                val list = command.runComplete(args)
+                if (list != null) {
+                    return SuggestionsBuilder(
+                        text,
+                        text.lowercase(),
+                        min(text.lastIndexOf(" ") + 1, cursor)
+                    ).apply {
+                        for (i in list) {
+                            suggest(i)
+                        }
+                    }.build()
+                }
             }
         }
         return null

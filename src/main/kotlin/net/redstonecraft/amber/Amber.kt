@@ -1,7 +1,6 @@
 package net.redstonecraft.amber
 
 import net.fabricmc.api.ModInitializer
-import net.redstonecraft.amber.commands.commands
 import org.slf4j.LoggerFactory
 import java.awt.Color
 
@@ -25,14 +24,6 @@ object Amber: ModInitializer {
     }
 
     fun startup() {
-        commands {
-            parsedCommand<Args>("test", "desc", "usage", false) {
-                onTabComplete {
-                    listOf("1", "2", "3") to 4
-                }
-            }
-        }
     }
 
-    data class Args(val a: String, val b: String)
 }

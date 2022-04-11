@@ -62,7 +62,20 @@ abstract class AutocompletedCommand(
     vararg aliases: String
 ): BaseCommand(name, description, usage, isAsync, *aliases) {
 
-    abstract fun onTabComplete(raw: String): Pair<Iterable<String>, Int>
+    internal fun runComplete(args: String): Iterable<String>? {
+        try {
+            return onTabComplete(args)
+        } catch (e: IllegalStateException) {
+            CommandTools.addChatMessage(usage)
+            if (Amber.debug) CommandTools.addChatMessage(e.stackTraceToString().replace("\r", "").replace("\t", "    "))
+        } catch (e: IllegalArgumentException) {
+            CommandTools.addChatMessage(usage)
+            if (Amber.debug) CommandTools.addChatMessage(e.stackTraceToString().replace("\r", "").replace("\t", "    "))
+        }
+        return null
+    }
+
+    abstract fun onTabComplete(raw: String): Iterable<String>
 }
 
 private fun parseValue(clazz: KClass<*>, s: String?) = when (clazz) {
@@ -99,7 +112,6 @@ private fun <T : Any> parseArgs(raw: String, clazz: KClass<T>): T {
         .filter { it.second != Unit }
         .toMap()
     if (values.any { (k, v) -> !k.type.isMarkedNullable && v == null }) error("Missing arguments.")
-    println(values.toList().joinToString("\n") { (k, v) -> "$k ${if (v is Array<*>) v.joinToString(" ") else v}" })
     return clazz.primaryConstructor!!.callBy(values)
 }
 
@@ -150,7 +162,7 @@ abstract class AutocompletedParsedCommand<T : Any>(
 
     abstract fun onCommand(args: T)
 
-    final override fun onTabComplete(raw: String): Pair<Iterable<String>, Int> = onTabComplete(parseArgs(raw, clazz))
+    final override fun onTabComplete(raw: String): Iterable<String> = onTabComplete(parseArgs(raw, clazz))
 
-    abstract fun onTabComplete(args: T): Pair<Iterable<String>, Int>
+    abstract fun onTabComplete(args: T): Iterable<String>
 }
