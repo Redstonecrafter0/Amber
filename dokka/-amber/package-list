@@ -26,7 +26,7 @@ $dokka.location:net.redstonecraft.amber.commands/BaseCommand/usage/#/PointingToD
 $dokka.location:net.redstonecraft.amber.commands/CommandManager///PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-manager/index.html
 $dokka.location:net.redstonecraft.amber.commands/CommandManager/commands/#/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-manager/commands.html
 $dokka.location:net.redstonecraft.amber.commands/CommandManager/dispatch/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-manager/dispatch.html
-$dokka.location:net.redstonecraft.amber.commands/CommandManager/tabComplete/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-manager/tab-complete.html
+$dokka.location:net.redstonecraft.amber.commands/CommandManager/tabComplete/#kotlin.String#kotlin.Int/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-manager/tab-complete.html
 $dokka.location:net.redstonecraft.amber.commands/CommandTools///PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-tools/index.html
 $dokka.location:net.redstonecraft.amber.commands/CommandTools/addChatMessage/#kotlin.Any?/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-tools/add-chat-message.html
 $dokka.location:net.redstonecraft.amber.commands/CommandTools/addChatMessage/#kotlin.String/PointingToDeclaration/-amber/net.redstonecraft.amber.commands/-command-tools/add-chat-message.html
@@ -51,6 +51,7 @@ $dokka.location:net.redstonecraft.amber.events/EventManager/fire/#TypeParam(boun
 $dokka.location:net.redstonecraft.amber.events/EventManager/on/#kotlin.Int#kotlin.Function1[TypeParam(bounds=[net.redstonecraft.amber.events.Event]),kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-event-manager/on.html
 $dokka.location:net.redstonecraft.amber.events/EventManager/on/#kotlin.reflect.KClass[*]#kotlin.Int#kotlin.Function1[net.redstonecraft.amber.events.Event,kotlin.Unit]/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-event-manager/on.html
 $dokka.location:net.redstonecraft.amber.mixins////PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/index.html
+$dokka.location:net.redstonecraft.amber.mixins/MixinCommandSuggestor///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-command-suggestor/index.html
 $dokka.location:net.redstonecraft.amber.mixins/MixinMinecraftClient///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-minecraft-client/index.html
 $dokka.location:net.redstonecraft.amber.mixins/MixinScreen///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-screen/index.html
 $dokka.location:net.redstonecraft.amber.mixins/MixinScreen/sendMessage/#java.lang.String#boolean/PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-screen/send-message.html
