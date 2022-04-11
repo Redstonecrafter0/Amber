@@ -1,6 +1,7 @@
 package net.redstonecraft.amber.events
 
 import net.redstonecraft.amber.config.Config
+import net.redstonecraft.amber.modules.BaseModule
 
 /**
  * The [Event] root interface of the hierarchy.
@@ -27,3 +28,9 @@ class ConfigPreSaveEvent(var config: Config): CancellableEvent {
 class ConfigPostSaveEvent(val config: Config): Event
 
 class ExceptionEvent(val throwable: Throwable): Event
+
+open class ModuleEvent(val module: BaseModule): Event
+class ModuleTriggerEvent(module: BaseModule): ModuleEvent(module)
+open class ModuleToggleEvent(module: BaseModule): ModuleEvent(module)
+class ModuleEnableEvent(module: BaseModule): ModuleToggleEvent(module)
+class ModuleDisableEvent(module: BaseModule): ModuleToggleEvent(module)

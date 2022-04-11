@@ -44,7 +44,7 @@ object CommandsContext {
      * @param aliases The aliases of the command.
      * @param block Configure the command.
      * */
-    fun <T : Any> parsedCommand(clazz: KClass<T>, name: String, description: String, usage: String = name + " " + defaultUsage(clazz), isAsync: Boolean, vararg aliases: String, block: CommandContext<T>.() -> Unit) {
+    fun <T : Any> parsedCommand(clazz: KClass<T>, name: String, description: String, usage: String = ".$name " + defaultUsage(clazz), isAsync: Boolean, vararg aliases: String, block: CommandContext<T>.() -> Unit) {
         val ctx = CommandContext<T>()
         ctx.block()
         if (ctx.run == null) return

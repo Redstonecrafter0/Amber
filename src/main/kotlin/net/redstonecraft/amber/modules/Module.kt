@@ -1,6 +1,10 @@
 package net.redstonecraft.amber.modules
 
 import kotlinx.serialization.json.*
+import net.redstonecraft.amber.events.EventManager
+import net.redstonecraft.amber.events.ModuleDisableEvent
+import net.redstonecraft.amber.events.ModuleEnableEvent
+import net.redstonecraft.amber.events.ModuleTriggerEvent
 import org.lwjgl.glfw.GLFW
 import java.awt.Color
 import kotlin.reflect.KProperty
@@ -394,7 +398,12 @@ abstract class TriggerModule(
     override var key: Int = GLFW.GLFW_KEY_UNKNOWN
 ): BaseModule(displayName, description, category), BoundModule {
 
-    abstract fun run()
+    fun run() {
+        onRun()
+        EventManager.fire(ModuleTriggerEvent(this))
+    }
+
+    abstract fun onRun()
 }
 
 /**
@@ -432,6 +441,7 @@ abstract class ToggleModule(
      * */
     fun enable() {
         if (!enabled) {
+            EventManager.fire(ModuleEnableEvent(this))
             onEnable()
         }
     }
@@ -441,6 +451,7 @@ abstract class ToggleModule(
      * */
     fun disable() {
         if (enabled) {
+            EventManager.fire(ModuleDisableEvent(this))
             onDisable()
         }
     }

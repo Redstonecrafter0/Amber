@@ -12,6 +12,7 @@ abstract class Category(
 ) {
 
     companion object {
+        @JvmStatic
         val categories = mutableListOf<Category>()
     }
 

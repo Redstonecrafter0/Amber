@@ -2,6 +2,7 @@ package net.redstonecraft.amber
 
 import net.fabricmc.api.ModInitializer
 import net.minecraft.client.MinecraftClient
+import net.redstonecraft.amber.commands.commands.setupAmberCommands
 import net.redstonecraft.amber.config.ConfigManager
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -32,6 +33,7 @@ object Amber: ModInitializer {
 
     fun startup() {
         ConfigManager.loadById(ConfigManager.currentConfigId)
+        setupAmberCommands()
     }
 
 }
