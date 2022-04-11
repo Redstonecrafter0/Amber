@@ -1,0 +1,187 @@
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Function \"parsedCommand\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandsDSL.kt",
+      "language": "kotlin",
+      "line": 73,
+      "offset": 32,
+      "length": 13,
+      "code": {
+        "startLine": 71,
+        "length": 13,
+        "offset": 85,
+        "surroundingCode": "     * @param block Configure the command.\n     * */\n    inline fun <reified T: Any> parsedCommand(name: String, description: String, usage: String, isAsync: Boolean, vararg aliases: String, noinline block: CommandContext<T>.() -> Unit) =\n        parsedCommand(T::class, name, description, usage, isAsync, *aliases, block = block)\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "-9215925915176045773"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Function \"addChatMessage\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandsDSL.kt",
+      "language": "kotlin",
+      "line": 120,
+      "offset": 8,
+      "length": 14,
+      "code": {
+        "startLine": 118,
+        "length": 14,
+        "offset": 33,
+        "surroundingCode": "     * */\n    @JvmStatic\n    fun addChatMessage(message: Any?) = addChatMessage(message.toString())\n\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "4587148285325619471"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Function \"command\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandsDSL.kt",
+      "language": "kotlin",
+      "line": 19,
+      "offset": 8,
+      "length": 7,
+      "code": {
+        "startLine": 17,
+        "length": 7,
+        "offset": 61,
+        "surroundingCode": "     * @param block Configure the command.\n     * */\n    fun command(name: String, description: String, usage: String, isAsync: Boolean, vararg aliases: String, block: CommandContext<String>.() -> Unit) {\n        val ctx = CommandContext<String>()\n        ctx.block()"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "4654513102199604686"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Function \"onTabComplete\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandsDSL.kt",
+      "language": "kotlin",
+      "line": 95,
+      "offset": 12,
+      "length": 13,
+      "code": {
+        "startLine": 93,
+        "length": 13,
+        "offset": 79,
+        "surroundingCode": "         * @param block The runnable to be executed.\n         * */\n        fun onTabComplete(block: CommandTools.(T) -> Iterable<String>) {\n            complete = block\n        }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "7492044134005630243"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Function \"onCommand\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandsDSL.kt",
+      "language": "kotlin",
+      "line": 86,
+      "offset": 12,
+      "length": 9,
+      "code": {
+        "startLine": 84,
+        "length": 9,
+        "offset": 79,
+        "surroundingCode": "         * @param block The runnable to be executed.\n         * */\n        fun onCommand(block: CommandTools.(T) -> Unit) {\n            run = block\n        }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "-1023343031622420927"
+},{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Function \"commands\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandsDSL.kt",
+      "language": "kotlin",
+      "line": 129,
+      "offset": 4,
+      "length": 8,
+      "code": {
+        "startLine": 127,
+        "length": 8,
+        "offset": 53,
+        "surroundingCode": " * @param block The block to add commands.\n * */\nfun commands(block: CommandsContext.() -> Unit) = CommandsContext.block()"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "-2383358470601939129"
+}]}
