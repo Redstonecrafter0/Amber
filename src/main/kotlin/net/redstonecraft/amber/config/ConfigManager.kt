@@ -57,7 +57,7 @@ object ConfigManager {
                 category.id to CategoryConfig(
                     category.id, category.modules.associate { module ->
                         module.id to ModuleConfig(
-                            module.id, (module as? ToggleModule)?.enabled, (module as? BoundModule)?.key, module.settings.associate { setting -> setting.id to SettingConfig(
+                            module.id, (module as? ToggleModule)?.isEnabled, (module as? BoundModule)?.key, module.settings.associate { setting -> setting.id to SettingConfig(
                                 setting.id, setting.serialized
                             ) }.toMutableMap()
                         )

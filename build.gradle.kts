@@ -47,6 +47,7 @@ dependencies {
     modImplementation("net.fabricmc:fabric-language-kotlin:$fabricKotlinVersion")
     val kotlinxSerializationVersion: String by project
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${kotlinxSerializationVersion}")
+    implementation("com.willowtreeapps:fuzzywuzzy-kotlin:0.9.0")
 }
 
 tasks {

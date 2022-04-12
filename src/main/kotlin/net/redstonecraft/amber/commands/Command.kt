@@ -31,11 +31,11 @@ abstract class BaseCommand(
         try {
             onCommand(args)
         } catch (e: IllegalStateException) {
-            CommandTools.addChatMessage(usage)
+            CommandTools.addChatMessageP("§c$usage")
             if (Amber.debug) CommandTools.addChatMessage(e.stackTraceToString().replace("\r", "").replace("\t", "    "))
             EventManager.fire(ExceptionEvent(e))
         } catch (e: IllegalArgumentException) {
-            CommandTools.addChatMessage(usage)
+            CommandTools.addChatMessageP("§c$usage")
             if (Amber.debug) CommandTools.addChatMessage(e.stackTraceToString().replace("\r", "").replace("\t", "    "))
             EventManager.fire(ExceptionEvent(e))
         }

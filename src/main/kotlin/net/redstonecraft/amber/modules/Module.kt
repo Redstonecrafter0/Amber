@@ -64,7 +64,7 @@ abstract class BaseModule(
     /**
      * The unique identifier of this module.
      */
-    val id = this::class.jvmName
+    val id = this::class.simpleName!!
 
     /**
      * The holder class of a setting.
@@ -90,12 +90,27 @@ abstract class BaseModule(
         val getter: (T, MutableMap<*, *>) -> Pair<T, T>,
         val renderer: String,
         val shouldShow: () -> Boolean,
-        val serializer: (value: T, extra: MutableMap<*, *>) -> JsonElement,
-        val deserializer: (json: JsonElement, default: T, extra: MutableMap<*, *>) -> T?
+        val serializer: (T, MutableMap<*, *>) -> JsonElement,
+        val deserializer: (JsonElement, T, MutableMap<*, *>) -> T?,
+        val stringSerializer: (T, MutableMap<*, *>) -> String?,
+        val stringDeserializer: (String, T, MutableMap<*, *>) -> T?,
+        val possibleValuesGenerator: (MutableMap<*, *>) -> List<String>
     ) {
 
         val displayValue: String
             get() = displayValueAdapter(value, extra)
+
+        val possibleValues: List<String>
+            get() = possibleValuesGenerator(extra)
+
+        var stringValue: String?
+            get() = stringSerializer(value, extra)
+            set(value) {
+                if (value != null) {
+                    val a = stringDeserializer(value, this.value, extra)
+                    if (a != null) this.value = a
+                }
+            }
 
         operator fun setValue(ref: BaseModule, prop: KProperty<*>, value: T) {
             this.value = setter(this.value, value, extra)
@@ -139,6 +154,9 @@ abstract class BaseModule(
         private val shouldShow: () -> Boolean,
         private val serializer: (value: T, extra: MutableMap<*, *>) -> JsonElement,
         private val deserializer: (json: JsonElement, default: T, extra: MutableMap<*, *>) -> T?,
+        private val stringSerializer: (T, MutableMap<*, *>) -> String?,
+        private val stringDeserializer: (String, T, MutableMap<*, *>) -> T?,
+        private val possibleValuesGenerator: (MutableMap<*, *>) -> List<String>,
         init: SettingProvider<T>.() -> Unit
     ) {
 
@@ -174,7 +192,10 @@ abstract class BaseModule(
             renderer,
             shouldShow,
             serializer,
-            deserializer
+            deserializer,
+            stringSerializer,
+            stringDeserializer,
+            possibleValuesGenerator
         )
 
         init {
@@ -202,8 +223,11 @@ abstract class BaseModule(
         shouldShow: () -> Boolean = { true },
         serializer: (value: T, extra: MutableMap<*, *>) -> JsonElement,
         deserializer: (json: JsonElement, default: T, extra: MutableMap<*, *>) -> T?,
+        stringSerializer: (T, MutableMap<*, *>) -> String? = { _, _ -> null },
+        stringDeserializer: (String, T, MutableMap<*, *>) -> T? = { _, _, _ -> null },
+        possibleValuesGenerator: (extra: MutableMap<*, *>) -> List<String> = { emptyList() },
         init: SettingProvider<T>.() -> Unit = {}
-    ) = SettingProvider(displayName, defaultValue, extra, displayValueAdapter, renderer, shouldShow, serializer, deserializer, init)
+    ) = SettingProvider(displayName, defaultValue, extra, displayValueAdapter, renderer, shouldShow, serializer, deserializer, stringSerializer, stringDeserializer, possibleValuesGenerator, init)
 
     /**
      * Adds a button setting.
@@ -240,6 +264,9 @@ abstract class BaseModule(
             shouldShow = shouldShow,
             serializer = { it, _ -> JsonPrimitive(it) },
             deserializer = { it, _, _ -> it.jsonPrimitive.booleanOrNull },
+            stringSerializer = { it, _ -> it.toString() },
+            stringDeserializer = { it, _, _ -> it.toBooleanStrictOrNull() },
+            possibleValuesGenerator = { listOf("true", "false") },
             init = block
         )
 
@@ -269,6 +296,14 @@ abstract class BaseModule(
                 Long::class -> it.jsonPrimitive.longOrNull
                 else -> error("Unknown Number type")
             } as T? },
+            stringSerializer = { it, _ -> it.toString() },
+            stringDeserializer = { it, v, _ -> when (v::class) {
+                Float::class -> it.toFloatOrNull()
+                Double::class -> it.toDoubleOrNull()
+                Int::class -> it.toIntOrNull()
+                Long::class -> it.toLongOrNull()
+                else -> error("Unknown Number type")
+            } as T? },
             init = block
         )
 
@@ -291,7 +326,16 @@ abstract class BaseModule(
             shouldShow,
             { it, _ -> JsonPrimitive(it.rgb.toString(16)) },
             { it, _, _ -> Color(it.jsonPrimitive.content.toInt(16), alpha) },
-            block)
+            { it, _ -> it.rgb.toString(16) },
+            { it, _, _ ->
+                val num = it.toIntOrNull(16)
+                if (num == null) {
+                    null
+                } else {
+                    Color(num, alpha)
+                }
+            },
+            init = block)
 
     /**
      * Adds a dropdown setting.
@@ -318,6 +362,9 @@ abstract class BaseModule(
                 extra["available"] = it.jsonObject["available"]!!.jsonArray.map { it.jsonPrimitive.content }.toMutableList()
                 it.jsonObject["value"]!!.jsonPrimitive.content
             },
+            stringSerializer = { it, _ -> it },
+            stringDeserializer = { it, _, extra -> if (it in (extra["available"] as List<*>)) it else null },
+            possibleValuesGenerator = { it["available"] as List<String> },
             init = block
         )
 
@@ -339,6 +386,9 @@ abstract class BaseModule(
             shouldShow = shouldShow,
             serializer = { it, _ -> JsonPrimitive(it.name) },
             deserializer = { it, old, _ -> old::class.java.enumConstants.first { i -> i.name == it.jsonPrimitive.content } },
+            stringSerializer = { it, _ -> it.name },
+            stringDeserializer = { it, old, _ -> old::class.java.enumConstants.firstOrNull { i -> i.name == it } },
+            possibleValuesGenerator = { defaultValue::class.java.enumConstants.map { i -> i.name } },
             init = block
         )
 
@@ -359,6 +409,7 @@ abstract class BaseModule(
             shouldShow = shouldShow,
             serializer = { it, _ -> JsonArray(it.map { i -> JsonPrimitive(i) }) },
             deserializer = { it, _, _ -> it.jsonArray.map { i -> i.jsonPrimitive.content } },
+            stringSerializer = { it, _ -> it.joinToString("\n") },
             init = block
         )
 
@@ -412,7 +463,7 @@ abstract class TriggerModule(
  * @param displayName The display name of the module.
  * @param description The description of the module.
  * @param category The category of the module.
- * @param enabled The initial state of the module.
+ * @param isEnabled The initial state of the module.
  * @param preventEnableOnLoad If true, the module will not be enabled on load.
  * @param key The key that triggers the module.
  * */
@@ -420,7 +471,7 @@ abstract class ToggleModule(
     displayName: String,
     description: String,
     category: Category,
-    var enabled: Boolean = false,
+    var isEnabled: Boolean = false,
     val preventEnableOnLoad: Boolean = false,
     override var key: Int = GLFW.GLFW_KEY_UNKNOWN
 ): BaseModule(displayName, description, category), BoundModule {
@@ -430,9 +481,9 @@ abstract class ToggleModule(
      * */
     fun toggle(on: Boolean? = null) {
         when {
-            on == true && !enabled -> enable()
-            on == false && enabled -> disable()
-            else -> if (enabled) disable() else enable()
+            on == true && !isEnabled -> enable()
+            on == false && isEnabled -> disable()
+            else -> if (isEnabled) disable() else enable()
         }
     }
 
@@ -440,7 +491,7 @@ abstract class ToggleModule(
      * Enables the module.
      * */
     fun enable() {
-        if (!enabled) {
+        if (!isEnabled) {
             EventManager.fire(ModuleEnableEvent(this))
             onEnable()
         }
@@ -450,7 +501,7 @@ abstract class ToggleModule(
      * Disables the module.
      * */
     fun disable() {
-        if (enabled) {
+        if (isEnabled) {
             EventManager.fire(ModuleDisableEvent(this))
             onDisable()
         }

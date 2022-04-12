@@ -4,16 +4,11 @@ import com.mojang.brigadier.suggestion.Suggestion;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.gui.screen.ChatScreen;
 import net.minecraft.client.gui.screen.CommandSuggestor;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.util.math.MathHelper;
-import net.redstonecraft.amber.commands.BaseCommand;
 import net.redstonecraft.amber.commands.CommandManager;
-import net.redstonecraft.amber.commands.CommandTools;
-import net.redstonecraft.amber.modules.BaseModule;
-import net.redstonecraft.amber.modules.Category;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -42,7 +37,7 @@ public abstract class MixinCommandSuggestor {
 
     @Inject(method = "showSuggestions", at = @At("TAIL"))
     private void injectShowSuggestions(boolean narrateFirstSuggestion, CallbackInfo ci) {
-        if (textField.getText().startsWith(".") && !textField.getText().startsWith("..") && owner instanceof ChatScreen chatScreen) {
+        if (textField.getText().startsWith(".") && !textField.getText().startsWith("..")) {
             if (textField.getText().equals(".")) {
                 SuggestionsBuilder builder = new SuggestionsBuilder(".", ".", 1);
                 List<String> list = new ArrayList<>();
@@ -51,16 +46,16 @@ public abstract class MixinCommandSuggestor {
                     builder.suggest(i);
                 }
                 Suggestions suggestions = builder.build();
-                suggest(chatScreen, suggestions);
+                suggest(suggestions);
             } else {
                 Suggestions suggestions = CommandManager.tabComplete(textField.getText(), textField.getCursor());
                 if (suggestions == null) return;
-                suggest(chatScreen, suggestions);
+                suggest(suggestions);
             }
         }
     }
 
-    private void suggest(ChatScreen chatScreen, Suggestions suggestions) {
+    private void suggest(Suggestions suggestions) {
         int w = 0;
         for (Suggestion suggestion : suggestions.getList()) {
             w = Math.max(w, textRenderer.getWidth(suggestion.getText()));
@@ -68,7 +63,7 @@ public abstract class MixinCommandSuggestor {
         if (w == 0) return;
         int x = MathHelper.clamp(textField.getCharacterX(suggestions.getRange().getStart()), 0, textField.getCharacterX(0) + textField.getInnerWidth() - w);
         int y = chatScreenSized ? owner.height - 12 : 72;
-        window = chatScreen.commandSuggestor.new SuggestionWindow(x, y, w, sortSuggestions(suggestions), false);
+        window = ((CommandSuggestor) (Object) this).new SuggestionWindow(x, y, w, sortSuggestions(suggestions), false);
     }
 
 }

@@ -2,6 +2,7 @@ package net.redstonecraft.amber.commands
 
 import com.mojang.brigadier.suggestion.Suggestions
 import com.mojang.brigadier.suggestion.SuggestionsBuilder
+import com.willowtreeapps.fuzzywuzzy.diffutils.FuzzySearch
 import java.util.concurrent.Executors
 import kotlin.math.min
 
@@ -17,7 +18,7 @@ object CommandManager {
     /**
      * Execute a command
      *
-     * @param command The command to execute
+     * @param text The command to execute
      * */
     fun dispatch(text: String) {
         val (cmd, args) = parse(text)
@@ -29,6 +30,13 @@ object CommandManager {
                 }
             } else {
                 command.run(args)
+            }
+        } else {
+            val list = FuzzySearch.extractTop(text.substring(1), commands.keys.flatten(), 5).filter { it.score >= 40 }.sortedBy { it.score }.map { it.string!! }
+            if (list.isEmpty()) {
+                CommandTools.addChatMessageP("§cCommand not found.")
+            } else {
+                CommandTools.addChatMessageP("§cCommand not found. Did you mean §f${list.joinToString(", ")}?")
             }
         }
     }

@@ -110,6 +110,8 @@ object CommandsContext {
 
 object CommandTools {
 
+    const val prefix = "§6[§lAmber§r§6] §f"
+
     /**
      * Print a message to the player.
      *
@@ -117,6 +119,14 @@ object CommandTools {
      * */
     @JvmStatic
     fun addChatMessage(message: Any?) = MinecraftClient.getInstance().inGameHud.chatHud.addMessage(LiteralText(message.toString()))
+
+    /**
+     * Print a message to the player with the prefix.
+     *
+     * @param message The message to be printed.
+     * */
+    @JvmStatic
+    fun addChatMessageP(message: Any?) = addChatMessage(prefix + message)
 
 }
 

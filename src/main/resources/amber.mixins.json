@@ -8,6 +8,8 @@
   "mixins": [
     "MixinCommandSuggestor",
     "MixinMinecraftClient",
-    "MixinScreen"
+    "MixinNarratorManager",
+    "MixinScreen",
+    "MixinWorld"
   ]
 }

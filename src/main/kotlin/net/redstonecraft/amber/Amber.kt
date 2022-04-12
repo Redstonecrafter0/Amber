@@ -2,8 +2,11 @@ package net.redstonecraft.amber
 
 import net.fabricmc.api.ModInitializer
 import net.minecraft.client.MinecraftClient
+import net.redstonecraft.amber.commands.commands
 import net.redstonecraft.amber.commands.commands.setupAmberCommands
 import net.redstonecraft.amber.config.ConfigManager
+import net.redstonecraft.amber.modules.modules.misc.NarratorDisablerModule
+import net.redstonecraft.amber.modules.modules.world.EnvironmentModule
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.awt.Color
@@ -22,7 +25,7 @@ object Amber: ModInitializer {
 
     val dir = File(MinecraftClient.getInstance().runDirectory, "amber")
 
-    val colorScheme = Triple(Color.decode("#121212"), Color.decode("#fdfdfd"), Color.decode("#ffbf00"))
+    val colorScheme = listOf(Color.decode("#121212"), Color.decode("#fdfdfd"), Color.decode("#ffbf00"), Color.decode("#0040ff"))
 
     val debug = System.getProperty("amber.debug").toBoolean()
 
@@ -33,7 +36,15 @@ object Amber: ModInitializer {
 
     fun startup() {
         ConfigManager.loadById(ConfigManager.currentConfigId)
-        setupAmberCommands()
+        commands {
+            setupAmberCommands()
+        }
+
+        // Misc
+        NarratorDisablerModule
+
+        // World
+        EnvironmentModule
     }
 
 }
