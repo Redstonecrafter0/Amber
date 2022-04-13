@@ -834,6 +834,14 @@
       "version": "1.0.0+40c91ec860"
     },
     {
+      "ideaName": "Gradle: com.willowtreeapps:fuzzywuzzy-kotlin-jvm:0.9.0",
+      "gradleName": "com.willowtreeapps:fuzzywuzzy-kotlin-jvm:0.9.0",
+      "unresolved": false,
+      "groupId": "com.willowtreeapps",
+      "artifactId": "fuzzywuzzy-kotlin-jvm",
+      "version": "0.9.0"
+    },
+    {
       "ideaName": "Gradle: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
       "gradleName": "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
       "unresolved": false,

@@ -1,13 +1,13 @@
 {
-  "total": 4,
+  "total": 5,
   "tools inspection": {
-    "Code Inspection": 4
+    "Code Inspection": 5
   },
   "attributes": {
     "vcs": {
       "sarifIdea": {
         "repositoryUri": "https://github.com/Redstonecrafter0/Amber",
-        "revisionId": "87f700e478ea100c944da948a4bb8b9872ae8223",
+        "revisionId": "0e61626016927a3f1a0b785d9c6d3f2e4534e577",
         "branch": "master"
       }
     },

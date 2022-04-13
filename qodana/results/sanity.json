@@ -1,0 +1,129 @@
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin",
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: willowtreeapps",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandManager.kt",
+      "language": "kotlin",
+      "line": 5,
+      "offset": 11,
+      "length": 14,
+      "code": {
+        "startLine": 3,
+        "length": 14,
+        "offset": 120,
+        "surroundingCode": "import com.mojang.brigadier.suggestion.Suggestions\nimport com.mojang.brigadier.suggestion.SuggestionsBuilder\nimport com.willowtreeapps.fuzzywuzzy.diffutils.FuzzySearch\nimport java.util.concurrent.Executors\nimport kotlin.math.min"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "-7162284844759493284"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin",
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: FuzzySearch",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandManager.kt",
+      "language": "kotlin",
+      "line": 35,
+      "offset": 23,
+      "length": 11,
+      "code": {
+        "startLine": 33,
+        "length": 11,
+        "offset": 54,
+        "surroundingCode": "            }\n        } else {\n            val list = FuzzySearch.extractTop(text.substring(1), commands.keys.flatten(), 5).filter { it.score >= 40 }.sortedBy { it.score }.map { it.string!! }\n            if (list.isEmpty()) {\n                CommandTools.addChatMessageP(\"§cCommand not found.\")"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "7706680403987160059"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin",
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: score",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandManager.kt",
+      "language": "kotlin",
+      "line": 35,
+      "offset": 105,
+      "length": 5,
+      "code": {
+        "startLine": 33,
+        "length": 5,
+        "offset": 136,
+        "surroundingCode": "            }\n        } else {\n            val list = FuzzySearch.extractTop(text.substring(1), commands.keys.flatten(), 5).filter { it.score >= 40 }.sortedBy { it.score }.map { it.string!! }\n            if (list.isEmpty()) {\n                CommandTools.addChatMessageP(\"§cCommand not found.\")"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "-3920209875148988699"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "kotlin",
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "[UNRESOLVED_REFERENCE] Unresolved reference: score",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandManager.kt",
+      "language": "kotlin",
+      "line": 35,
+      "offset": 133,
+      "length": 5,
+      "code": {
+        "startLine": 33,
+        "length": 5,
+        "offset": 164,
+        "surroundingCode": "            }\n        } else {\n            val list = FuzzySearch.extractTop(text.substring(1), commands.keys.flatten(), 5).filter { it.score >= 40 }.sortedBy { it.score }.map { it.string!! }\n            if (list.isEmpty()) {\n                CommandTools.addChatMessageP(\"§cCommand not found.\")"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project.main",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "-2423273687527298228"
+}]}

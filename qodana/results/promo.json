@@ -1,94 +1,63 @@
 {"version":"3","listProblem":[{
   "tool": "Code Inspection",
-  "category": "Probable bugs",
-  "type": "Unresolved reference in KDoc",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
   "tags": [
     "kotlin"
   ],
   "severity": "High",
-  "comment": "Cannot resolve symbol 'command'",
-  "detailsInfo": "Reports unresolved references in KDoc comments.\n\n**Example:**\n\n\n      /**\n       * [unresolvedLink]\n       */\n      fun foo() {}\n\nTo fix the problem make the link valid.",
+  "comment": "Property \"test\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/commands/CommandManager.kt",
+      "type": "field",
+      "path": "src/main/kotlin/net/redstonecraft/amber/modules/Test.kt",
       "language": "kotlin",
-      "line": 20,
-      "offset": 14,
-      "length": 7,
-      "code": {
-        "startLine": 18,
-        "length": 7,
-        "offset": 46,
-        "surroundingCode": "     * Execute a command\n     *\n     * @param command The command to execute\n     * */\n    fun dispatch(text: String) {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "KDocUnresolvedReference"
-  },
-  "hash": "-5940823659735864909"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "Info",
-  "comment": "Property 'displayName' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/modules/Category.kt",
-      "language": "kotlin",
-      "line": 10,
+      "line": 12,
       "offset": 8,
-      "length": 11,
+      "length": 4,
       "code": {
-        "startLine": 8,
-        "length": 11,
-        "offset": 58,
-        "surroundingCode": "@Suppress(\"LeakingThis\")\nabstract class Category(\n    val displayName: String,\n    val description: String\n) {"
+        "startLine": 10,
+        "length": 4,
+        "offset": 54,
+        "surroundingCode": "    private var a by range(\"a\", 0, 0, 1, 10)\n\n    var test by button(\"TestButton\", shouldShow = ::a lt 5) {\n        println(\"test\")\n    }"
       }
     }
   ],
   "attributes": {
     "module": "project.main",
-    "inspectionName": "MemberVisibilityCanBePrivate"
+    "inspectionName": "UnusedSymbol"
   },
-  "hash": "7039620093545229430"
+  "hash": "-3546740813594080002"
 },{
   "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Trailing comma recommendations",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
   "tags": [
     "kotlin"
   ],
-  "severity": "Info",
-  "comment": "Useless trailing comma",
-  "detailsInfo": "Reports trailing commas that are not follow the recommended [style guide](https://kotlinlang.org/docs/coding-conventions.html#trailing-commas).",
+  "severity": "High",
+  "comment": "Object \"TestModule\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/modules/Module.kt",
+      "type": "class",
+      "path": "src/main/kotlin/net/redstonecraft/amber/modules/Test.kt",
       "language": "kotlin",
-      "line": 215,
-      "offset": 40,
-      "length": 1,
+      "line": 8,
+      "offset": 7,
+      "length": 10,
       "code": {
-        "startLine": 213,
-        "length": 1,
-        "offset": 85,
-        "surroundingCode": "            displayName,\n            action,\n            displayValueAdapter = { _, _, -> \"\" },\n            renderer = \"button\",\n            shouldShow = shouldShow,"
+        "startLine": 6,
+        "length": 10,
+        "offset": 54,
+        "surroundingCode": "object TestCategory: Category(\"Test\", \"desc\")\n\nobject TestModule: BaseModule(\"TestModule\", \"test\", TestCategory) {\n\n    private var a by range(\"a\", 0, 0, 1, 10)"
       }
     }
   ],
   "attributes": {
     "module": "project.main",
-    "inspectionName": "TrailingComma"
+    "inspectionName": "UnusedSymbol"
   },
-  "hash": "1990835559550389716"
+  "hash": "2425685489562597298"
 }]}
