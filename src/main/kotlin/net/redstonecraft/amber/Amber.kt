@@ -5,8 +5,12 @@ import net.minecraft.client.MinecraftClient
 import net.redstonecraft.amber.commands.commands
 import net.redstonecraft.amber.commands.commands.setupAmberCommands
 import net.redstonecraft.amber.config.ConfigManager
+import net.redstonecraft.amber.events.EventManager
+import net.redstonecraft.amber.events.KeyboardKeyEvent
+import net.redstonecraft.amber.modules.*
 import net.redstonecraft.amber.modules.modules.misc.NarratorDisablerModule
 import net.redstonecraft.amber.modules.modules.world.EnvironmentModule
+import org.lwjgl.glfw.GLFW.GLFW_RELEASE
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.awt.Color
@@ -31,13 +35,26 @@ object Amber: ModInitializer {
 
     val logger: Logger = LoggerFactory.getLogger(Amber::class.java)
 
+    val modulesToLoad = mutableListOf<() -> BaseModule>()
+
     override fun onInitialize() {
     }
 
+    @JvmStatic
     fun startup() {
-        ConfigManager.loadById(ConfigManager.currentConfigId)
         commands {
             setupAmberCommands()
+        }
+
+        EventManager.on<KeyboardKeyEvent> { event ->
+            if (MinecraftClient.getInstance().currentScreen == null && event.action == GLFW_RELEASE && event.key != -1) {
+                Category.modules.filterIsInstance<BoundModule>().filter { it.key == event.key }.forEach {
+                    when (it) {
+                        is TriggerModule -> it.run()
+                        is ToggleModule -> it.toggle()
+                    }
+                }
+            }
         }
 
         // Misc
@@ -45,6 +62,10 @@ object Amber: ModInitializer {
 
         // World
         EnvironmentModule
+
+        modulesToLoad.forEach { it() }
+
+        ConfigManager.loadById(ConfigManager.currentConfigId)
     }
 
 }

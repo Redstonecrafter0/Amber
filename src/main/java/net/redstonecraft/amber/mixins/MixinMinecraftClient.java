@@ -13,7 +13,7 @@ public class MixinMinecraftClient {
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void start(RunArgs args, CallbackInfo ci) {
-        Amber.INSTANCE.startup();
+        Amber.startup();
     }
 
 }

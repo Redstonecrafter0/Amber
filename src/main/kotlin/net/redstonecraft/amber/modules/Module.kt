@@ -1,6 +1,7 @@
 package net.redstonecraft.amber.modules
 
 import kotlinx.serialization.json.*
+import net.redstonecraft.amber.config.ConfigManager
 import net.redstonecraft.amber.events.EventManager
 import net.redstonecraft.amber.events.ModuleDisableEvent
 import net.redstonecraft.amber.events.ModuleEnableEvent
@@ -8,7 +9,6 @@ import net.redstonecraft.amber.events.ModuleTriggerEvent
 import org.lwjgl.glfw.GLFW
 import java.awt.Color
 import kotlin.reflect.KProperty
-import kotlin.reflect.jvm.jvmName
 
 /**
  * The base class for all modules.
@@ -87,7 +87,7 @@ abstract class BaseModule(
         val extra: MutableMap<*, *>,
         val displayValueAdapter: (T, MutableMap<*, *>) -> String,
         val setter: (T, T, MutableMap<*, *>) -> T,
-        val getter: (T, MutableMap<*, *>) -> Pair<T, T>,
+        val getter: (T, MutableMap<*, *>) -> T,
         val renderer: String,
         val shouldShow: () -> Boolean,
         val serializer: (T, MutableMap<*, *>) -> JsonElement,
@@ -96,6 +96,10 @@ abstract class BaseModule(
         val stringDeserializer: (String, T, MutableMap<*, *>) -> T?,
         val possibleValuesGenerator: (MutableMap<*, *>) -> List<String>
     ) {
+
+        fun save() {
+            ConfigManager.saveWithId(ConfigManager.currentConfigId)
+        }
 
         val displayValue: String
             get() = displayValueAdapter(value, extra)
@@ -108,25 +112,30 @@ abstract class BaseModule(
             set(value) {
                 if (value != null) {
                     val a = stringDeserializer(value, this.value, extra)
-                    if (a != null) this.value = a
+                    if (a != null) {
+                        this.value = a
+                        save()
+                    }
                 }
             }
 
         operator fun setValue(ref: BaseModule, prop: KProperty<*>, value: T) {
             this.value = setter(this.value, value, extra)
+            save()
         }
 
         operator fun getValue(ref: BaseModule, prop: KProperty<*>): T {
-            val (ret, set) = getter(value, extra)
-            value = set
-            return ret
+            return getter(value, extra)
         }
 
         var serialized: JsonElement
             get() = serializer(value, extra)
             set(value) {
                 val des = deserializer(value, this.value, extra)
-                if (des != null) this.value = des
+                if (des != null) {
+                    this.value = des
+                    save()
+                }
             }
 
         init {
@@ -161,7 +170,7 @@ abstract class BaseModule(
     ) {
 
         private var setter: (T, T, MutableMap<*, *>) -> T = { _, it, _ -> it }
-        private var getter: (T, MutableMap<*, *>) -> Pair<T, T> = { it, _ -> it to it }
+        private var getter: (T, MutableMap<*, *>) -> T = { it, _ -> it }
 
         /**
          * A setter proxy the value goes through
@@ -177,7 +186,7 @@ abstract class BaseModule(
          *
          * @param getter (value, extraData) -> returnedValue to valueToSet
          * */
-        fun get(getter: (value: T, extra: MutableMap<*, *>) -> Pair<T, T>) {
+        fun get(getter: (value: T, extra: MutableMap<*, *>) -> T) {
             this.getter = getter
         }
 
@@ -424,6 +433,7 @@ abstract class BaseModule(
 
     init {
         category.modules += this
+        Category.modules += this
     }
 }
 
@@ -492,6 +502,7 @@ abstract class ToggleModule(
      * */
     fun enable() {
         if (!isEnabled) {
+            isEnabled = true
             EventManager.fire(ModuleEnableEvent(this))
             onEnable()
         }
@@ -502,6 +513,7 @@ abstract class ToggleModule(
      * */
     fun disable() {
         if (isEnabled) {
+            isEnabled = false
             EventManager.fire(ModuleDisableEvent(this))
             onDisable()
         }

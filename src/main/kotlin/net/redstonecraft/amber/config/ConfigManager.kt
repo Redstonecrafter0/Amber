@@ -81,7 +81,7 @@ object ConfigManager {
                     if (module is BoundModule) module.key = config.categories[category.id]!!.modules[module.id]!!.key!!
                     module.settings.forEach { setting ->
                         if (category.id in config.categories &&
-                            module.id in config.categories[module.id]!!.modules &&
+                            module.id in config.categories[category.id]!!.modules &&
                             setting.id in config.categories[category.id]!!.modules[module.id]!!.settings) {
                             setting.serialized = config.categories[category.id]!!.modules[module.id]!!.settings[setting.id]!!.value
                         }

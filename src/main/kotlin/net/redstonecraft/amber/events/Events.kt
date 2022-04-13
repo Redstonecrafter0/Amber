@@ -34,3 +34,6 @@ class ModuleTriggerEvent(module: BaseModule): ModuleEvent(module)
 open class ModuleToggleEvent(module: BaseModule): ModuleEvent(module)
 class ModuleEnableEvent(module: BaseModule): ModuleToggleEvent(module)
 class ModuleDisableEvent(module: BaseModule): ModuleToggleEvent(module)
+
+class KeyboardKeyEvent(val key: Int, val scancode: Int, val action: Int, val modifiers: Int): Event
+class MousePressEvent(val button: Int, val action: Int, val mods: Int): Event

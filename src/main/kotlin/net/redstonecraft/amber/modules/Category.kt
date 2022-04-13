@@ -1,7 +1,5 @@
 package net.redstonecraft.amber.modules
 
-import kotlin.reflect.jvm.jvmName
-
 /**
  * @param displayName The display name of the category
  * */
@@ -12,13 +10,14 @@ abstract class Category(
 ) {
 
     companion object {
-        @JvmStatic
         val categories = mutableListOf<Category>()
+
+        val modules = mutableListOf<BaseModule>()
 
         /**
          * Gets the module by its id
          * */
-        fun getModule(id: String?) = if (id == null) null else categories.map { it.modules }.flatten().firstOrNull { it.id == id }
+        fun getModule(id: String?) = if (id == null) null else modules.firstOrNull { it.id == id }
     }
 
     /**

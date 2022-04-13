@@ -18,7 +18,7 @@ object EventManager {
      * @param block The event handler.
      * */
     fun on(clazz: KClass<*>, priority: Int = 0, block: (Event) -> Unit) {
-        if (clazz !in handlers) handlers += mutableListOf()
+        if (clazz !in handlers) handlers += clazz to mutableListOf()
         handlers[clazz]!! += priority to block
     }
 
@@ -37,6 +37,7 @@ object EventManager {
      *
      * @param event The event to fire.
      * */
+    @JvmStatic
     fun <E: Event> fire(event: E): E {
         if (event::class !in handlers) return event
         for (handler in handlers.filter { (key, _) -> key == event::class || key.isSuperclassOf(event::class) }.values.flatten().sortedBy { it.first }.map { it.second }) {

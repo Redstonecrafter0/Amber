@@ -7,7 +7,9 @@
   },
   "mixins": [
     "MixinCommandSuggestor",
+    "MixinKeyboard",
     "MixinMinecraftClient",
+    "MixinMouse",
     "MixinNarratorManager",
     "MixinScreen",
     "MixinWorld"

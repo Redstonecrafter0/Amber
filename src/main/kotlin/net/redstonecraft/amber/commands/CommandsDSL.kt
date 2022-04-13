@@ -128,6 +128,8 @@ object CommandTools {
     @JvmStatic
     fun addChatMessageP(message: Any?) = addChatMessage(prefix + message)
 
+    operator fun String.times(n: Int) = repeat(n)
+
 }
 
 /**
