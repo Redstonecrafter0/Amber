@@ -145,7 +145,10 @@ $dokka.location:net.redstonecraft.amber.events/MousePressEvent/MousePressEvent/#
 $dokka.location:net.redstonecraft.amber.events/MousePressEvent/action/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-mouse-press-event/action.html
 $dokka.location:net.redstonecraft.amber.events/MousePressEvent/button/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-mouse-press-event/button.html
 $dokka.location:net.redstonecraft.amber.events/MousePressEvent/mods/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-mouse-press-event/mods.html
+$dokka.location:net.redstonecraft.amber.events/TickEvent///PointingToDeclaration/-amber/net.redstonecraft.amber.events/-tick-event/index.html
+$dokka.location:net.redstonecraft.amber.events/TickEvent/TickEvent/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-tick-event/-tick-event.html
 $dokka.location:net.redstonecraft.amber.mixins////PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/index.html
+$dokka.location:net.redstonecraft.amber.mixins/MixinClientPlayerEntity///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-client-player-entity/index.html
 $dokka.location:net.redstonecraft.amber.mixins/MixinCommandSuggestor///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-command-suggestor/index.html
 $dokka.location:net.redstonecraft.amber.mixins/MixinKeyboard///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-keyboard/index.html
 $dokka.location:net.redstonecraft.amber.mixins/MixinMinecraftClient///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-minecraft-client/index.html
@@ -224,9 +227,6 @@ $dokka.location:net.redstonecraft.amber.modules/Category/description/#/PointingT
 $dokka.location:net.redstonecraft.amber.modules/Category/displayName/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-category/display-name.html
 $dokka.location:net.redstonecraft.amber.modules/Category/id/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-category/id.html
 $dokka.location:net.redstonecraft.amber.modules/Category/modules/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-category/modules.html
-$dokka.location:net.redstonecraft.amber.modules/TestCategory///PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-test-category/index.html
-$dokka.location:net.redstonecraft.amber.modules/TestModule///PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-test-module/index.html
-$dokka.location:net.redstonecraft.amber.modules/TestModule/test/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-test-module/test.html
 $dokka.location:net.redstonecraft.amber.modules/ToggleModule///PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-toggle-module/index.html
 $dokka.location:net.redstonecraft.amber.modules/ToggleModule/ToggleModule/#kotlin.String#kotlin.String#net.redstonecraft.amber.modules.Category#kotlin.Boolean#kotlin.Boolean#kotlin.Int/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-toggle-module/-toggle-module.html
 $dokka.location:net.redstonecraft.amber.modules/ToggleModule/disable/#/PointingToDeclaration/-amber/net.redstonecraft.amber.modules/-toggle-module/disable.html
