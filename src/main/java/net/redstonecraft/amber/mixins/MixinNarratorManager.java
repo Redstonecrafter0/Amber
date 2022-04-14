@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class MixinNarratorManager {
 
     @Inject(method = "getNarratorOption", at = @At("RETURN"), cancellable = true)
-    private static void redirectGetNarratorOption(CallbackInfoReturnable<NarratorMode> cir) {
+    private static void injectGetNarratorOption(CallbackInfoReturnable<NarratorMode> cir) {
         if (NarratorDisablerModule.INSTANCE.isEnabled()) {
             cir.setReturnValue(NarratorMode.OFF);
         }
