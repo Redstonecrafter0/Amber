@@ -1,6 +1,9 @@
 package net.redstonecraft.amber.utils
 
+import net.minecraft.client.MinecraftClient
+import net.redstonecraft.opengl.camera.OrthographicCamera
 import kotlin.math.min
+import kotlin.reflect.jvm.internal.impl.load.java.UtilsKt
 
 object Utils {
 
@@ -17,3 +20,9 @@ object Utils {
     }
 
 }
+
+fun gameOrthoCamTop() = OrthographicCamera(0F, MinecraftClient.getInstance().window.framebufferWidth.toFloat(), 0F, MinecraftClient.getInstance().window.framebufferHeight.toFloat())
+fun gameOrthoCamBottom() = OrthographicCamera(0F, MinecraftClient.getInstance().window.framebufferWidth.toFloat(), MinecraftClient.getInstance().window.framebufferHeight.toFloat(), 0F)
+
+fun resourceBytes(location: String) = UtilsKt::class.java.getResourceAsStream("/$location").readBytes()
+fun resourceText(location: String) = UtilsKt::class.java.getResourceAsStream("/$location").readBytes().decodeToString()
