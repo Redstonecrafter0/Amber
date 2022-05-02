@@ -1,13 +1,14 @@
 package net.redstonecraft.amber.renderer.widgets
 
 import net.redstonecraft.amber.renderer.Renderers
+import java.awt.Color
 
 class ContainerWidget(
     override var x: Int,
     override var y: Int,
     override var width: Int,
     override var height: Int,
-    override var background: Background = Background(),
+    override var background: Color = Color(0F, 0F, 0F, 0F),
     override val parent: Widget? = null
 ): Widget {
 
@@ -26,5 +27,8 @@ class ContainerWidget(
 
     override fun render(renderers: Renderers, delta: Double) {
         super.render(renderers, delta)
+        children.forEach {
+            it.widget.render(renderers, delta)
+        }
     }
 }
