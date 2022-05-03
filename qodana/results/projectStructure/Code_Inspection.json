@@ -41,6 +41,10 @@
           "type": "Module"
         },
         {
+          "name": "Gradle: com.github.Redstonecrafter0.GameOfLife:opengl:40e18c1b6f1978292f78ff8004952cd1978ac2ab",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.0",
           "type": "Library"
         },
@@ -157,27 +161,47 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.lwjgl:lwjgl-openal:3.2.2",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.lwjgl:lwjgl-opengl:3.2.2",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.lwjgl:lwjgl-glfw:3.2.2",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.lwjgl:lwjgl-stb:3.2.2",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: org.lwjgl:lwjgl-tinyfd:3.2.2",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.lwjgl:lwjgl:3.2.2",
+          "name": "Gradle: org.lwjgl:lwjgl-glfw:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-glfw:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-openal:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-openal:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-opengl:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-opengl:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-stb:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-stb:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl:natives-windows:3.3.1",
           "type": "Library"
         },
         {
@@ -457,6 +481,38 @@
           "type": "Library"
         },
         {
+          "name": "Gradle: org.lwjgl:lwjgl-assimp:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-assimp:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-nanovg:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-nanovg:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-nfd:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-nfd:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.joml:joml:1.10.4",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.willowtreeapps:fuzzywuzzy-kotlin-jvm:0.9.0",
+          "type": "Library"
+        },
+        {
           "name": "Gradle: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
           "type": "Library"
         },
@@ -505,11 +561,6 @@
           "path": "file://$PROJECT_DIR$/src/main",
           "sourceFolders": [
             {
-              "path": "file://$PROJECT_DIR$/src/main/resources",
-              "type": "Resource",
-              "packagePrefix": ""
-            },
-            {
               "path": "file://$PROJECT_DIR$/src/main/java",
               "type": "Source",
               "packagePrefix": ""
@@ -517,6 +568,11 @@
             {
               "path": "file://$PROJECT_DIR$/src/main/kotlin",
               "type": "Source",
+              "packagePrefix": ""
+            },
+            {
+              "path": "file://$PROJECT_DIR$/src/main/resources",
+              "type": "Resource",
               "packagePrefix": ""
             }
           ]
@@ -533,6 +589,10 @@
         },
         {
           "name": "Gradle: org.jetbrains:annotations:23.0.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.github.Redstonecrafter0.GameOfLife:opengl:40e18c1b6f1978292f78ff8004952cd1978ac2ab",
           "type": "Library"
         },
         {
@@ -652,27 +712,47 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.lwjgl:lwjgl-openal:3.2.2",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.lwjgl:lwjgl-opengl:3.2.2",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.lwjgl:lwjgl-glfw:3.2.2",
-          "type": "Library"
-        },
-        {
-          "name": "Gradle: org.lwjgl:lwjgl-stb:3.2.2",
-          "type": "Library"
-        },
-        {
           "name": "Gradle: org.lwjgl:lwjgl-tinyfd:3.2.2",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.lwjgl:lwjgl:3.2.2",
+          "name": "Gradle: org.lwjgl:lwjgl-glfw:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-glfw:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-openal:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-openal:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-opengl:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-opengl:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-stb:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-stb:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl:natives-windows:3.3.1",
           "type": "Library"
         },
         {
@@ -949,6 +1029,38 @@
         },
         {
           "name": "Gradle: net_fabricmc_yarn_1_18_2_1_18_2_build_2_v2.net.fabricmc.fabric-api:fabric-transitive-access-wideners-v1:1.0.0+40c91ec860",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-assimp:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-assimp:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-nanovg:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-nanovg:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-nfd:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.lwjgl:lwjgl-nfd:natives-windows:3.3.1",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.joml:joml:1.10.4",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.willowtreeapps:fuzzywuzzy-kotlin-jvm:0.9.0",
           "type": "Library"
         },
         {

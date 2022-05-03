@@ -2,6 +2,14 @@
   "gradleJvm": "temurin-17",
   "libraries": [
     {
+      "ideaName": "Gradle: com.github.Redstonecrafter0.GameOfLife:opengl:40e18c1b6f1978292f78ff8004952cd1978ac2ab",
+      "gradleName": "com.github.Redstonecrafter0.GameOfLife:opengl:40e18c1b6f1978292f78ff8004952cd1978ac2ab",
+      "unresolved": false,
+      "groupId": "com.github.Redstonecrafter0.GameOfLife",
+      "artifactId": "opengl",
+      "version": "40e18c1b6f1978292f78ff8004952cd1978ac2ab"
+    },
+    {
       "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.0",
       "gradleName": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.0",
       "unresolved": false,
@@ -234,38 +242,6 @@
       "version": "3.2.2"
     },
     {
-      "ideaName": "Gradle: org.lwjgl:lwjgl-openal:3.2.2",
-      "gradleName": "org.lwjgl:lwjgl-openal:3.2.2",
-      "unresolved": false,
-      "groupId": "org.lwjgl",
-      "artifactId": "lwjgl-openal",
-      "version": "3.2.2"
-    },
-    {
-      "ideaName": "Gradle: org.lwjgl:lwjgl-opengl:3.2.2",
-      "gradleName": "org.lwjgl:lwjgl-opengl:3.2.2",
-      "unresolved": false,
-      "groupId": "org.lwjgl",
-      "artifactId": "lwjgl-opengl",
-      "version": "3.2.2"
-    },
-    {
-      "ideaName": "Gradle: org.lwjgl:lwjgl-glfw:3.2.2",
-      "gradleName": "org.lwjgl:lwjgl-glfw:3.2.2",
-      "unresolved": false,
-      "groupId": "org.lwjgl",
-      "artifactId": "lwjgl-glfw",
-      "version": "3.2.2"
-    },
-    {
-      "ideaName": "Gradle: org.lwjgl:lwjgl-stb:3.2.2",
-      "gradleName": "org.lwjgl:lwjgl-stb:3.2.2",
-      "unresolved": false,
-      "groupId": "org.lwjgl",
-      "artifactId": "lwjgl-stb",
-      "version": "3.2.2"
-    },
-    {
       "ideaName": "Gradle: org.lwjgl:lwjgl-tinyfd:3.2.2",
       "gradleName": "org.lwjgl:lwjgl-tinyfd:3.2.2",
       "unresolved": false,
@@ -274,12 +250,84 @@
       "version": "3.2.2"
     },
     {
-      "ideaName": "Gradle: org.lwjgl:lwjgl:3.2.2",
-      "gradleName": "org.lwjgl:lwjgl:3.2.2",
+      "ideaName": "Gradle: org.lwjgl:lwjgl-glfw:3.3.1",
+      "gradleName": "org.lwjgl:lwjgl-glfw:3.3.1",
+      "unresolved": false,
+      "groupId": "org.lwjgl",
+      "artifactId": "lwjgl-glfw",
+      "version": "3.3.1"
+    },
+    {
+      "ideaName": "Gradle: org.lwjgl:lwjgl-glfw:natives-windows:3.3.1",
+      "gradleName": "org.lwjgl:lwjgl-glfw:natives-windows:3.3.1",
+      "unresolved": false,
+      "groupId": "org.lwjgl",
+      "artifactId": "lwjgl-glfw",
+      "version": "3.3.1"
+    },
+    {
+      "ideaName": "Gradle: org.lwjgl:lwjgl-openal:3.3.1",
+      "gradleName": "org.lwjgl:lwjgl-openal:3.3.1",
+      "unresolved": false,
+      "groupId": "org.lwjgl",
+      "artifactId": "lwjgl-openal",
+      "version": "3.3.1"
+    },
+    {
+      "ideaName": "Gradle: org.lwjgl:lwjgl-openal:natives-windows:3.3.1",
+      "gradleName": "org.lwjgl:lwjgl-openal:natives-windows:3.3.1",
+      "unresolved": false,
+      "groupId": "org.lwjgl",
+      "artifactId": "lwjgl-openal",
+      "version": "3.3.1"
+    },
+    {
+      "ideaName": "Gradle: org.lwjgl:lwjgl-opengl:3.3.1",
+      "gradleName": "org.lwjgl:lwjgl-opengl:3.3.1",
+      "unresolved": false,
+      "groupId": "org.lwjgl",
+      "artifactId": "lwjgl-opengl",
+      "version": "3.3.1"
+    },
+    {
+      "ideaName": "Gradle: org.lwjgl:lwjgl-opengl:natives-windows:3.3.1",
+      "gradleName": "org.lwjgl:lwjgl-opengl:natives-windows:3.3.1",
+      "unresolved": false,
+      "groupId": "org.lwjgl",
+      "artifactId": "lwjgl-opengl",
+      "version": "3.3.1"
+    },
+    {
+      "ideaName": "Gradle: org.lwjgl:lwjgl-stb:3.3.1",
+      "gradleName": "org.lwjgl:lwjgl-stb:3.3.1",
+      "unresolved": false,
+      "groupId": "org.lwjgl",
+      "artifactId": "lwjgl-stb",
+      "version": "3.3.1"
+    },
+    {
+      "ideaName": "Gradle: org.lwjgl:lwjgl-stb:natives-windows:3.3.1",
+      "gradleName": "org.lwjgl:lwjgl-stb:natives-windows:3.3.1",
+      "unresolved": false,
+      "groupId": "org.lwjgl",
+      "artifactId": "lwjgl-stb",
+      "version": "3.3.1"
+    },
+    {
+      "ideaName": "Gradle: org.lwjgl:lwjgl:3.3.1",
+      "gradleName": "org.lwjgl:lwjgl:3.3.1",
       "unresolved": false,
       "groupId": "org.lwjgl",
       "artifactId": "lwjgl",
-      "version": "3.2.2"
+      "version": "3.3.1"
+    },
+    {
+      "ideaName": "Gradle: org.lwjgl:lwjgl:natives-windows:3.3.1",
+      "gradleName": "org.lwjgl:lwjgl:natives-windows:3.3.1",
+      "unresolved": false,
+      "groupId": "org.lwjgl",
+      "artifactId": "lwjgl",
+      "version": "3.3.1"
     },
     {
       "ideaName": "Gradle: com.mojang:text2speech:1.12.4",
@@ -832,6 +880,62 @@
       "groupId": "net_fabricmc_yarn_1_18_2_1_18_2_build_2_v2.net.fabricmc.fabric-api",
       "artifactId": "fabric-transitive-access-wideners-v1",
       "version": "1.0.0+40c91ec860"
+    },
+    {
+      "ideaName": "Gradle: org.lwjgl:lwjgl-assimp:3.3.1",
+      "gradleName": "org.lwjgl:lwjgl-assimp:3.3.1",
+      "unresolved": false,
+      "groupId": "org.lwjgl",
+      "artifactId": "lwjgl-assimp",
+      "version": "3.3.1"
+    },
+    {
+      "ideaName": "Gradle: org.lwjgl:lwjgl-assimp:natives-windows:3.3.1",
+      "gradleName": "org.lwjgl:lwjgl-assimp:natives-windows:3.3.1",
+      "unresolved": false,
+      "groupId": "org.lwjgl",
+      "artifactId": "lwjgl-assimp",
+      "version": "3.3.1"
+    },
+    {
+      "ideaName": "Gradle: org.lwjgl:lwjgl-nanovg:3.3.1",
+      "gradleName": "org.lwjgl:lwjgl-nanovg:3.3.1",
+      "unresolved": false,
+      "groupId": "org.lwjgl",
+      "artifactId": "lwjgl-nanovg",
+      "version": "3.3.1"
+    },
+    {
+      "ideaName": "Gradle: org.lwjgl:lwjgl-nanovg:natives-windows:3.3.1",
+      "gradleName": "org.lwjgl:lwjgl-nanovg:natives-windows:3.3.1",
+      "unresolved": false,
+      "groupId": "org.lwjgl",
+      "artifactId": "lwjgl-nanovg",
+      "version": "3.3.1"
+    },
+    {
+      "ideaName": "Gradle: org.lwjgl:lwjgl-nfd:3.3.1",
+      "gradleName": "org.lwjgl:lwjgl-nfd:3.3.1",
+      "unresolved": false,
+      "groupId": "org.lwjgl",
+      "artifactId": "lwjgl-nfd",
+      "version": "3.3.1"
+    },
+    {
+      "ideaName": "Gradle: org.lwjgl:lwjgl-nfd:natives-windows:3.3.1",
+      "gradleName": "org.lwjgl:lwjgl-nfd:natives-windows:3.3.1",
+      "unresolved": false,
+      "groupId": "org.lwjgl",
+      "artifactId": "lwjgl-nfd",
+      "version": "3.3.1"
+    },
+    {
+      "ideaName": "Gradle: org.joml:joml:1.10.4",
+      "gradleName": "org.joml:joml:1.10.4",
+      "unresolved": false,
+      "groupId": "org.joml",
+      "artifactId": "joml",
+      "version": "1.10.4"
     },
     {
       "ideaName": "Gradle: com.willowtreeapps:fuzzywuzzy-kotlin-jvm:0.9.0",
