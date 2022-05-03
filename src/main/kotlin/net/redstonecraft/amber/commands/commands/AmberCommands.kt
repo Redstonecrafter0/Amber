@@ -20,7 +20,10 @@ fun CommandsContext.setupAmberCommands() {
                 "off" -> false
                 else -> null
             }
-            (Category.modules.firstOrNull { i -> i.id == module } as? ToggleModule)?.toggle(state)
+            (Category.modules.firstOrNull { i -> i.id == module } as? ToggleModule)?.let {
+                it.toggle(state)
+                addChatMessageP("§fToggled module \"§9${it.displayName}§f\" ${if (it.isEnabled) "§aon" else "§coff"}§f.")
+            } ?: addChatMessageP("§cNo module with id $module found.")
         }
         onTabComplete { (module, state) ->
             if (module == null) {
