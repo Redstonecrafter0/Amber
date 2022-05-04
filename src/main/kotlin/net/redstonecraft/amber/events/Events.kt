@@ -39,3 +39,5 @@ class KeyboardKeyEvent(val key: Int, val scancode: Int, val action: Int, val mod
 class MousePressEvent(val button: Int, val action: Int, val mods: Int): Event
 
 class TickEvent: Event
+
+class WindowResizeEvent(val width: Int, val height: Int): Event

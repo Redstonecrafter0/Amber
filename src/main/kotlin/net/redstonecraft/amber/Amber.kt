@@ -7,10 +7,13 @@ import net.redstonecraft.amber.commands.commands.setupAmberCommands
 import net.redstonecraft.amber.config.ConfigManager
 import net.redstonecraft.amber.events.EventManager
 import net.redstonecraft.amber.events.KeyboardKeyEvent
+import net.redstonecraft.amber.events.WindowResizeEvent
+import net.redstonecraft.amber.events.on
 import net.redstonecraft.amber.modules.*
 import net.redstonecraft.amber.modules.modules.misc.NarratorDisablerModule
 import net.redstonecraft.amber.modules.modules.world.EnvironmentModule
 import net.redstonecraft.opengl.buffer.Framebuffer
+import net.redstonecraft.opengl.camera.OrthographicCamera
 import net.redstonecraft.opengl.render.HorizontalBlurRenderer
 import net.redstonecraft.opengl.render.Texture
 import net.redstonecraft.opengl.render.VerticalBlurRenderer
@@ -86,8 +89,15 @@ object Amber: ModInitializer {
 
         blurFb1 = Framebuffer(MinecraftClient.getInstance().window.framebufferWidth / 2, MinecraftClient.getInstance().window.framebufferHeight / 2)
         blurFb2 = Framebuffer(MinecraftClient.getInstance().window.framebufferWidth / 2, MinecraftClient.getInstance().window.framebufferHeight / 2)
-        horiBlurRenderer = HorizontalBlurRenderer()
-        vertBlurRenderer = VerticalBlurRenderer()
+        horiBlurRenderer = HorizontalBlurRenderer(OrthographicCamera(0F, MinecraftClient.getInstance().window.framebufferWidth.toFloat(), MinecraftClient.getInstance().window.framebufferHeight.toFloat(), 0F))
+        vertBlurRenderer = VerticalBlurRenderer(OrthographicCamera(0F, MinecraftClient.getInstance().window.framebufferWidth.toFloat(), MinecraftClient.getInstance().window.framebufferHeight.toFloat(), 0F))
+
+        on<WindowResizeEvent> {
+            blurFb1.resize(it.width, it.height)
+            blurFb2.resize(it.width, it.height)
+            horiBlurRenderer.camera = OrthographicCamera(0F, MinecraftClient.getInstance().window.framebufferWidth.toFloat(), MinecraftClient.getInstance().window.framebufferHeight.toFloat(), 0F)
+            vertBlurRenderer.camera = OrthographicCamera(0F, MinecraftClient.getInstance().window.framebufferWidth.toFloat(), MinecraftClient.getInstance().window.framebufferHeight.toFloat(), 0F)
+        }
     }
 
 }
