@@ -10,6 +10,10 @@ import net.redstonecraft.amber.events.KeyboardKeyEvent
 import net.redstonecraft.amber.modules.*
 import net.redstonecraft.amber.modules.modules.misc.NarratorDisablerModule
 import net.redstonecraft.amber.modules.modules.world.EnvironmentModule
+import net.redstonecraft.opengl.buffer.Framebuffer
+import net.redstonecraft.opengl.render.HorizontalBlurRenderer
+import net.redstonecraft.opengl.render.Texture
+import net.redstonecraft.opengl.render.VerticalBlurRenderer
 import org.lwjgl.glfw.GLFW.GLFW_RELEASE
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -27,14 +31,27 @@ object Amber: ModInitializer {
     val AUTHORS = listOf("Redstonecrafter0")
     const val VERSION = "0.1.0"
 
+    var nvgFont = "Jetbrains Mono"
+    val blurredGame: Texture
+        get() = blurFb2.texture
+
+    @JvmStatic
+    lateinit var blurFb1: Framebuffer
+        private set
+    @JvmStatic
+    lateinit var blurFb2: Framebuffer
+        private set
+    @JvmStatic
+    lateinit var horiBlurRenderer: HorizontalBlurRenderer
+        private set
+    @JvmStatic
+    lateinit var vertBlurRenderer: VerticalBlurRenderer
+        private set
+
     val dir = File(MinecraftClient.getInstance().runDirectory, "amber")
-
     val colorScheme = listOf(Color.decode("#121212"), Color.decode("#fdfdfd"), Color.decode("#ffbf00"), Color.decode("#0040ff"))
-
     val debug = System.getProperty("amber.debug").toBoolean()
-
     val logger: Logger = LoggerFactory.getLogger(Amber::class.java)
-
     val modulesToLoad = mutableListOf<() -> BaseModule>()
 
     override fun onInitialize() {
@@ -65,7 +82,12 @@ object Amber: ModInitializer {
 
         modulesToLoad.forEach { it() }
 
-        ConfigManager.loadById(ConfigManager.currentConfigId)
+        ConfigManager.loadById(ConfigManager.currentConfigId, true)
+
+        blurFb1 = Framebuffer(MinecraftClient.getInstance().window.framebufferWidth / 2, MinecraftClient.getInstance().window.framebufferHeight / 2)
+        blurFb2 = Framebuffer(MinecraftClient.getInstance().window.framebufferWidth / 2, MinecraftClient.getInstance().window.framebufferHeight / 2)
+        horiBlurRenderer = HorizontalBlurRenderer()
+        vertBlurRenderer = VerticalBlurRenderer()
     }
 
 }

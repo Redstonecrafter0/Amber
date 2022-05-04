@@ -71,13 +71,20 @@ object ConfigManager {
     /**
      * Import a config.
      * */
-    fun import(orgConfig: Config) {
+    fun import(orgConfig: Config, forceEnable: Boolean = false) {
         val event = EventManager.fire(ConfigPreLoadEvent(orgConfig))
         if (!event.isCancelled) {
             val config = event.config
             Category.categories.forEach { category ->
                 category.modules.forEach { module ->
-                    if (module is ToggleModule && !module.preventEnableOnLoad) module.toggle(config.categories[category.id]!!.modules[module.id]!!.enabled!!)
+                    if (module is ToggleModule && !module.preventEnableOnLoad) {
+                        if (forceEnable && module.isEnabled && module.isEnabledByDefault) {
+                            module.isEnabled = true
+                            module.onEnable()
+                        } else {
+                            module.toggle(config.categories[category.id]!!.modules[module.id]!!.enabled!!)
+                        }
+                    }
                     if (module is BoundModule) module.key = config.categories[category.id]!!.modules[module.id]!!.key!!
                     module.settings.forEach { setting ->
                         if (category.id in config.categories &&
@@ -101,16 +108,16 @@ object ConfigManager {
         }
     }
 
-    private fun loadFromFile(file: File) {
-        import(json.decodeFromStream(file.inputStream()))
+    private fun loadFromFile(file: File, forceEnable: Boolean) {
+        import(json.decodeFromStream(file.inputStream()), forceEnable)
     }
 
     /**
      * Loads the config with the given id.
      * */
-    fun loadById(id: String) {
+    fun loadById(id: String, forceEnable: Boolean = false) {
         try {
-            loadFromFile(dir.resolve(id + fileEnding))
+            loadFromFile(dir.resolve(id + fileEnding), forceEnable)
         } catch (e: FileNotFoundException) {
             if (id != "default") throw e
         }

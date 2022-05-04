@@ -49,7 +49,7 @@ dependencies {
     val kotlinxSerializationVersion: String by project
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${kotlinxSerializationVersion}")
     implementation("com.willowtreeapps:fuzzywuzzy-kotlin:0.9.0")
-    implementation("com.github.Redstonecrafter0.GameOfLife:opengl:40e18c1b6f1978292f78ff8004952cd1978ac2ab")
+    implementation("com.github.Redstonecrafter0.GameOfLife:opengl:1caf3ef8a3bf67153b4ec401dbfc2f84b4549934")
 }
 
 tasks {

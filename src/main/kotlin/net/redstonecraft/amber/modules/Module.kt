@@ -481,10 +481,12 @@ abstract class ToggleModule(
     displayName: String,
     description: String,
     category: Category,
-    var isEnabled: Boolean = false,
+    val isEnabledByDefault: Boolean = false,
     val preventEnableOnLoad: Boolean = false,
     override var key: Int = GLFW.GLFW_KEY_UNKNOWN
 ): BaseModule(displayName, description, category), BoundModule {
+
+    var isEnabled: Boolean = isEnabledByDefault
 
     /**
      * Toggles the module.
@@ -505,6 +507,7 @@ abstract class ToggleModule(
             isEnabled = true
             EventManager.fire(ModuleEnableEvent(this))
             onEnable()
+            ConfigManager.saveWithId(ConfigManager.currentConfigId)
         }
     }
 
@@ -516,6 +519,7 @@ abstract class ToggleModule(
             isEnabled = false
             EventManager.fire(ModuleDisableEvent(this))
             onDisable()
+            ConfigManager.saveWithId(ConfigManager.currentConfigId)
         }
     }
 

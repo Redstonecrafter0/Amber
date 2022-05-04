@@ -29,32 +29,30 @@ class RenderedScreen {
 
     fun render(delta: Double) {
         config.rootWidget.render(renderers, delta)
+        renderers.mask.finish()
+        renderers.font.finish()
+        renderers.texture.finish()
     }
 
-    fun click(x: Double, y: Double, btn: Int){
-        config.rootWidget.click(x, y, btn)
-    }
+    fun click(x: Double, y: Double, btn: Int) = config.rootWidget.click(x, y, btn)
+    fun mouseMove(x: Double, y: Double) = config.rootWidget.mouseMove(x, y)
+    fun scroll(amount: Double) = config.rootWidget.scroll(amount)
+    fun keyPress(keyCode: Int, scanCode: Int, modifiers: Int) = config.rootWidget.keyPress(keyCode, scanCode, modifiers)
+    fun keyRelease(keyCode: Int, scanCode: Int, modifiers: Int) = config.rootWidget.keyRelease(keyCode, scanCode, modifiers)
+    fun charType(chr: Char, modifiers: Int) = config.rootWidget.charType(chr, modifiers)
 
-    fun mouseMove(x: Double, y: Double) {
-        config.rootWidget.mouseMove(x, y)
-    }
-
-    fun scroll(amount: Double) {
-        config.rootWidget.scroll(amount)
-    }
-
-    fun resize(width: Int, height: Int) {
+    fun resize(width: Float, height: Float) {
         val (mask, nvg, font, texture) = renderers
-        mask.camera = OrthographicCamera(0F, width.toFloat(), 0F, height.toFloat())
-        nvg.resize(width, height)
-        font.camera = OrthographicCamera(0F, width.toFloat(), 0F, height.toFloat())
-        texture.camera = OrthographicCamera(0F, width.toFloat(), 0F, height.toFloat())
+        mask.camera = OrthographicCamera(0F, width, 0F, height)
+        nvg.resize(width.toInt(), height.toInt())
+        font.camera = OrthographicCamera(0F, width, 0F, height)
+        texture.camera = OrthographicCamera(0F, width, 0F, height)
         config.rootWidget.resize(width, height)
     }
 
 }
 
-open class RenderedMinecraftScreen : Screen(LiteralText("")) {
+open class RenderedMinecraftScreen : Screen(LiteralText("Amber Screen")) {
 
     val screen = RenderedScreen()
 
@@ -76,15 +74,28 @@ open class RenderedMinecraftScreen : Screen(LiteralText("")) {
         return true
     }
 
+    override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
+        screen.keyPress(keyCode, scanCode, modifiers)
+        return true
+    }
+
+    override fun keyReleased(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
+        screen.keyRelease(keyCode, scanCode, modifiers)
+        return true
+    }
+
+    override fun charTyped(chr: Char, modifiers: Int): Boolean {
+        screen.charType(chr, modifiers)
+        return true
+    }
+
     override fun resize(client: MinecraftClient?, width: Int, height: Int) {
-        screen.resize(width, height)
+        screen.resize(width.toFloat(), height.toFloat())
     }
 
 }
 
-class ScreenConfig {
-
-    val rootWidget: Widget = ContainerWidget(0, 0, MinecraftClient.getInstance().window.framebufferHeight, MinecraftClient.getInstance().window.framebufferWidth)
+class ScreenConfig(val rootWidget: ContainerWidget = ContainerWidget(0F, 0F, MinecraftClient.getInstance().window.framebufferHeight.toFloat(), MinecraftClient.getInstance().window.framebufferWidth.toFloat())) {
 
     companion object {
         fun create(block: ScreenConfig.() -> Unit): ScreenConfig {
