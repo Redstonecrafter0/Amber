@@ -2,12 +2,12 @@
   "gradleJvm": "temurin-17",
   "libraries": [
     {
-      "ideaName": "Gradle: com.github.Redstonecrafter0.GameOfLife:opengl:40e18c1b6f1978292f78ff8004952cd1978ac2ab",
-      "gradleName": "com.github.Redstonecrafter0.GameOfLife:opengl:40e18c1b6f1978292f78ff8004952cd1978ac2ab",
+      "ideaName": "Gradle: com.github.Redstonecrafter0.GameOfLife:opengl:1caf3ef8a3bf67153b4ec401dbfc2f84b4549934",
+      "gradleName": "com.github.Redstonecrafter0.GameOfLife:opengl:1caf3ef8a3bf67153b4ec401dbfc2f84b4549934",
       "unresolved": false,
       "groupId": "com.github.Redstonecrafter0.GameOfLife",
       "artifactId": "opengl",
-      "version": "40e18c1b6f1978292f78ff8004952cd1978ac2ab"
+      "version": "1caf3ef8a3bf67153b4ec401dbfc2f84b4549934"
     },
     {
       "ideaName": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.0",
