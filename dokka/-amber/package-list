@@ -147,6 +147,10 @@ $dokka.location:net.redstonecraft.amber.events/MousePressEvent/button/#/Pointing
 $dokka.location:net.redstonecraft.amber.events/MousePressEvent/mods/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-mouse-press-event/mods.html
 $dokka.location:net.redstonecraft.amber.events/TickEvent///PointingToDeclaration/-amber/net.redstonecraft.amber.events/-tick-event/index.html
 $dokka.location:net.redstonecraft.amber.events/TickEvent/TickEvent/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-tick-event/-tick-event.html
+$dokka.location:net.redstonecraft.amber.events/WindowResizeEvent///PointingToDeclaration/-amber/net.redstonecraft.amber.events/-window-resize-event/index.html
+$dokka.location:net.redstonecraft.amber.events/WindowResizeEvent/WindowResizeEvent/#kotlin.Int#kotlin.Int/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-window-resize-event/-window-resize-event.html
+$dokka.location:net.redstonecraft.amber.events/WindowResizeEvent/height/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-window-resize-event/height.html
+$dokka.location:net.redstonecraft.amber.events/WindowResizeEvent/width/#/PointingToDeclaration/-amber/net.redstonecraft.amber.events/-window-resize-event/width.html
 $dokka.location:net.redstonecraft.amber.mixins////PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/index.html
 $dokka.location:net.redstonecraft.amber.mixins/MixinClientPlayerEntity///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-client-player-entity/index.html
 $dokka.location:net.redstonecraft.amber.mixins/MixinCommandSuggestor///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-command-suggestor/index.html
@@ -157,6 +161,7 @@ $dokka.location:net.redstonecraft.amber.mixins/MixinMouse///PointingToDeclaratio
 $dokka.location:net.redstonecraft.amber.mixins/MixinNarratorManager///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-narrator-manager/index.html
 $dokka.location:net.redstonecraft.amber.mixins/MixinScreen///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-screen/index.html
 $dokka.location:net.redstonecraft.amber.mixins/MixinScreen/sendMessage/#java.lang.String#boolean/PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-screen/send-message.html
+$dokka.location:net.redstonecraft.amber.mixins/MixinWindow///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-window/index.html
 $dokka.location:net.redstonecraft.amber.mixins/MixinWorld///PointingToDeclaration/-amber/net.redstonecraft.amber.mixins/-mixin-world/index.html
 $dokka.location:net.redstonecraft.amber.modules.modules.misc////PointingToDeclaration/-amber/net.redstonecraft.amber.modules.modules.misc/index.html
 $dokka.location:net.redstonecraft.amber.modules.modules.misc/NarratorDisablerModule///PointingToDeclaration/-amber/net.redstonecraft.amber.modules.modules.misc/-narrator-disabler-module/index.html
