@@ -34,7 +34,9 @@ repositories {
 }
 
 dependencies {
-    modImplementation("net.redstonecraft:amber:${version}")
+    modImplementation("net.redstonecraft:amber:${version}") {
+        exclude("org.lwjgl")
+    }
 }
 ```
 ## Code Scanning
