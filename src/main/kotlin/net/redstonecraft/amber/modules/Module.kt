@@ -402,6 +402,30 @@ abstract class BaseModule(
         )
 
     /**
+     * Adds a dropdown setting using enums.
+     *
+     * @param displayName The display name of the setting.
+     * @param defaultValue The default value of the setting.
+     * @param displayValueAdapter The function to convert the enum value to a display value.
+     * @param shouldShow Compute whether the setting should be shown. See [eq] [neq] [isIn] [notIn] [lt] [gt] [leq] [geq].
+     * @param block The initializer of the setting to configure a custom [set]ter or [get]ter.
+     * */
+    fun <E: NamedEnum> dropDownMenu(displayName: String, defaultValue: E, shouldShow: () -> Boolean = { true }, block: SettingProvider<E>.() -> Unit = {}) =
+        customSetting(
+            displayName,
+            defaultValue,
+            displayValueAdapter = { it, _ -> it.displayName },
+            renderer = "dropDownMenu",
+            shouldShow = shouldShow,
+            serializer = { it, _ -> JsonPrimitive((it as Enum<*>).name) },
+            deserializer = { it, old, _ -> old::class.java.enumConstants.first { i -> (i as Enum<*>).name == it.jsonPrimitive.content } },
+            stringSerializer = { it, _ -> (it as Enum<*>).name },
+            stringDeserializer = { it, old, _ -> old::class.java.enumConstants.firstOrNull { i -> (i as Enum<*>).name == it } },
+            possibleValuesGenerator = { defaultValue::class.java.enumConstants.map { i -> (i as Enum<*>).name } },
+            init = block
+        )
+
+    /**
      * Adds a list setting.
      *
      * @param displayName The display name of the setting.
@@ -435,6 +459,10 @@ abstract class BaseModule(
         category.modules += this
         Category.modules += this
     }
+}
+
+interface NamedEnum {
+    val displayName: String
 }
 
 /**

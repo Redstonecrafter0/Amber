@@ -25,6 +25,8 @@ repositories {
 }
 
 dependencies {
-    modImplementation("net.redstonecraft:amber:{{ VERSION }}{{ BUILD_NUMBER }}+{{ COMMIT_HASH }}")
+    modImplementation("net.redstonecraft:amber:{{ VERSION }}{{ BUILD_NUMBER }}+{{ COMMIT_HASH }}") {
+        exclude("org.lwjgl")
+    }
 }
 ```

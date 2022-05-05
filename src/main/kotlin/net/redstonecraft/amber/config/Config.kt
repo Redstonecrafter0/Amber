@@ -9,13 +9,13 @@ data class Config(
     var description: String,
     var version: String,
     val authors: MutableList<String> = mutableListOf(),
-    val categories: MutableMap<String, CategoryConfig>
+    val categories: MutableMap<String, CategoryConfig> = mutableMapOf()
 )
 
 @Serializable
 data class CategoryConfig(
     val id: String,
-    val modules: MutableMap<String, ModuleConfig>
+    val modules: MutableMap<String, ModuleConfig> = mutableMapOf()
 )
 
 @Serializable
@@ -23,7 +23,7 @@ data class ModuleConfig(
     val id: String,
     var enabled: Boolean?,
     var key: Int?,
-    val settings: MutableMap<String, SettingConfig>
+    val settings: MutableMap<String, SettingConfig> = mutableMapOf()
 )
 
 @Serializable
