@@ -6,52 +6,21 @@
     "kotlin"
   ],
   "severity": "Info",
-  "comment": "Property 'dir' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
-  "sources": [
-    {
-      "type": "field",
-      "path": "src/main/kotlin/net/redstonecraft/amber/config/ConfigManager.kt",
-      "language": "kotlin",
-      "line": 29,
-      "offset": 8,
-      "length": 3,
-      "code": {
-        "startLine": 27,
-        "length": 3,
-        "offset": 15,
-        "surroundingCode": "    }\n\n    val dir = Amber.dir.resolve(\"config\").apply { if (!exists() || !isDirectory) mkdirs() }\n\n    /**"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "MemberVisibilityCanBePrivate"
-  },
-  "hash": "-1796308402241111535"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "Info",
-  "comment": "Function 'validateFile' could be private",
+  "comment": "Property 'text' could be private",
   "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
   "sources": [
     {
       "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/config/ConfigManager.kt",
+      "path": "src/main/kotlin/net/redstonecraft/amber/renderer/widgets/TextWidget.kt",
       "language": "kotlin",
-      "line": 143,
+      "line": 13,
       "offset": 8,
-      "length": 12,
+      "length": 4,
       "code": {
-        "startLine": 141,
-        "length": 12,
-        "offset": 58,
-        "surroundingCode": "     * Validates the given config file.\n     * */\n    fun validateFile(file: File): Boolean {\n        if (file.name.endsWith(fileEnding) && validateId(file.name.removeSuffix(fileEnding)) && file.exists() && file.isFile) {\n            try {"
+        "startLine": 11,
+        "length": 4,
+        "offset": 71,
+        "surroundingCode": "    override var width: Float,\n    override var height: Float,\n    var text: String,\n    var color: Color = Color.WHITE,\n    override var background: Background? = null,"
       }
     }
   ],
@@ -59,7 +28,7 @@
     "module": "project.main",
     "inspectionName": "MemberVisibilityCanBePrivate"
   },
-  "hash": "-6872985001332990376"
+  "hash": "2511982049977112921"
 },{
   "tool": "Code Inspection",
   "category": "Style issues",
@@ -68,21 +37,21 @@
     "kotlin"
   ],
   "severity": "Info",
-  "comment": "Property 'fileEnding' could be private",
+  "comment": "Property 'color' could be private",
   "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
   "sources": [
     {
-      "type": "field",
-      "path": "src/main/kotlin/net/redstonecraft/amber/config/ConfigManager.kt",
+      "type": "method",
+      "path": "src/main/kotlin/net/redstonecraft/amber/renderer/widgets/TextWidget.kt",
       "language": "kotlin",
-      "line": 21,
-      "offset": 14,
-      "length": 10,
+      "line": 14,
+      "offset": 8,
+      "length": 5,
       "code": {
-        "startLine": 19,
-        "length": 10,
+        "startLine": 12,
+        "length": 5,
         "offset": 62,
-        "surroundingCode": "\n    val idRegex = \"[0-9a-zA-Z-+._]+\".toRegex()\n    const val fileEnding = \".amber.json\"\n\n    private val json = Json {"
+        "surroundingCode": "    override var height: Float,\n    var text: String,\n    var color: Color = Color.WHITE,\n    override var background: Background? = null,\n    override val parent: Widget? = null"
       }
     }
   ],
@@ -90,162 +59,7 @@
     "module": "project.main",
     "inspectionName": "MemberVisibilityCanBePrivate"
   },
-  "hash": "6850669522692966116"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "Info",
-  "comment": "Function 'validateId' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/config/ConfigManager.kt",
-      "language": "kotlin",
-      "line": 138,
-      "offset": 8,
-      "length": 10,
-      "code": {
-        "startLine": 136,
-        "length": 10,
-        "offset": 49,
-        "surroundingCode": "     * Validates the given id.\n     * */\n    fun validateId(id: String): Boolean = id.matches(idRegex)\n\n    /**"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "MemberVisibilityCanBePrivate"
-  },
-  "hash": "418870970188799962"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "Info",
-  "comment": "Function 'export' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/config/ConfigManager.kt",
-      "language": "kotlin",
-      "line": 54,
-      "offset": 8,
-      "length": 6,
-      "code": {
-        "startLine": 52,
-        "length": 6,
-        "offset": 52,
-        "surroundingCode": "     * Export the current config.\n     * */\n    fun export(): Config {\n        val config = Config(\n            currentConfig.name, currentConfig.description, currentConfig.version, currentConfig.authors, Category.categories.associate { category ->"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "MemberVisibilityCanBePrivate"
-  },
-  "hash": "-8242166635850359555"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "Info",
-  "comment": "Property 'idRegex' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
-  "sources": [
-    {
-      "type": "field",
-      "path": "src/main/kotlin/net/redstonecraft/amber/config/ConfigManager.kt",
-      "language": "kotlin",
-      "line": 20,
-      "offset": 8,
-      "length": 7,
-      "code": {
-        "startLine": 18,
-        "length": 7,
-        "offset": 32,
-        "surroundingCode": "object ConfigManager {\n\n    val idRegex = \"[0-9a-zA-Z-+._]+\".toRegex()\n    const val fileEnding = \".amber.json\"\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "MemberVisibilityCanBePrivate"
-  },
-  "hash": "3341520171075962712"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "Info",
-  "comment": "Property 'currentConfig' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
-  "sources": [
-    {
-      "type": "field",
-      "path": "src/main/kotlin/net/redstonecraft/amber/config/ConfigManager.kt",
-      "language": "kotlin",
-      "line": 49,
-      "offset": 8,
-      "length": 13,
-      "code": {
-        "startLine": 47,
-        "length": 13,
-        "offset": 50,
-        "surroundingCode": "     * Gets the current config.\n     * */\n    var currentConfig = Config(\"Default\", \"The default configuration\", Amber.VERSION, mutableListOf(\"Redstonecrafter0\"), mutableMapOf())\n\n    /**"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "MemberVisibilityCanBePrivate"
-  },
-  "hash": "7352442950442125554"
-},{
-  "tool": "Code Inspection",
-  "category": "Style issues",
-  "type": "Class member can have 'private' visibility",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "Info",
-  "comment": "Property 'modulesToLoad' could be private",
-  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
-  "sources": [
-    {
-      "type": "field",
-      "path": "src/main/kotlin/net/redstonecraft/amber/Amber.kt",
-      "language": "kotlin",
-      "line": 58,
-      "offset": 8,
-      "length": 13,
-      "code": {
-        "startLine": 56,
-        "length": 13,
-        "offset": 138,
-        "surroundingCode": "    val debug = System.getProperty(\"amber.debug\").toBoolean()\n    val logger: Logger = LoggerFactory.getLogger(Amber::class.java)\n    val modulesToLoad = mutableListOf<() -> BaseModule>()\n\n    override fun onInitialize() {"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "MemberVisibilityCanBePrivate"
-  },
-  "hash": "-6782821767404649025"
+  "hash": "6965492813046719849"
 },{
   "tool": "Code Inspection",
   "category": "Redundant constructs",
@@ -285,21 +99,21 @@
     "kotlin"
   ],
   "severity": "High",
-  "comment": "Function \"container\" is never used",
+  "comment": "Function \"text\" is never used",
   "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
   "sources": [
     {
       "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/renderer/widgets/ContainerWidget.kt",
+      "path": "src/main/kotlin/net/redstonecraft/amber/renderer/widgets/TextWidget.kt",
       "language": "kotlin",
-      "line": 69,
+      "line": 29,
       "offset": 17,
-      "length": 9,
+      "length": 4,
       "code": {
-        "startLine": 67,
-        "length": 9,
+        "startLine": 27,
+        "length": 4,
         "offset": 20,
-        "surroundingCode": "}\n\nfun ScreenConfig.container(x: Float, y: Float, w: Float, h: Float, background: Background? = null, block: ScreenConfig.() -> Unit) {\n    val container = ContainerWidget(x, y, w, h, background, rootWidget)\n    rootWidget += container"
+        "surroundingCode": "}\n\nfun ScreenConfig.text(text: String, x: Float, y: Float, width: Float, height: Float, color: Color = Color.WHITE, background: Background? = null) {\n    rootWidget += TextWidget(x, y, width, height, text, color, background, rootWidget)\n}"
       }
     }
   ],
@@ -307,5 +121,5 @@
     "module": "project.main",
     "inspectionName": "UnusedSymbol"
   },
-  "hash": "-1579044160863695201"
+  "hash": "7540975516979607233"
 }]}
