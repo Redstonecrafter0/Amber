@@ -4,7 +4,8 @@ out/
 classes/
 remappedSrc/
 run/
-.idea/
+.idea/*
+!.idea/gradle.xml
 *.iml
 *.ipr
 *.iws
