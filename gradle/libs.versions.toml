@@ -1,12 +1,11 @@
 [versions]
-kotlin = "1.8.0"
-
-minecraft = "1.19.3"
-qfapi = "5.0.0-alpha.9+0.72.0-1.19.3"
-qkl = "1.1.0+kt.1.8.0+flk.1.9.0"
-loader = "0.17.8"
-mappings = "1.19.3+build.9"
-loom = "1.+"
+kotlin = "1.9.0"
+minecraft = "1.20.1"
+qfapi = "7.3.1+0.89.3-1.20.1"
+qkl = "2.1.2+kt.1.9.0+flk.1.10.8"
+loader = "0.21.0"
+mappings = "1.20.1+build.23"
+loom = "1.4.1"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }

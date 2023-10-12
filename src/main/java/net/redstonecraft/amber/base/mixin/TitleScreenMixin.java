@@ -1,7 +1,7 @@
 package net.redstonecraft.amber.base.mixin;
 
 import net.minecraft.client.gui.screen.TitleScreen;
-import net.redstonecraft.amber.base.AmberMod;
+import net.redstonecraft.amber.AmberMod;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
