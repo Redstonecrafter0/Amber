@@ -12,6 +12,7 @@ plugins {
 
 	alias(libs.plugins.kotlin)
 	alias(libs.plugins.quilt.loom)
+	alias(libs.plugins.kotlinx.serialization)
 }
 
 idea {
@@ -47,6 +48,8 @@ dependencies {
 			classifier("intermediary-v2")
 		}
 	)
+
+	implementation(libs.kotlinx.serialization.json)
 
 	modImplementation(libs.quilt.loader)
 
