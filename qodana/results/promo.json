@@ -2,124 +2,84 @@
   "tool": "Code Inspection",
   "category": "Style issues",
   "type": "Class member can have 'private' visibility",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "Info",
-  "comment": "Property 'text' could be private",
+  "severity": "Moderate",
+  "comment": "Function 'disable' could be private",
   "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
   "sources": [
     {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/renderer/widgets/TextWidget.kt",
+      "type": "file",
+      "path": "src/main/kotlin/net/redstonecraft/amber/base/module/AmberModule.kt",
       "language": "kotlin",
-      "line": 13,
-      "offset": 8,
-      "length": 4,
+      "line": 58,
+      "offset": 9,
+      "length": 7,
       "code": {
-        "startLine": 11,
-        "length": 4,
-        "offset": 71,
-        "surroundingCode": "    override var width: Float,\n    override var height: Float,\n    var text: String,\n    var color: Color = Color.WHITE,\n    override var background: Background? = null,"
+        "startLine": 56,
+        "length": 7,
+        "offset": 15,
+        "surroundingCode": "    }\n\n    fun disable() {\n        if (isEnabled) {\n            isEnabled = false"
       }
     }
   ],
   "attributes": {
-    "module": "project.main",
+    "module": "amber.main",
     "inspectionName": "MemberVisibilityCanBePrivate"
   },
-  "hash": "2511982049977112921"
+  "hash": "25086e6fe04600f43103c43125256a6dbd2d62b312d18f68e3433b304afd579d"
 },{
   "tool": "Code Inspection",
   "category": "Style issues",
   "type": "Class member can have 'private' visibility",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "Info",
-  "comment": "Property 'color' could be private",
+  "severity": "Moderate",
+  "comment": "Property 'isEnabled' could be private",
   "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
   "sources": [
     {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/renderer/widgets/TextWidget.kt",
+      "type": "file",
+      "path": "src/main/kotlin/net/redstonecraft/amber/base/module/AmberModule.kt",
       "language": "kotlin",
-      "line": 14,
-      "offset": 8,
-      "length": 5,
+      "line": 36,
+      "offset": 9,
+      "length": 9,
       "code": {
-        "startLine": 12,
-        "length": 5,
-        "offset": 62,
-        "surroundingCode": "    override var height: Float,\n    var text: String,\n    var color: Color = Color.WHITE,\n    override var background: Background? = null,\n    override val parent: Widget? = null"
+        "startLine": 34,
+        "length": 9,
+        "offset": 65,
+        "surroundingCode": ") : AmberModule(mod, id, name, category, description) {\n\n    var isEnabled: Boolean = false\n        private set\n"
       }
     }
   ],
   "attributes": {
-    "module": "project.main",
+    "module": "amber.main",
     "inspectionName": "MemberVisibilityCanBePrivate"
   },
-  "hash": "6965492813046719849"
+  "hash": "d54f12b485a85065ed5ab4c9e0e105fe8afac3a4bf5d4b893c53647b8614ca46"
 },{
   "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "High",
-  "comment": "Property \"availableIds\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "category": "Style issues",
+  "type": "Class member can have 'private' visibility",
+  "severity": "Moderate",
+  "comment": "Function 'enable' could be private",
+  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
   "sources": [
     {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/config/ConfigManager.kt",
+      "type": "file",
+      "path": "src/main/kotlin/net/redstonecraft/amber/base/module/AmberModule.kt",
       "language": "kotlin",
-      "line": 34,
-      "offset": 8,
-      "length": 12,
+      "line": 51,
+      "offset": 9,
+      "length": 6,
       "code": {
-        "startLine": 32,
-        "length": 12,
-        "offset": 69,
-        "surroundingCode": "     * Gets the configs from the config directory.\n     * */\n    val availableIds: List<String>\n        get() = dir.list { _, it -> it.endsWith(fileEnding) }!!.filter { validateFile(dir.resolve(it)) }.map { it.removeSuffix(fileEnding) }\n"
+        "startLine": 49,
+        "length": 6,
+        "offset": 15,
+        "surroundingCode": "    }\n\n    fun enable() {\n        if (!isEnabled) {\n            isEnabled = true"
       }
     }
   ],
   "attributes": {
-    "module": "project.main",
-    "inspectionName": "UnusedSymbol"
+    "module": "amber.main",
+    "inspectionName": "MemberVisibilityCanBePrivate"
   },
-  "hash": "3720137951115130834"
-},{
-  "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "tags": [
-    "kotlin"
-  ],
-  "severity": "High",
-  "comment": "Function \"text\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
-  "sources": [
-    {
-      "type": "method",
-      "path": "src/main/kotlin/net/redstonecraft/amber/renderer/widgets/TextWidget.kt",
-      "language": "kotlin",
-      "line": 29,
-      "offset": 17,
-      "length": 4,
-      "code": {
-        "startLine": 27,
-        "length": 4,
-        "offset": 20,
-        "surroundingCode": "}\n\nfun ScreenConfig.text(text: String, x: Float, y: Float, width: Float, height: Float, color: Color = Color.WHITE, background: Background? = null) {\n    rootWidget += TextWidget(x, y, width, height, text, color, background, rootWidget)\n}"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "UnusedSymbol"
-  },
-  "hash": "7540975516979607233"
+  "hash": "e64f6d26767d7bd9d5cfdcff5573ab0323eaaa2621f4cec9c4d5cc8fce840b7d"
 }]}

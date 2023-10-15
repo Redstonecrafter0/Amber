@@ -1,15 +1,15 @@
 {
   "modules": [
     {
-      "name": "project",
+      "name": "amber",
       "languageLevel": 17
     },
     {
-      "name": "project.test",
+      "name": "amber.main",
       "languageLevel": 17
     },
     {
-      "name": "project.main",
+      "name": "amber.test",
       "languageLevel": 17
     }
   ]

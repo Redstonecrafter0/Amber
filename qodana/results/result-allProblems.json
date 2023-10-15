@@ -1,141 +1,32 @@
 {"version":"3","listProblem":[{
   "tool": "Code Inspection",
-  "category": "Assignment issues",
-  "type": "Assignment to 'for' loop parameter",
-  "severity": "High",
-  "comment": "Assignment to for-loop parameter 'i'",
-  "detailsInfo": "Reports assignment to, or modification of a `for` loop parameter inside the body of the loop.\n\nAlthough occasionally intended, this construct may be confusing and is often the result of a typo or a wrong variable being used.\n\nThe quick-fix adds a declaration of a new variable.\n\n**Example:**\n\n\n      for (String s : list) {\n        // Warning: s is changed inside the loop\n        s = s.trim();\n        System.out.println(\"String: \" + s);\n      }\n\nAfter the quick-fix is applied:\n\n\n      for (String s : list) {\n        String trimmed = s.trim();\n        System.out.println(\"String: \" + trimmed);\n      }\n\nAssignments in basic `for` loops without an update statement are not reported.\nIn such cases the assignment is probably intended and can't be easily moved to the update part of the `for` loop.\n\n**Example:**\n\n\n      for (int i = 0; i < list.size(); ) {\n        if (element.equals(list.get(i))) {\n          list.remove(i);\n        } else {\n          // modification of for loop parameter is not reported\n          // as there's no update statement\n          i++;\n        }\n      }\n\nUse the **Check enhanced 'for' loop parameters** option to specify whether modifications of enhanced `for` loop parameters\nshould be also reported.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/java/edu/rice/cs/util/ArgumentTokenizer.java",
-      "language": "JAVA",
-      "line": 104,
-      "offset": 29,
-      "length": 1,
-      "code": {
-        "startLine": 102,
-        "length": 1,
-        "offset": 155,
-        "surroundingCode": "                        else if (c == '\\\\') {\n                            // Look ahead, and only escape quotes or backslashes\n                            i++;\n                            char next = arguments.charAt(i);\n                            if (next == '\"' || next == '\\\\') {"
-      }
-    }
+  "category": "Java interop issues",
+  "type": "Function or property has platform type",
+  "tags": [
+    "kotlin"
   ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "AssignmentToForLoopParameter"
-  },
-  "hash": "946e9285c4017e74c8d07e651477051cd50f52ab57d0301a42566d6e3dc2120d"
-},{
-  "tool": "Code Inspection",
-  "category": "Probable bugs",
-  "type": "Constant conditions & exceptions",
-  "severity": "High",
-  "comment": "Casting '(Object)this' to 'CommandSuggestor' will produce 'ClassCastException' for any non-null value",
-  "detailsInfo": "Reports code constructs that always produce the same result, may throw exceptions, or violates nullability contracts.\n\nExamples:\n\n    if (array.length < index) {\n      System.out.println(array[index]);\n    } // Array index is always out of bounds\n\n    if (str == null) System.out.println(\"str is null\");\n    System.out.println(str.trim());\n    // the last statement may throw an NPE\n\n    @NotNull\n    Integer square(@Nullable Integer input) {\n        // the method contract is violated\n        return input == null ? null : input * input;\n    }\n\n\nThe inspection behavior may be controlled by a number of annotations, such as\n[nullability](https://www.jetbrains.com/help/idea/nullable-and-notnull-annotations.html) annotations,\n[@Contract](https://www.jetbrains.com/help/idea/contract-annotations.html) annotation,\n`@Range` annotation and so on.\n\nConfigure the inspection:\n\n* Use the **Suggest @Nullable annotation for methods/fields/parameters where nullable values are used** option to warn when a nullable value is passed as an argument to a method with a non-annotated parameter, stored into non-annotated field, or returned from a non-annotated method. In this case, the inspection will suggest propagating the `@Nullable` annotation. You can also configure nullability annotations using the **Configure Annotations** button.\n* Use the **Treat non-annotated members and parameters as @Nullable** option to assume that non-annotated members can be null, so they must not be used in non-null context.\n* Use the **Report not-null required parameter with null-literal argument usages** option to report method parameters that cannot be null (e.g. immediately dereferenced in the method body), but there are call sites where a `null` literal is passed.\n* Use the **Report nullable methods that always return a non-null value** option to report methods that are annotated as `@Nullable`, but always return non-null value. In this case, it's suggested that you change the annotation to `@NotNull`.\n* Use the **Don't report assertions with condition statically proven to be always true** option to avoid reporting assertions that were statically proven to be always true. This also includes conditions like `if (alwaysFalseCondition) throw new IllegalArgumentException();`.\n* Use the **Ignore assert statements** option to control how the inspection treats `assert` statements. By default, the option is disabled, which means that the assertions are assumed to be executed (-ea mode). If the option is enabled, the assertions will be completely ignored (-da mode).\n* Use the **Warn when reading a value guaranteed to be constant** option to add warnings on reading variables that contain some constant values, for example: `true`, `false`, or `null`.\n* Use the **Report problems that happen only on some code paths** option to control whether to report problems that may happen only on some code path. If this option is disabled, warnings like *exception is possible* will not be reported. The inspection will report only warnings like *exception will definitely occur*. This mode may greatly reduce the number of false-positives, especially if the code is not consistently annotated with nullability and contract annotations. That is why it can be useful for finding the most important problems in legacy code bases.",
+  "severity": "Moderate",
+  "comment": "Declaration has type inferred from a platform call, which can lead to unchecked nullability issues. Specify type explicitly as nullable or non-nullable.",
+  "detailsInfo": "Reports functions and properties that have a platform type.\n\nTo prevent unexpected errors, the type should be declared explicitly.\n\n**Example:**\n\n\n      fun foo() = java.lang.String.valueOf(1)\n\nThe quick fix allows you to specify the return type:\n\n\n      fun foo(): String = java.lang.String.valueOf(1)\n",
   "sources": [
     {
       "type": "file",
-      "path": "src/main/java/net/redstonecraft/amber/mixins/MixinCommandSuggestor.java",
-      "language": "JAVA",
-      "line": 66,
-      "offset": 20,
-      "length": 16,
-      "code": {
-        "startLine": 64,
-        "length": 16,
-        "offset": 234,
-        "surroundingCode": "        int x = MathHelper.clamp(textField.getCharacterX(suggestions.getRange().getStart()), 0, textField.getCharacterX(0) + textField.getInnerWidth() - w);\n        int y = chatScreenSized ? owner.height - 12 : 72;\n        window = ((CommandSuggestor) (Object) this).new SuggestionWindow(x, y, w, sortSuggestions(suggestions), false);\n    }\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "ConstantConditions"
-  },
-  "hash": "e1eac8be3ad27970f9da3c8fa45f04c032452b81064cf798122d315b1dffa928"
-},{
-  "tool": "Code Inspection",
-  "category": "Inheritance issues",
-  "type": "Abstract class which has no concrete subclass",
-  "severity": "High",
-  "comment": "Abstract class 'ArgumentTokenizer' has no concrete subclass",
-  "detailsInfo": "Reports `abstract` classes that have no concrete subclasses.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/java/edu/rice/cs/util/ArgumentTokenizer.java",
-      "language": "JAVA",
-      "line": 51,
-      "offset": 23,
+      "path": "build.gradle.kts",
+      "language": "kotlin",
+      "line": 114,
+      "offset": 5,
       "length": 17,
       "code": {
-        "startLine": 49,
+        "startLine": 112,
         "length": 17,
-        "offset": 43,
-        "surroundingCode": " * @version $Id$\n */\npublic abstract class ArgumentTokenizer {\n    private static final int NO_TOKEN_STATE = 0;\n    private static final int NORMAL_TOKEN_STATE = 1;"
+        "offset": 7,
+        "surroundingCode": "}\n\nval targetJavaVersion = JavaVersion.toVersion(javaVersion)\nif (JavaVersion.current() < targetJavaVersion) {\n\tkotlin.jvmToolchain(javaVersion)"
       }
     }
   ],
   "attributes": {
-    "module": "project.main",
-    "inspectionName": "AbstractClassNeverImplemented"
+    "module": "amber",
+    "inspectionName": "HasPlatformType"
   },
-  "hash": "6b94ded7a991567f569e6975c5624e6de38e9d6582a0ffc4e41cec14ae06fdfc"
-},{
-  "tool": "Code Inspection",
-  "category": "Inheritance issues",
-  "type": "Abstract class which has no concrete subclass",
-  "severity": "High",
-  "comment": "Abstract class 'MixinScreen' has no concrete subclass",
-  "detailsInfo": "Reports `abstract` classes that have no concrete subclasses.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/java/net/redstonecraft/amber/mixins/MixinScreen.java",
-      "language": "JAVA",
-      "line": 14,
-      "offset": 23,
-      "length": 11,
-      "code": {
-        "startLine": 12,
-        "length": 11,
-        "offset": 44,
-        "surroundingCode": "\n@Mixin(Screen.class)\npublic abstract class MixinScreen {\n\n    @Shadow public abstract void sendMessage(String message, boolean toHud);"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "AbstractClassNeverImplemented"
-  },
-  "hash": "da8a9c32d5c70ff744362b1344078a2dae81f9067e055d1c1f9ada656dd81f8c"
-},{
-  "tool": "Code Inspection",
-  "category": "Inheritance issues",
-  "type": "Abstract class which has no concrete subclass",
-  "severity": "High",
-  "comment": "Abstract class 'MixinCommandSuggestor' has no concrete subclass",
-  "detailsInfo": "Reports `abstract` classes that have no concrete subclasses.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/java/net/redstonecraft/amber/mixins/MixinCommandSuggestor.java",
-      "language": "JAVA",
-      "line": 24,
-      "offset": 23,
-      "length": 21,
-      "code": {
-        "startLine": 22,
-        "length": 21,
-        "offset": 54,
-        "surroundingCode": "\n@Mixin(CommandSuggestor.class)\npublic abstract class MixinCommandSuggestor {\n\n    @Shadow @Nullable CommandSuggestor.@Nullable SuggestionWindow window;"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "project.main",
-    "inspectionName": "AbstractClassNeverImplemented"
-  },
-  "hash": "2d09e3bc35d94147eccd3862f9b9f4b8d8844d7c7a9ea35e5a4b754be2d49ab9"
+  "hash": "a871eada0350b81c4c12a74d73abfe3348003c41592affe696ca261665316d84"
 }]}

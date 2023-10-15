@@ -1,16 +1,19 @@
 {
-  "total": 5,
+  "total": 1,
   "tools inspection": {
-    "Code Inspection": 5
+    "Code Inspection": 1
   },
+  "linter": "QDJVMC",
   "attributes": {
     "vcs": {
       "sarifIdea": {
-        "repositoryUri": "https://github.com/Redstonecrafter0/Amber",
-        "revisionId": "b414837e0281a74cb96bc67b437ac50d7927eb87",
-        "branch": "master"
+        "repositoryUri": "https://github.com/Redstonecrafter0/Amber.git",
+        "revisionId": "5efb72778a0c670de16235eb7d35a9b09ab0b669",
+        "branch": "refs/heads/master"
       }
     },
-    "deviceId": "200820300000000-5ff8-7a5f-e5cd-b8a1671adddc"
+    "deviceId": "200820300000000-e595-4a1f-5c6f-11b13748e4a1",
+    "jobUrl": "https://github.com/Redstonecrafter0/Amber/actions/runs/6523790628",
+    "repoUrl": "https://github.com/Redstonecrafter0/Amber.git"
   }
 }
