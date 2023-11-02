@@ -19,8 +19,20 @@ abstract class AmberCategory(
             classRegister += clazz to category
         }
 
-        inline fun <reified T : AmberCategory> registerCategory(category: T) {
+        inline fun <reified T: AmberCategory> registerCategory(category: T) {
             registerCategory(category, category::class)
+        }
+
+        fun getCategory(id: String): AmberCategory? {
+            return idRegister[id]
+        }
+
+        fun getCategory(clazz: KClass<*>): AmberCategory? {
+            return classRegister[clazz]
+        }
+
+        inline fun <reified T: AmberCategory> getCategory(): AmberCategory? {
+            return getCategory(T::class)
         }
     }
 

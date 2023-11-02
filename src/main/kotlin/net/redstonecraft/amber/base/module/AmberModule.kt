@@ -1,18 +1,25 @@
 package net.redstonecraft.amber.base.module
 
-import kotlinx.serialization.Transient
+import kotlinx.serialization.KSerializer
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.encoding.Decoder
+import kotlinx.serialization.encoding.Encoder
+import kotlinx.serialization.serializer
+import net.redstonecraft.amber.base.config.AmberConfigData
 import net.redstonecraft.amber.base.module.category.AmberCategory
 import org.quiltmc.loader.api.ModContainer
 
 /**
  * This class is free to use for config-only modules.
  * */
+@Serializable(with = AmberModuleSerializer::class)
 abstract class AmberModule(
     val modId: String,
     val id: String,
-    @Transient val name: String,
-    @Transient val category: AmberCategory,
-    @Transient val description: String
+    val name: String,
+    val category: AmberCategory,
+    val description: String
 ) {
 
     constructor(
@@ -73,5 +80,27 @@ abstract class AmberTriggerModule(
 ) : AmberModule(mod, id, name, category, description) {
 
     fun onTrigger() {}
+
+}
+
+@Serializable
+data class AmberModuleData(
+    val modId: String,
+    val id: String,
+    val config: Map<String, AmberConfigData>
+)
+
+object AmberModuleSerializer: KSerializer<AmberModule> {
+
+    private val delegateSerializer: KSerializer<Map<String, Any>> = serializer()
+    override val descriptor: SerialDescriptor = delegateSerializer.descriptor
+
+    override fun serialize(encoder: Encoder, value: AmberModule) {
+        encoder.encodeSerializableValue(delegateSerializer, mutableMapOf())
+    }
+
+    override fun deserialize(decoder: Decoder): AmberModule {
+        val value = decoder.decodeSerializableValue(delegateSerializer)
+    }
 
 }
