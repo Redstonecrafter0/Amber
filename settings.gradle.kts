@@ -15,4 +15,4 @@ pluginManagement {
 	}
 }
 
-rootProject.name = "amber"
+rootProject.name = "Amber"
