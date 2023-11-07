@@ -9,8 +9,9 @@ class AmberConfigSlider<T: Number>(
     val min: T,
     val max: T,
     val step: T,
+    module: AmberModule,
     private val deserializer: (String) -> T
-): AmberConfigSetting<T>(value, displayName, description) {
+): AmberConfigSetting<T>(value, displayName, description, module) {
 
     override fun serialize() = value.toString()
 
@@ -21,25 +22,25 @@ class AmberConfigSlider<T: Number>(
 }
 
 fun AmberModule.slider(default: Byte, displayName: String, min: Byte = 0, max: Byte = 100, step: Byte = 1, description: String? = null): AmberConfigSlider<Byte> {
-    return registerConfigSetting(AmberConfigSlider(default, displayName, description, min, max, step) { it.toByte() })
+    return registerConfigSetting(AmberConfigSlider(default, displayName, description, min, max, step, this) { it.toByte() })
 }
 
 fun AmberModule.slider(default: Short, displayName: String, min: Short = 0, max: Short = 100, step: Short = 1, description: String? = null): AmberConfigSlider<Short> {
-    return registerConfigSetting(AmberConfigSlider(default, displayName, description, min, max, step) { it.toShort() })
+    return registerConfigSetting(AmberConfigSlider(default, displayName, description, min, max, step, this) { it.toShort() })
 }
 
 fun AmberModule.slider(default: Int, displayName: String, min: Int = 0, max: Int = 100, step: Int = 1, description: String? = null): AmberConfigSlider<Int> {
-    return registerConfigSetting(AmberConfigSlider(default, displayName, description, min, max, step) { it.toInt() })
+    return registerConfigSetting(AmberConfigSlider(default, displayName, description, min, max, step, this) { it.toInt() })
 }
 
 fun AmberModule.slider(default: Long, displayName: String, min: Long = 0, max: Long = 100, step: Long = 1, description: String? = null): AmberConfigSlider<Long> {
-    return registerConfigSetting(AmberConfigSlider(default, displayName, description, min, max, step) { it.toLong() })
+    return registerConfigSetting(AmberConfigSlider(default, displayName, description, min, max, step, this) { it.toLong() })
 }
 
 fun AmberModule.slider(default: Float, displayName: String, min: Float = 0f, max: Float = 100f, step: Float = 1f, description: String? = null): AmberConfigSlider<Float> {
-    return registerConfigSetting(AmberConfigSlider(default, displayName, description, min, max, step) { it.toFloat() })
+    return registerConfigSetting(AmberConfigSlider(default, displayName, description, min, max, step, this) { it.toFloat() })
 }
 
 fun AmberModule.slider(default: Double, displayName: String, min: Double = .0, max: Double = 100.0, step: Double = 1.0, description: String? = null): AmberConfigSlider<Double> {
-    return registerConfigSetting(AmberConfigSlider(default, displayName, description, min, max, step) { it.toDouble() })
+    return registerConfigSetting(AmberConfigSlider(default, displayName, description, min, max, step, this) { it.toDouble() })
 }

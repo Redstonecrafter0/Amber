@@ -9,8 +9,9 @@ class AmberConfigRGBColorPicker(
     value: RGBColor,
     displayName: String,
     description: String?,
-    val alpha: Boolean
-): AmberConfigSetting<RGBColor>(value, displayName, description) {
+    val alpha: Boolean,
+    module: AmberModule
+): AmberConfigSetting<RGBColor>(value, displayName, description, module) {
 
     override fun serialize() = Json.encodeToString(value)
 
@@ -21,5 +22,5 @@ class AmberConfigRGBColorPicker(
 }
 
 fun AmberModule.color(default: RGBColor, displayName: String, alpha: Boolean = false, description: String? = null): AmberConfigRGBColorPicker {
-    return registerConfigSetting(AmberConfigRGBColorPicker(default, displayName, description, alpha))
+    return registerConfigSetting(AmberConfigRGBColorPicker(default, displayName, description, alpha, this))
 }

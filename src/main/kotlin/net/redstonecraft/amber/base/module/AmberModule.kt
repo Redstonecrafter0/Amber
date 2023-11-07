@@ -7,6 +7,7 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlinx.serialization.serializer
 import net.redstonecraft.amber.base.config.type.AmberConfigSetting
+import net.redstonecraft.amber.base.event.ModuleEvent
 import net.redstonecraft.amber.base.module.category.AmberCategory
 import org.quiltmc.loader.api.ModContainer
 import java.io.Closeable
@@ -72,6 +73,10 @@ abstract class AmberToggleModule(
 
     fun enable() {
         if (!isEnabled) {
+            val event = ModuleEvent(this, ModuleEvent.Action.ENABLED)
+            if (event.isCancelled) {
+                return
+            }
             isEnabled = true
             onEnable()
         }
@@ -79,6 +84,10 @@ abstract class AmberToggleModule(
 
     fun disable() {
         if (isEnabled) {
+            val event = ModuleEvent(this, ModuleEvent.Action.DISABLED)
+            if (event.isCancelled) {
+                return
+            }
             isEnabled = false
             onDisable()
         }
@@ -94,7 +103,15 @@ abstract class AmberTriggerModule(
     description: String
 ) : AmberModule(mod, id, name, category, description) {
 
-    fun onTrigger() {}
+    fun trigger() {
+        val event = ModuleEvent(this, ModuleEvent.Action.TRIGGERED)
+        if (event.isCancelled) {
+            return
+        }
+        onTrigger()
+    }
+
+    open fun onTrigger() {}
 
 }
 

@@ -5,8 +5,9 @@ import net.redstonecraft.amber.base.module.AmberModule
 class AmberConfigSwitch(
     value: Boolean,
     displayName: String,
-    description: String?
-): AmberConfigSetting<Boolean>(value, displayName, description) {
+    description: String?,
+    module: AmberModule
+): AmberConfigSetting<Boolean>(value, displayName, description, module) {
 
     override fun serialize() = value.toString()
 
@@ -17,5 +18,5 @@ class AmberConfigSwitch(
 }
 
 fun AmberModule.switch(default: Boolean, displayName: String, description: String? = null): AmberConfigSwitch {
-    return registerConfigSetting(AmberConfigSwitch(default, displayName, description))
+    return registerConfigSetting(AmberConfigSwitch(default, displayName, description, this))
 }

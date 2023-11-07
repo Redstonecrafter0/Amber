@@ -18,8 +18,7 @@ object AmberMod : ModInitializer {
     val logger: Logger = LoggerFactory.getLogger("Amber")
     lateinit var mod: ModContainer
 
-    lateinit var eventManager: AmberEventManager
-        private set
+    val eventManager = AmberEventManager()
     lateinit var moduleManager: AmberModuleManager
         private set
     lateinit var configManager: AmberConfigManager
@@ -34,7 +33,6 @@ object AmberMod : ModInitializer {
     fun init() {
         if (!initialized) {
             dir = MinecraftClient.getInstance().runDirectory.resolve("amber").also { it.mkdirs() }
-            eventManager = AmberEventManager()
             moduleManager = AmberModuleManager()
             configManager = AmberConfigManager()
             initialized = true

@@ -8,8 +8,9 @@ class AmberConfigSelectionList(
     value: MutableList<String>,
     displayName: String,
     description: String?,
+    module: AmberModule,
     private val suggestionProvider: (List<String>) -> List<String>
-): AmberConfigSetting<MutableList<String>>(value, displayName, description) {
+): AmberConfigSetting<MutableList<String>>(value, displayName, description, module) {
 
     override fun serialize() = Json.encodeToString(value)
 
@@ -24,5 +25,5 @@ class AmberConfigSelectionList(
 }
 
 fun AmberModule.selectionList(default: MutableList<String>, displayName: String, description: String? = null, suggestionProvider: (List<String>) -> List<String>): AmberConfigSelectionList {
-    return registerConfigSetting(AmberConfigSelectionList(default, displayName, description, suggestionProvider))
+    return registerConfigSetting(AmberConfigSelectionList(default, displayName, description, this, suggestionProvider))
 }

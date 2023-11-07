@@ -6,8 +6,9 @@ class AmberConfigTextBox(
     value: String,
     displayName: String,
     description: String?,
-    val maxLines: Int
-): AmberConfigSetting<String>(value, displayName, description) {
+    val maxLines: Int,
+    module: AmberModule
+): AmberConfigSetting<String>(value, displayName, description, module) {
 
     override fun serialize() = value
 
@@ -18,5 +19,5 @@ class AmberConfigTextBox(
 }
 
 fun AmberModule.textbox(default: String, displayName: String, maxLines: Int = 1, description: String? = null): AmberConfigTextBox {
-    return registerConfigSetting(AmberConfigTextBox(default, displayName, description, maxLines))
+    return registerConfigSetting(AmberConfigTextBox(default, displayName, description, maxLines, this))
 }

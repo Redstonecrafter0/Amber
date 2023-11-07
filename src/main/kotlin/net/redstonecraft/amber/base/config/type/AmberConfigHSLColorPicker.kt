@@ -9,8 +9,9 @@ class AmberConfigHSLColorPicker(
     value: HSLColor,
     displayName: String,
     description: String?,
-    val alpha: Boolean
-): AmberConfigSetting<HSLColor>(value, displayName, description) {
+    val alpha: Boolean,
+    module: AmberModule
+): AmberConfigSetting<HSLColor>(value, displayName, description, module) {
 
     override fun serialize() = Json.encodeToString(value)
 
@@ -21,5 +22,5 @@ class AmberConfigHSLColorPicker(
 }
 
 fun AmberModule.color(default: HSLColor, displayName: String, alpha: Boolean = false, description: String? = null): AmberConfigHSLColorPicker {
-    return registerConfigSetting(AmberConfigHSLColorPicker(default, displayName, description, alpha))
+    return registerConfigSetting(AmberConfigHSLColorPicker(default, displayName, description, alpha, this))
 }

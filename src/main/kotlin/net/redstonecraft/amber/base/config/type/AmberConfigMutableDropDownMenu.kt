@@ -10,8 +10,9 @@ class AmberConfigMutableDropDownMenu(
     value: String,
     displayName: String,
     description: String?,
-    val optionsRef: KMutableProperty0<MutableList<String>>
-): AmberConfigSetting<String>(value, displayName, description) {
+    val optionsRef: KMutableProperty0<MutableList<String>>,
+    module: AmberModule
+): AmberConfigSetting<String>(value, displayName, description, module) {
 
     @Serializable
     data class Data(
@@ -30,5 +31,5 @@ class AmberConfigMutableDropDownMenu(
 }
 
 fun AmberModule.dropdownMenu(default: String, displayName: String, options: KMutableProperty0<MutableList<String>>, description: String? = null): AmberConfigMutableDropDownMenu {
-    return registerConfigSetting(AmberConfigMutableDropDownMenu(default, displayName, description, options))
+    return registerConfigSetting(AmberConfigMutableDropDownMenu(default, displayName, description, options, this))
 }
