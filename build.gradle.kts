@@ -21,8 +21,25 @@ idea {
 val archives_base_name: String by project
 base.archivesName.set(archives_base_name)
 
+sourceSets {
+	create("core") {
+		java {
+			setSrcDirs(listOf("src/core/kotlin", "src/core/java"))
+		}
+	}
+	create("extra") {
+		java {
+			setSrcDirs(listOf("src/extra/kotlin", "src/extra/java"))
+		}
+	}
+}
+
 loom {
-	accessWidenerPath.set(file("src/main/resources/amber.accesswidener"))
+	accessWidenerPath.set(file("src/core/resources/amber.accesswidener"))
+	mods.create("amber") {
+		sourceSet("core")
+		sourceSet("extra")
+	}
 }
 
 val javaVersion = 17
@@ -95,18 +112,6 @@ tasks {
 				jdkVersion.set(javaVersion)
 			}
 		}
-	}
-}
-
-sourceSets {
-	main {
-		java.setSrcDirs(
-			if (System.getenv("TARGET") == "core") {
-				listOf("src/main/kotlin", "src/main/java")
-			} else {
-				listOf("src/main/kotlin", "src/main/java", "src/common/kotlin", "src/common/java")
-			}.map { file(it) }
-		)
 	}
 }
 
