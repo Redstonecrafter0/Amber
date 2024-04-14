@@ -18,7 +18,7 @@ idea {
 
 group = property("group")!!
 version = property("version")!!
-base.archivesName.set(property("archives_base_name")!!.toString())
+base.archivesName.set(property("archives_base_name")!!.toString() + "-base")
 
 repositories {
     maven("https://maven.fabricmc.net/") {
@@ -28,23 +28,26 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":base", configuration = "namedElements"))
     minecraft(libs.minecraft)
     mappings(libs.yarn)
     modImplementation(libs.bundles.fabric)
+}
+
+loom {
+    accessWidenerPath.set(file("src/main/resources/amber.accesswidener"))
 }
 
 val javaVersion = 17
 
 tasks {
 
-//    processResources {
-//        filteringCharset = "UTF-8"
-//        inputs.property("version", project.version)
-//        filesMatching("fabric.mod.json") {
-//            expand(getProperties())
-//        }
-//    }
+    processResources {
+        filteringCharset = "UTF-8"
+        inputs.property("version", project.version)
+        filesMatching("fabric.mod.json") {
+            expand(getProperties())
+        }
+    }
 
     jar {
         from("LICENSE")

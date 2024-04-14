@@ -1,11 +1,10 @@
 package net.redstonecraft.amber.base.module.category
 
 import net.redstonecraft.amber.AmberMod
-import org.quiltmc.loader.api.ModContainer
 import kotlin.reflect.KClass
 
 abstract class AmberCategory(
-    val mod: ModContainer,
+    val modId: String,
     val id: String,
     val name: String
 ) {
@@ -36,7 +35,7 @@ abstract class AmberCategory(
         }
     }
 
-    val fullId = "${mod.metadata().id()}:$id"
+    val fullId = "$modId:$id"
 
 }
 

@@ -6,6 +6,7 @@ remappedSrc/
 run/
 .idea/*
 !.idea/gradle.xml
+!.idea/icon.png
 *.iml
 *.ipr
 *.iws

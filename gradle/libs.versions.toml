@@ -1,28 +1,26 @@
 [versions]
-kotlin = "1.9.0"
-minecraft = "1.20.1"
-qfapi = "7.3.1+0.89.3-1.20.1"
-qkl = "2.1.2+kt.1.9.0+flk.1.10.8"
-loader = "0.21.0"
-mappings = "1.20.1+build.23"
-loom = "1.4.1"
-kotlinx_serialization_json = "1.6.0"
+kotlin = "1.9.22"
+dokka = "1.9.20"
+kotlinx_serialization_json = "1.6.3"
+fabric-loom = "1.5-SNAPSHOT"
+minecraft = "1.20.4"
+yarn = "1.20.4+build.3"
+fabric-loader = "0.15.6"
+fabric-kotlin = "1.10.17+kotlin.1.9.22"
+fabric-api = "0.95.4+1.20.4"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
-qfapi = { module = "org.quiltmc.quilted-fabric-api:quilted-fabric-api", version.ref = "qfapi" }
-qfapi_deprecated = { module = "org.quiltmc.quilted-fabric-api:quilted-fabric-api-deprecated", version.ref = "qfapi" }
-
-qkl = { module = "org.quiltmc.quilt-kotlin-libraries:quilt-kotlin-libraries", version.ref = "qkl" }
-quilt_loader = { module = "org.quiltmc:quilt-loader", version.ref = "loader" }
-quilt_mappings = { module = "org.quiltmc:quilt-mappings", version.ref = "mappings" }
-
+yarn = { module = "net.fabricmc:yarn", version.ref = "yarn" }
+fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
+fabric-kotlin = { module = "net.fabricmc:fabric-language-kotlin", version.ref = "fabric-kotlin" }
+fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
 kotlinx_serialization_json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx_serialization_json" }
 
 [bundles]
-quilted_fabric_api = ["qfapi", "qfapi_deprecated"]
+fabric = ["fabric-loader", "fabric-kotlin", "fabric-api"]
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-quilt_loom = { id = "org.quiltmc.loom", version.ref = "loom" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 kotlinx_serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

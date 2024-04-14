@@ -18,7 +18,7 @@ public class MinecraftClientMixin {
         AmberMod.INSTANCE.getEventManager().fire(event);
     }
 
-    @Inject(method = "render", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/glfw/Window;swapBuffers()V"))
+    @Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/Window;swapBuffers()V"))
     public void render(boolean tick, CallbackInfo ci) {
         FrameEvent event = new FrameEvent();
         AmberMod.INSTANCE.getEventManager().fire(event);
