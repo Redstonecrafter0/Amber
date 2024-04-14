@@ -1,6 +1,7 @@
 <div align="center">
+    <img src="amber.png" width="128" alt="amber logo">
     <h1>Amber</h1>
-    <p>A fabric modding base for the latest Minecraft version.</p>
+    <p>Advanced Modding Base for Enhanced Redstone building</p>
     <img src="https://img.shields.io/github/workflow/status/Redstonecrafter0/Amber/Pipeline?logo=github-actions&style=for-the-badge" alt="BUILD">
     <br>
     <img src="https://img.shields.io/github/v/release/Redstonecrafter0/Amber?logo=github&style=for-the-badge" alt="RELEASE">
@@ -16,22 +17,7 @@
 </div>
 
 # Setup
-Create a quilt mod using [this](https://github.com/QuiltMC/quilt-kotlin-template-mod) repo as an example.
-
-Add this mod as a dependency via JitPack.
-
-```kotlin
-repositories {
-    maven("https://jitpack.io")
-}
-
-dependencies {
-    modImplementation("com.github.Redstonecrafter0:Amber:${version}")
-}
-```
+TBD
 
 ## Documentation
 The documentation can be found [here](https://redstonecrafter0.github.io/Amber/dokka).
-
-## Code Scanning
-The latest Qodana report can be found [here](https://redstonecrafter0.github.io/Amber/qodana).

@@ -9,7 +9,6 @@ import kotlinx.serialization.serializer
 import net.redstonecraft.amber.base.config.type.AmberConfigSetting
 import net.redstonecraft.amber.base.event.ModuleEvent
 import net.redstonecraft.amber.base.module.category.AmberCategory
-import org.quiltmc.loader.api.ModContainer
 import java.io.Closeable
 import kotlin.reflect.full.primaryConstructor
 
@@ -17,21 +16,13 @@ import kotlin.reflect.full.primaryConstructor
  * This class is free to use for config-only modules.
  * */
 @Serializable(with = AmberModuleSerializer::class)
-abstract class AmberModule private constructor(
+abstract class AmberModule(
     val modId: String,
     val id: String,
     val name: String,
     val category: AmberCategory,
     val description: String
 ): Closeable {
-
-    constructor(
-        mod: ModContainer,
-        id: String,
-        name: String,
-        category: AmberCategory,
-        description: String
-    ) : this(mod.metadata().id(), id, name, category, description)
 
     internal var config: Map<String, String>
         get() = configSettings.associate { it.id to it.serialize() }
@@ -49,12 +40,12 @@ abstract class AmberModule private constructor(
 }
 
 abstract class AmberToggleModule(
-    mod: ModContainer,
+    modId: String,
     id: String,
     name: String,
     category: AmberCategory,
     description: String
-) : AmberModule(mod, id, name, category, description) {
+) : AmberModule(modId, id, name, category, description) {
 
     var isEnabled: Boolean = false
         private set
@@ -96,12 +87,12 @@ abstract class AmberToggleModule(
 }
 
 abstract class AmberTriggerModule(
-    mod: ModContainer,
+    modId: String,
     id: String,
     name: String,
     category: AmberCategory,
     description: String
-) : AmberModule(mod, id, name, category, description) {
+) : AmberModule(modId, id, name, category, description) {
 
     fun trigger() {
         val event = ModuleEvent(this, ModuleEvent.Action.TRIGGERED)
