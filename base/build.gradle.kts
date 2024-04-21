@@ -31,6 +31,7 @@ dependencies {
     minecraft(libs.minecraft)
     mappings(libs.yarn)
     modImplementation(libs.bundles.fabric)
+    implementation(libs.bundles.lwjgl)
 }
 
 loom {

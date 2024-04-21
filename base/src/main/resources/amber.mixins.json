@@ -5,9 +5,11 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [],
   "client": [
+    "GLXMixin",
     "KeyboardMixin",
     "MinecraftClientMixin",
-    "TitleScreenMixin"
+    "TitleScreenMixin",
+    "WindowMixin"
   ],
   "injectors": {
     "defaultRequire": 1

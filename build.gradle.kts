@@ -38,14 +38,6 @@ val javaVersion = 17
 
 tasks {
 
-//    processResources {
-//        filteringCharset = "UTF-8"
-//        inputs.property("version", project.version)
-//        filesMatching("fabric.mod.json") {
-//            expand(getProperties())
-//        }
-//    }
-
     jar {
         from("LICENSE")
     }

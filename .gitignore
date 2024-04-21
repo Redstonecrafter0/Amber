@@ -11,3 +11,4 @@ run/
 *.ipr
 *.iws
 .fleet/
+cmake-build-*

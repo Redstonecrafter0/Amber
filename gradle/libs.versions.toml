@@ -8,6 +8,7 @@ yarn = "1.20.4+build.3"
 fabric-loader = "0.15.6"
 fabric-kotlin = "1.10.17+kotlin.1.9.22"
 fabric-api = "0.95.4+1.20.4"
+lwjgl = "3.3.2"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
@@ -16,9 +17,11 @@ fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-l
 fabric-kotlin = { module = "net.fabricmc:fabric-language-kotlin", version.ref = "fabric-kotlin" }
 fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
 kotlinx_serialization_json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx_serialization_json" }
+lwjgl-egl = { module = "org.lwjgl:lwjgl-egl", version.ref = "lwjgl" }
 
 [bundles]
 fabric = ["fabric-loader", "fabric-kotlin", "fabric-api"]
+lwjgl = ["lwjgl-egl"]
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
