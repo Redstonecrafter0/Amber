@@ -9,3 +9,4 @@ pluginManagement {
     }
 }
 include("base")
+include("so")

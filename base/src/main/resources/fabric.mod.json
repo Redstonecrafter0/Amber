@@ -25,7 +25,8 @@
     ]
   },
   "mixins": [
-    "amber.mixins.json"
+    "base.mixins.json",
+    "so.mixins.json"
   ],
 
   "depends": {

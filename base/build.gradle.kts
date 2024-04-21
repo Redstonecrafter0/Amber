@@ -29,12 +29,16 @@ repositories {
 
 dependencies {
     minecraft(libs.minecraft)
-    mappings(libs.yarn)
+    mappings(
+        variantOf(libs.yarn) {
+            classifier("v2")
+        }
+    )
     modImplementation(libs.bundles.fabric)
 }
 
 loom {
-    accessWidenerPath.set(file("src/main/resources/amber.accesswidener"))
+    accessWidenerPath.set(file("src/main/resources/base.accesswidener"))
 }
 
 val javaVersion = 17

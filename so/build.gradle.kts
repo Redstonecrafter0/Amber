@@ -7,7 +7,6 @@ plugins {
     alias(libs.plugins.dokka)
     alias(libs.plugins.kotlin)
     id("fabric-loom") version libs.versions.fabric.loom
-    alias(libs.plugins.kotlinx.serialization)
 }
 
 idea {
@@ -18,7 +17,7 @@ idea {
 
 group = property("group")!!
 version = property("version")!!
-base.archivesName.set(property("archives_base_name")!!.toString())
+base.archivesName.set(property("archives_base_name")!!.toString() + "-so")
 
 repositories {
     maven("https://maven.fabricmc.net/") {
@@ -28,8 +27,6 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":base", configuration = "namedElements"))
-    implementation(project(":so", configuration = "namedElements"))
     minecraft(libs.minecraft)
     mappings(
         variantOf(libs.yarn) {
@@ -39,17 +36,13 @@ dependencies {
     modImplementation(libs.bundles.fabric)
 }
 
+loom {
+    accessWidenerPath.set(file("src/main/resources/so.accesswidener"))
+}
+
 val javaVersion = 17
 
 tasks {
-
-//    processResources {
-//        filteringCharset = "UTF-8"
-//        inputs.property("version", project.version)
-//        filesMatching("fabric.mod.json") {
-//            expand(getProperties())
-//        }
-//    }
 
     jar {
         from("LICENSE")
@@ -84,7 +77,6 @@ tasks {
     compileKotlin {
         kotlinOptions.jvmTarget = javaVersion.toString()
     }
-
 }
 
 java {
